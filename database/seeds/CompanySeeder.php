@@ -25,5 +25,13 @@ class CompanySeeder extends Seeder
                     $user->company()->associate($company->id)->save();
                 });
         });
+
+        User::make([
+            'first_name' => 'Dennis',
+            'last_name' => 'lindeboom',
+            'password'  => bcrypt('password'),
+            'email'     => 'dlindeboom19@outlook.com',
+            'manager'   => 1
+        ])->company()->associate(1)->save();
     }
 }
