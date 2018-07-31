@@ -1,143 +1,17 @@
-/******/ (function(modules) { // webpackBootstrap
-/******/ 	// The module cache
-/******/ 	var installedModules = {};
-/******/
-/******/ 	// The require function
-/******/ 	function __webpack_require__(moduleId) {
-/******/
-/******/ 		// Check if module is in cache
-/******/ 		if(installedModules[moduleId]) {
-/******/ 			return installedModules[moduleId].exports;
-/******/ 		}
-/******/ 		// Create a new module (and put it into the cache)
-/******/ 		var module = installedModules[moduleId] = {
-/******/ 			i: moduleId,
-/******/ 			l: false,
-/******/ 			exports: {}
-/******/ 		};
-/******/
-/******/ 		// Execute the module function
-/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
-/******/
-/******/ 		// Flag the module as loaded
-/******/ 		module.l = true;
-/******/
-/******/ 		// Return the exports of the module
-/******/ 		return module.exports;
-/******/ 	}
-/******/
-/******/
-/******/ 	// expose the modules object (__webpack_modules__)
-/******/ 	__webpack_require__.m = modules;
-/******/
-/******/ 	// expose the module cache
-/******/ 	__webpack_require__.c = installedModules;
-/******/
-/******/ 	// define getter function for harmony exports
-/******/ 	__webpack_require__.d = function(exports, name, getter) {
-/******/ 		if(!__webpack_require__.o(exports, name)) {
-/******/ 			Object.defineProperty(exports, name, {
-/******/ 				configurable: false,
-/******/ 				enumerable: true,
-/******/ 				get: getter
-/******/ 			});
-/******/ 		}
-/******/ 	};
-/******/
-/******/ 	// getDefaultExport function for compatibility with non-harmony modules
-/******/ 	__webpack_require__.n = function(module) {
-/******/ 		var getter = module && module.__esModule ?
-/******/ 			function getDefault() { return module['default']; } :
-/******/ 			function getModuleExports() { return module; };
-/******/ 		__webpack_require__.d(getter, 'a', getter);
-/******/ 		return getter;
-/******/ 	};
-/******/
-/******/ 	// Object.prototype.hasOwnProperty.call
-/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
-/******/
-/******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "/";
-/******/
-/******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 0);
-/******/ })
-/************************************************************************/
-/******/ ([
-/* 0 */
-/***/ (function(module, exports, __webpack_require__) {
-
-__webpack_require__(1);
-module.exports = __webpack_require__(4);
-
-
-/***/ }),
-/* 1 */
-/***/ (function(module, exports, __webpack_require__) {
-
-
-/**
- * First, we will load all of this project's Javascript utilities and other
- * dependencies. Then, we will be ready to develop a robust and powerful
- * application frontend using useful Laravel and JavaScript libraries.
- */
-
-__webpack_require__(2);
-
-/***/ }),
-/* 2 */
-/***/ (function(module, exports, __webpack_require__) {
-
-/* WEBPACK VAR INJECTION */(function(global) {var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
-
 /*!
  * Materialize v1.0.0-rc.2 (http://materializecss.com)
  * Copyright 2014-2017 Materialize
  * MIT License (https://raw.githubusercontent.com/Dogfalo/materialize/master/LICENSE)
  */
-var _get = function get(object, property, receiver) {
-  if (object === null) object = Function.prototype;var desc = Object.getOwnPropertyDescriptor(object, property);if (desc === undefined) {
-    var parent = Object.getPrototypeOf(object);if (parent === null) {
-      return undefined;
-    } else {
-      return get(parent, property, receiver);
-    }
-  } else if ("value" in desc) {
-    return desc.value;
-  } else {
-    var getter = desc.get;if (getter === undefined) {
-      return undefined;
-    }return getter.call(receiver);
-  }
-};
+var _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
 
-var _createClass = function () {
-  function defineProperties(target, props) {
-    for (var i = 0; i < props.length; i++) {
-      var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);
-    }
-  }return function (Constructor, protoProps, staticProps) {
-    if (protoProps) defineProperties(Constructor.prototype, protoProps);if (staticProps) defineProperties(Constructor, staticProps);return Constructor;
-  };
-}();
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-function _possibleConstructorReturn(self, call) {
-  if (!self) {
-    throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
-  }return call && ((typeof call === "undefined" ? "undefined" : _typeof(call)) === "object" || typeof call === "function") ? call : self;
-}
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
-function _inherits(subClass, superClass) {
-  if (typeof superClass !== "function" && superClass !== null) {
-    throw new TypeError("Super expression must either be null or a function, not " + (typeof superClass === "undefined" ? "undefined" : _typeof(superClass)));
-  }subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } });if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
-}
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-function _classCallCheck(instance, Constructor) {
-  if (!(instance instanceof Constructor)) {
-    throw new TypeError("Cannot call a class as a function");
-  }
-}
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 /*! cash-dom 1.3.5, https://github.com/kenwheeler/cash @license MIT */
 (function (factory) {
@@ -147,16 +21,16 @@ function _classCallCheck(instance, Constructor) {
       win = window,
       ArrayProto = Array.prototype,
       slice = ArrayProto.slice,
-      _filter = ArrayProto.filter,
+      filter = ArrayProto.filter,
       push = ArrayProto.push;
 
-  var noop = function noop() {},
-      isFunction = function isFunction(item) {
+  var noop = function () {},
+      isFunction = function (item) {
     // @see https://crbug.com/568448
-    return (typeof item === "undefined" ? "undefined" : _typeof(item)) === (typeof noop === "undefined" ? "undefined" : _typeof(noop)) && item.call;
+    return typeof item === typeof noop && item.call;
   },
-      isString = function isString(item) {
-    return (typeof item === "undefined" ? "undefined" : _typeof(item)) === _typeof("");
+      isString = function (item) {
+    return typeof item === typeof "";
   };
 
   var idMatch = /^#[\w-]*$/,
@@ -164,7 +38,7 @@ function _classCallCheck(instance, Constructor) {
       htmlMatch = /<.+>/,
       singlet = /^\w+$/;
 
-  function _find(selector, context) {
+  function find(selector, context) {
     context = context || doc;
     var elems = classMatch.test(selector) ? context.getElementsByClassName(selector.slice(1)) : singlet.test(selector) ? context.getElementsByTagName(selector) : context.querySelectorAll(selector);
     return elems;
@@ -213,7 +87,7 @@ function _classCallCheck(instance, Constructor) {
       // If HTML, parse it into real elements
       parseHTML(selector) :
       // else use `find`
-      _find(selector, context);
+      find(selector, context);
 
       // If function, use as shortcut for DOM ready
     } else if (isFunction(selector)) {
@@ -285,7 +159,7 @@ function _classCallCheck(instance, Constructor) {
     return target;
   };
 
-  function _each(collection, callback) {
+  function each(collection, callback) {
     var l = collection.length,
         i = 0;
 
@@ -323,7 +197,7 @@ function _classCallCheck(instance, Constructor) {
   }
 
   cash.extend({
-    merge: function merge(first, second) {
+    merge: function (first, second) {
       var len = +second.length,
           i = first.length,
           j = 0;
@@ -336,11 +210,11 @@ function _classCallCheck(instance, Constructor) {
       return first;
     },
 
-    each: _each,
+    each: each,
     matches: matches,
     unique: unique,
     isArray: Array.isArray,
-    isNumeric: function isNumeric(n) {
+    isNumeric: function (n) {
       return !isNaN(parseFloat(n)) && isFinite(n);
     }
 
@@ -364,7 +238,7 @@ function _classCallCheck(instance, Constructor) {
     return c[key];
   }
 
-  function _removeData(node, key) {
+  function removeData(node, key) {
     var c = getDataCache(node);
     if (c) {
       delete c[key];
@@ -376,7 +250,7 @@ function _classCallCheck(instance, Constructor) {
   }
 
   fn.extend({
-    data: function data(name, value) {
+    data: function (name, value) {
       if (isString(name)) {
         return value === undefined ? getData(this[0], name) : this.each(function (v) {
           return setData(v, name, value);
@@ -390,9 +264,9 @@ function _classCallCheck(instance, Constructor) {
       return this;
     },
 
-    removeData: function removeData(key) {
+    removeData: function (key) {
       return this.each(function (v) {
-        return _removeData(v, key);
+        return removeData(v, key);
       });
     }
 
@@ -404,11 +278,11 @@ function _classCallCheck(instance, Constructor) {
     return isString(c) && c.match(notWhiteMatch);
   }
 
-  function _hasClass(v, c) {
+  function hasClass(v, c) {
     return v.classList ? v.classList.contains(c) : new RegExp("(^| )" + c + "( |$)", "gi").test(v.className);
   }
 
-  function _addClass(v, c, spacedName) {
+  function addClass(v, c, spacedName) {
     if (v.classList) {
       v.classList.add(c);
     } else if (spacedName.indexOf(" " + c + " ")) {
@@ -416,7 +290,7 @@ function _classCallCheck(instance, Constructor) {
     }
   }
 
-  function _removeClass(v, c) {
+  function removeClass(v, c) {
     if (v.classList) {
       v.classList.remove(c);
     } else {
@@ -425,18 +299,18 @@ function _classCallCheck(instance, Constructor) {
   }
 
   fn.extend({
-    addClass: function addClass(c) {
+    addClass: function (c) {
       var classes = getClasses(c);
 
       return classes ? this.each(function (v) {
         var spacedName = " " + v.className + " ";
-        _each(classes, function (c) {
-          _addClass(v, c, spacedName);
+        each(classes, function (c) {
+          addClass(v, c, spacedName);
         });
       }) : this;
     },
 
-    attr: function attr(name, value) {
+    attr: function (name, value) {
       if (!name) {
         return undefined;
       }
@@ -462,19 +336,19 @@ function _classCallCheck(instance, Constructor) {
       return this;
     },
 
-    hasClass: function hasClass(c) {
+    hasClass: function (c) {
       var check = false,
           classes = getClasses(c);
       if (classes && classes.length) {
         this.each(function (v) {
-          check = _hasClass(v, classes[0]);
+          check = hasClass(v, classes[0]);
           return !check;
         });
       }
       return check;
     },
 
-    prop: function prop(name, value) {
+    prop: function (name, value) {
       if (isString(name)) {
         return value === undefined ? this[0][name] : this.each(function (v) {
           v[name] = value;
@@ -488,7 +362,7 @@ function _classCallCheck(instance, Constructor) {
       return this;
     },
 
-    removeAttr: function removeAttr(name) {
+    removeAttr: function (name) {
       return this.each(function (v) {
         if (v.removeAttribute) {
           v.removeAttribute(name);
@@ -498,85 +372,85 @@ function _classCallCheck(instance, Constructor) {
       });
     },
 
-    removeClass: function removeClass(c) {
+    removeClass: function (c) {
       if (!arguments.length) {
         return this.attr("class", "");
       }
       var classes = getClasses(c);
       return classes ? this.each(function (v) {
-        _each(classes, function (c) {
-          _removeClass(v, c);
+        each(classes, function (c) {
+          removeClass(v, c);
         });
       }) : this;
     },
 
-    removeProp: function removeProp(name) {
+    removeProp: function (name) {
       return this.each(function (v) {
         delete v[name];
       });
     },
 
-    toggleClass: function toggleClass(c, state) {
+    toggleClass: function (c, state) {
       if (state !== undefined) {
         return this[state ? "addClass" : "removeClass"](c);
       }
       var classes = getClasses(c);
       return classes ? this.each(function (v) {
         var spacedName = " " + v.className + " ";
-        _each(classes, function (c) {
-          if (_hasClass(v, c)) {
-            _removeClass(v, c);
+        each(classes, function (c) {
+          if (hasClass(v, c)) {
+            removeClass(v, c);
           } else {
-            _addClass(v, c, spacedName);
+            addClass(v, c, spacedName);
           }
         });
       }) : this;
     } });
 
   fn.extend({
-    add: function add(selector, context) {
+    add: function (selector, context) {
       return unique(cash.merge(this, cash(selector, context)));
     },
 
-    each: function each(callback) {
-      _each(this, callback);
+    each: function (callback) {
+      each(this, callback);
       return this;
     },
 
-    eq: function eq(index) {
+    eq: function (index) {
       return cash(this.get(index));
     },
 
-    filter: function filter(selector) {
+    filter: function (selector) {
       if (!selector) {
         return this;
       }
 
       var comparator = isFunction(selector) ? selector : getCompareFunction(selector);
 
-      return cash(_filter.call(this, function (e) {
+      return cash(filter.call(this, function (e) {
         return comparator(e, selector);
       }));
     },
 
-    first: function first() {
+    first: function () {
       return this.eq(0);
     },
 
-    get: function get(index) {
+    get: function (index) {
       if (index === undefined) {
         return slice.call(this);
       }
       return index < 0 ? this[index + this.length] : this[index];
     },
 
-    index: function index(elem) {
+    index: function (elem) {
       var child = elem ? cash(elem)[0] : this[0],
           collection = elem ? this : cash(child).parent().children();
       return slice.call(collection).indexOf(child);
     },
 
-    last: function last() {
+    last: function () {
       return this.eq(-1);
     }
 
@@ -608,7 +482,7 @@ function _classCallCheck(instance, Constructor) {
           prefixes = ["webkit", "moz", "ms", "o"],
           props = (prop + " " + prefixes.join(ucProp + " ") + ucProp).split(" ");
 
-      _each(props, function (p) {
+      each(props, function (p) {
         if (p in style) {
           cache[p] = prop = cache[prop] = p;
           return false;
@@ -623,7 +497,7 @@ function _classCallCheck(instance, Constructor) {
   cash.camelCase = camelCase;
 
   fn.extend({
-    css: function css(prop, value) {
+    css: function (prop, value) {
       if (isString(prop)) {
         prop = getPrefixedProp(prop);
         return arguments.length > 1 ? this.each(function (v) {
@@ -644,7 +518,7 @@ function _classCallCheck(instance, Constructor) {
     return parseInt(win.getComputedStyle(el[0], null)[prop], 10) || 0;
   }
 
-  _each(["Width", "Height"], function (v) {
+  each(["Width", "Height"], function (v) {
     var lower = v.toLowerCase();
 
     fn[lower] = function () {
@@ -683,7 +557,7 @@ function _classCallCheck(instance, Constructor) {
         eventCache.splice(index, 1);
       }
     } else {
-      _each(eventCache, function (event) {
+      each(eventCache, function (event) {
         node.removeEventListener(eventName, event);
       });
       eventCache = [];
@@ -691,13 +565,13 @@ function _classCallCheck(instance, Constructor) {
   }
 
   fn.extend({
-    off: function off(eventName, callback) {
+    off: function (eventName, callback) {
       return this.each(function (v) {
         return removeEvent(v, eventName, callback);
       });
     },
 
-    on: function on(eventName, delegate, callback, runOnce) {
+    on: function (eventName, delegate, callback, runOnce) {
       // jshint ignore:line
       var originalCallback;
       if (!isString(eventName)) {
@@ -719,7 +593,7 @@ function _classCallCheck(instance, Constructor) {
 
       if (delegate) {
         originalCallback = callback;
-        callback = function callback(e) {
+        callback = function (e) {
           var t = e.target;
           while (!matches(t, delegate)) {
             if (t === this || t === null) {
@@ -736,18 +610,18 @@ function _classCallCheck(instance, Constructor) {
       }
 
       return this.each(function (v) {
-        var _finalCallback = callback;
+        var finalCallback = callback;
         if (runOnce) {
-          _finalCallback = function finalCallback() {
+          finalCallback = function () {
             callback.apply(this, arguments);
-            removeEvent(v, eventName, _finalCallback);
+            removeEvent(v, eventName, finalCallback);
           };
         }
-        registerEvent(v, eventName, _finalCallback);
+        registerEvent(v, eventName, finalCallback);
       });
     },
 
-    one: function one(eventName, delegate, callback) {
+    one: function (eventName, delegate, callback) {
       return this.on(eventName, delegate, callback, true);
     },
 
@@ -759,7 +633,7 @@ function _classCallCheck(instance, Constructor) {
      * @param String eventName
      * @param Object data - Add properties to event object
      */
-    trigger: function trigger(eventName, data) {
+    trigger: function (eventName, data) {
       if (document.createEvent) {
         var evt = document.createEvent('HTMLEvents');
         evt.initEvent(eventName, true, false);
@@ -778,7 +652,7 @@ function _classCallCheck(instance, Constructor) {
 
   function getSelectMultiple_(el) {
     var values = [];
-    _each(el.options, function (o) {
+    each(el.options, function (o) {
       if (o.selected) {
         values.push(o.value);
       }
@@ -811,10 +685,10 @@ function _classCallCheck(instance, Constructor) {
   }
 
   fn.extend({
-    serialize: function serialize() {
+    serialize: function () {
       var query = "";
 
-      _each(this[0].elements || this, function (el) {
+      each(this[0].elements || this, function (el) {
         if (el.disabled || el.tagName === "FIELDSET") {
           return;
         }
@@ -828,7 +702,7 @@ function _classCallCheck(instance, Constructor) {
           case "select-multiple":
             var values = getValue(el);
             if (values !== null) {
-              _each(values, function (value) {
+              each(values, function (value) {
                 query += encode(name, value);
               });
             }
@@ -844,7 +718,7 @@ function _classCallCheck(instance, Constructor) {
       return query.substr(1);
     },
 
-    val: function val(value) {
+    val: function (value) {
       if (value === undefined) {
         return getValue(this[0]);
       }
@@ -869,13 +743,13 @@ function _classCallCheck(instance, Constructor) {
     var str = isString(child);
 
     if (!str && child.length) {
-      _each(child, function (v) {
+      each(child, function (v) {
         return insertContent(parent, v, prepend);
       });
       return;
     }
 
-    _each(parent, str ? function (v) {
+    each(parent, str ? function (v) {
       return v.insertAdjacentHTML(prepend ? "afterbegin" : "beforeend", child);
     } : function (v, i) {
       return insertElement(v, i === 0 ? child : child.cloneNode(true), prepend);
@@ -883,38 +757,38 @@ function _classCallCheck(instance, Constructor) {
   }
 
   fn.extend({
-    after: function after(selector) {
+    after: function (selector) {
       cash(selector).insertAfter(this);
       return this;
     },
 
-    append: function append(content) {
+    append: function (content) {
       insertContent(this, content);
       return this;
     },
 
-    appendTo: function appendTo(parent) {
+    appendTo: function (parent) {
       insertContent(cash(parent), this);
       return this;
     },
 
-    before: function before(selector) {
+    before: function (selector) {
       cash(selector).insertBefore(this);
       return this;
     },
 
-    clone: function clone() {
+    clone: function () {
       return cash(this.map(function (v) {
         return v.cloneNode(true);
       }));
     },
 
-    empty: function empty() {
+    empty: function () {
       this.html("");
       return this;
     },
 
-    html: function html(content) {
+    html: function (content) {
       if (content === undefined) {
         return this[0].innerHTML;
       }
@@ -924,7 +798,7 @@ function _classCallCheck(instance, Constructor) {
       });
     },
 
-    insertAfter: function insertAfter(selector) {
+    insertAfter: function (selector) {
       var _this = this;
 
       cash(selector).each(function (el, i) {
@@ -938,7 +812,7 @@ function _classCallCheck(instance, Constructor) {
       return this;
     },
 
-    insertBefore: function insertBefore(selector) {
+    insertBefore: function (selector) {
       var _this2 = this;
       cash(selector).each(function (el, i) {
         var parent = el.parentNode;
@@ -949,17 +823,17 @@ function _classCallCheck(instance, Constructor) {
       return this;
     },
 
-    prepend: function prepend(content) {
+    prepend: function (content) {
       insertContent(this, content, true);
       return this;
     },
 
-    prependTo: function prependTo(parent) {
+    prependTo: function (parent) {
       insertContent(cash(parent), this, true);
       return this;
     },
 
-    remove: function remove() {
+    remove: function () {
       return this.each(function (v) {
         if (!!v.parentNode) {
           return v.parentNode.removeChild(v);
@@ -967,7 +841,7 @@ function _classCallCheck(instance, Constructor) {
       });
     },
 
-    text: function text(content) {
+    text: function (content) {
       if (content === undefined) {
         return this[0].textContent;
       }
@@ -981,7 +855,7 @@ function _classCallCheck(instance, Constructor) {
   var docEl = doc.documentElement;
 
   fn.extend({
-    position: function position() {
+    position: function () {
       var el = this[0];
       return {
         left: el.offsetLeft,
@@ -989,7 +863,7 @@ function _classCallCheck(instance, Constructor) {
       };
     },
 
-    offset: function offset() {
+    offset: function () {
       var rect = this[0].getBoundingClientRect();
       return {
         top: rect.top + win.pageYOffset - docEl.clientTop,
@@ -997,14 +871,14 @@ function _classCallCheck(instance, Constructor) {
       };
     },
 
-    offsetParent: function offsetParent() {
+    offsetParent: function () {
       return cash(this[0].offsetParent);
     }
 
   });
 
   fn.extend({
-    children: function children(selector) {
+    children: function (selector) {
       var elems = [];
       this.each(function (el) {
         push.apply(elems, el.children);
@@ -1016,7 +890,7 @@ function _classCallCheck(instance, Constructor) {
       });
     },
 
-    closest: function closest(selector) {
+    closest: function (selector) {
       if (!selector || this.length < 1) {
         return cash();
       }
@@ -1026,7 +900,7 @@ function _classCallCheck(instance, Constructor) {
       return this.parent().closest(selector);
     },
 
-    is: function is(selector) {
+    is: function (selector) {
       if (!selector) {
         return false;
       }
@@ -1042,22 +916,22 @@ function _classCallCheck(instance, Constructor) {
       return match;
     },
 
-    find: function find(selector) {
+    find: function (selector) {
       if (!selector || selector.nodeType) {
         return cash(selector && this.has(selector).length ? selector : null);
       }
 
       var elems = [];
       this.each(function (el) {
-        push.apply(elems, _find(selector, el));
+        push.apply(elems, find(selector, el));
       });
 
       return unique(elems);
     },
 
-    has: function has(selector) {
+    has: function (selector) {
       var comparator = isString(selector) ? function (el) {
-        return _find(selector, el).length !== 0;
+        return find(selector, el).length !== 0;
       } : function (el) {
         return el.contains(selector);
       };
@@ -1065,11 +939,11 @@ function _classCallCheck(instance, Constructor) {
       return this.filter(comparator);
     },
 
-    next: function next() {
+    next: function () {
       return cash(this[0].nextElementSibling);
     },
 
-    not: function not(selector) {
+    not: function (selector) {
       if (!selector) {
         return this;
       }
@@ -1081,7 +955,7 @@ function _classCallCheck(instance, Constructor) {
       });
     },
 
-    parent: function parent() {
+    parent: function () {
       var result = [];
 
       this.each(function (item) {
@@ -1093,7 +967,7 @@ function _classCallCheck(instance, Constructor) {
       return unique(result);
     },
 
-    parents: function parents(selector) {
+    parents: function (selector) {
       var last,
           result = [];
 
@@ -1112,11 +986,11 @@ function _classCallCheck(instance, Constructor) {
       return unique(result);
     },
 
-    prev: function prev() {
+    prev: function () {
       return cash(this[0].previousElementSibling);
     },
 
-    siblings: function siblings(selector) {
+    siblings: function (selector) {
       var collection = this.parent().children(selector),
           el = this[0];
 
@@ -1162,6 +1036,7 @@ var Component = function () {
    * @param {Object} options
    */
 
+
   _createClass(Component, null, [{
     key: "init",
     value: function init(classDef, els, options) {
@@ -1196,11 +1071,10 @@ var Component = function () {
 })(window);
 
 // AMD
-if (true) {
-  !(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_RESULT__ = (function () {
+if (typeof define === 'function' && define.amd) {
+  define('M', [], function () {
     return M;
-  }).apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
-				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+  });
 
   // Common JS
 } else if (typeof exports !== 'undefined' && !exports.nodeType) {
@@ -1223,24 +1097,24 @@ M.keys = {
  */
 M.tabPressed = false;
 M.keyDown = false;
-var docHandleKeydown = function docHandleKeydown(e) {
+var docHandleKeydown = function (e) {
   M.keyDown = true;
   if (e.which === M.keys.TAB || e.which === M.keys.ARROW_DOWN || e.which === M.keys.ARROW_UP) {
     M.tabPressed = true;
   }
 };
-var docHandleKeyup = function docHandleKeyup(e) {
+var docHandleKeyup = function (e) {
   M.keyDown = false;
   if (e.which === M.keys.TAB || e.which === M.keys.ARROW_DOWN || e.which === M.keys.ARROW_UP) {
     M.tabPressed = false;
   }
 };
-var docHandleFocus = function docHandleFocus(e) {
+var docHandleFocus = function (e) {
   if (M.keyDown) {
     document.body.classList.add('keyboard-focused');
   }
 };
-var docHandleBlur = function docHandleBlur(e) {
+var docHandleBlur = function (e) {
   document.body.classList.remove('keyboard-focused');
 };
 document.addEventListener('keydown', docHandleKeydown, true);
@@ -1273,7 +1147,7 @@ M.initializeJqueryWrapper = function (plugin, pluginName, classRef) {
       });
 
       // Initialize plugin if options or no argument is passed in
-    } else if ((typeof methodOrOptions === "undefined" ? "undefined" : _typeof(methodOrOptions)) === 'object' || !methodOrOptions) {
+    } else if (typeof methodOrOptions === 'object' || !methodOrOptions) {
       plugin.init(this, arguments[0]);
       return this;
     }
@@ -1566,7 +1440,7 @@ M.throttle = function (func, wait, options) {
   var timeout = null;
   var previous = 0;
   options || (options = {});
-  var later = function later() {
+  var later = function () {
     previous = options.leading === false ? 0 : getTime();
     timeout = null;
     result = func.apply(context, args);
@@ -1606,7 +1480,7 @@ $jscomp.initSymbol = function () {
   return $jscomp.SYMBOL_PREFIX + (e || "") + $jscomp.symbolCounter_++;
 };
 $jscomp.initSymbolIterator = function () {
-  $jscomp.initSymbol();var e = $jscomp.global.Symbol.iterator;e || (e = $jscomp.global.Symbol.iterator = $jscomp.global.Symbol("iterator"));"function" != typeof Array.prototype[e] && $jscomp.defineProperty(Array.prototype, e, { configurable: !0, writable: !0, value: function value() {
+  $jscomp.initSymbol();var e = $jscomp.global.Symbol.iterator;e || (e = $jscomp.global.Symbol.iterator = $jscomp.global.Symbol("iterator"));"function" != typeof Array.prototype[e] && $jscomp.defineProperty(Array.prototype, e, { configurable: !0, writable: !0, value: function () {
       return $jscomp.arrayIterator(this);
     } });$jscomp.initSymbolIterator = function () {};
 };$jscomp.arrayIterator = function (e) {
@@ -1620,7 +1494,7 @@ $jscomp.iteratorPrototype = function (e) {
   };return e;
 };$jscomp.array = $jscomp.array || {};$jscomp.iteratorFromArray = function (e, r) {
   $jscomp.initSymbolIterator();e instanceof String && (e += "");var p = 0,
-      m = { next: function next() {
+      m = { next: function () {
       if (p < e.length) {
         var u = p++;return { value: r(u, e[u]), done: !1 };
       }m.next = function () {
@@ -1886,33 +1760,33 @@ $jscomp.polyfill = function (e, r, p, m) {
       S = { duration: 1E3, delay: 0, easing: "easeOutElastic", elasticity: 500, round: 0 },
       W = "translateX translateY translateZ rotate rotateX rotateY rotateZ scale scaleX scaleY scaleZ skewX skewY perspective".split(" "),
       H,
-      h = { arr: function arr(a) {
+      h = { arr: function (a) {
       return Array.isArray(a);
-    }, obj: function obj(a) {
+    }, obj: function (a) {
       return -1 < Object.prototype.toString.call(a).indexOf("Object");
     },
-    pth: function pth(a) {
+    pth: function (a) {
       return h.obj(a) && a.hasOwnProperty("totalLength");
-    }, svg: function svg(a) {
+    }, svg: function (a) {
       return a instanceof SVGElement;
-    }, dom: function dom(a) {
+    }, dom: function (a) {
       return a.nodeType || h.svg(a);
-    }, str: function str(a) {
+    }, str: function (a) {
       return "string" === typeof a;
-    }, fnc: function fnc(a) {
+    }, fnc: function (a) {
       return "function" === typeof a;
-    }, und: function und(a) {
+    }, und: function (a) {
       return "undefined" === typeof a;
-    }, hex: function hex(a) {
+    }, hex: function (a) {
       return (/(^#[0-9A-F]{6}$)|(^#[0-9A-F]{3}$)/i.test(a)
       );
-    }, rgb: function rgb(a) {
+    }, rgb: function (a) {
       return (/^rgb/.test(a)
       );
-    }, hsl: function hsl(a) {
+    }, hsl: function (a) {
       return (/^hsl/.test(a)
       );
-    }, col: function col(a) {
+    }, col: function (a) {
       return h.hex(a) || h.rgb(a) || h.hsl(a);
     } },
       A = function () {
@@ -1961,13 +1835,13 @@ $jscomp.polyfill = function (e, r, p, m) {
       }(f)), f = { type: f.type };
     }return b;
   }(),
-      ha = { css: function css(a, c, d) {
+      ha = { css: function (a, c, d) {
       return a.style[c] = d;
-    }, attribute: function attribute(a, c, d) {
+    }, attribute: function (a, c, d) {
       return a.setAttribute(c, d);
-    }, object: function object(a, c, d) {
+    }, object: function (a, c, d) {
       return a[c] = d;
-    }, transform: function transform(a, c, d, b, f) {
+    }, transform: function (a, c, d, b, f) {
       b[f] || (b[f] = []);b[f].push(c + "(" + d + ")");
     } },
       v = [],
@@ -2074,6 +1948,7 @@ $jscomp.polyfill = function (e, r, p, m) {
 
     _createClass(Collapsible, [{
       key: "destroy",
+
 
       /**
        * Teardown component
@@ -2192,7 +2067,7 @@ $jscomp.polyfill = function (e, r, p, m) {
             paddingBottom: pBottom,
             duration: this.options.inDuration,
             easing: 'easeInOutCubic',
-            complete: function complete(anim) {
+            complete: function (anim) {
               $body.css({
                 overflow: '',
                 paddingTop: '',
@@ -2231,7 +2106,7 @@ $jscomp.polyfill = function (e, r, p, m) {
             paddingBottom: 0,
             duration: this.options.outDuration,
             easing: 'easeInOutCubic',
-            complete: function complete() {
+            complete: function () {
               $body.css({
                 height: '',
                 overflow: '',
@@ -2319,7 +2194,7 @@ $jscomp.polyfill = function (e, r, p, m) {
       }
     }, {
       key: "defaults",
-      get: function get() {
+      get: function () {
         return _defaults;
       }
     }]);
@@ -2432,6 +2307,7 @@ $jscomp.polyfill = function (e, r, p, m) {
 
     _createClass(Dropdown, [{
       key: "destroy",
+
 
       /**
        * Teardown component
@@ -2804,7 +2680,7 @@ $jscomp.polyfill = function (e, r, p, m) {
           scaleY: [0.3, 1],
           duration: this.options.inDuration,
           easing: 'easeOutQuint',
-          complete: function complete(anim) {
+          complete: function (anim) {
             if (_this11.options.autoFocus) {
               _this11.dropdownEl.focus();
             }
@@ -2838,7 +2714,7 @@ $jscomp.polyfill = function (e, r, p, m) {
           scaleY: 0.3,
           duration: this.options.outDuration,
           easing: 'easeOutQuint',
-          complete: function complete(anim) {
+          complete: function (anim) {
             _this12._resetDropdownStyles();
 
             // onCloseEnd callback
@@ -2957,7 +2833,7 @@ $jscomp.polyfill = function (e, r, p, m) {
       }
     }, {
       key: "defaults",
-      get: function get() {
+      get: function () {
         return _defaults;
       }
     }]);
@@ -2969,6 +2845,7 @@ $jscomp.polyfill = function (e, r, p, m) {
    * @static
    * @memberof Dropdown
    */
+
 
   Dropdown._dropdowns = [];
 
@@ -3051,6 +2928,7 @@ $jscomp.polyfill = function (e, r, p, m) {
 
     _createClass(Modal, [{
       key: "destroy",
+
 
       /**
        * Teardown component
@@ -3200,7 +3078,7 @@ $jscomp.polyfill = function (e, r, p, m) {
           duration: this.options.inDuration,
           easing: 'easeOutCubic',
           // Handle modal onOpenEnd callback
-          complete: function complete() {
+          complete: function () {
             if (typeof _this14.options.onOpenEnd === 'function') {
               _this14.options.onOpenEnd.call(_this14, _this14.el, _this14._openingTrigger);
             }
@@ -3250,7 +3128,7 @@ $jscomp.polyfill = function (e, r, p, m) {
           duration: this.options.outDuration,
           easing: 'easeOutCubic',
           // Handle modal ready callback
-          complete: function complete() {
+          complete: function () {
             _this15.el.style.display = 'none';
             _this15.$overlay.remove();
 
@@ -3388,7 +3266,7 @@ $jscomp.polyfill = function (e, r, p, m) {
       }
     }, {
       key: "defaults",
-      get: function get() {
+      get: function () {
         return _defaults;
       }
     }]);
@@ -3400,6 +3278,7 @@ $jscomp.polyfill = function (e, r, p, m) {
    * @static
    * @memberof Modal
    */
+
 
   Modal._modalsOpen = 0;
 
@@ -3478,6 +3357,7 @@ $jscomp.polyfill = function (e, r, p, m) {
 
     _createClass(Materialbox, [{
       key: "destroy",
+
 
       /**
        * Teardown component
@@ -3607,7 +3487,7 @@ $jscomp.polyfill = function (e, r, p, m) {
           top: M.getDocumentScrollTop() + this.windowHeight / 2 - this.placeholder.offset().top - this.newHeight / 2,
           duration: this.options.inDuration,
           easing: 'easeOutQuad',
-          complete: function complete() {
+          complete: function () {
             _this17.doneAnimating = true;
 
             // onOpenEnd callback
@@ -3647,7 +3527,7 @@ $jscomp.polyfill = function (e, r, p, m) {
           top: 0,
           duration: this.options.outDuration,
           easing: 'easeOutQuad',
-          complete: function complete() {
+          complete: function () {
             _this18.placeholder.css({
               height: '',
               width: '',
@@ -3864,7 +3744,7 @@ $jscomp.polyfill = function (e, r, p, m) {
           opacity: 0,
           duration: this.options.outDuration,
           easing: 'easeOutQuad',
-          complete: function complete() {
+          complete: function () {
             _this20.overlayActive = false;
             _this20.$overlay.remove();
           }
@@ -3879,7 +3759,7 @@ $jscomp.polyfill = function (e, r, p, m) {
             opacity: 0,
             duration: this.options.outDuration,
             easing: 'easeOutQuad',
-            complete: function complete() {
+            complete: function () {
               _this20.$photoCaption.remove();
             }
           });
@@ -3903,7 +3783,7 @@ $jscomp.polyfill = function (e, r, p, m) {
       }
     }, {
       key: "defaults",
-      get: function get() {
+      get: function () {
         return _defaults;
       }
     }]);
@@ -3958,6 +3838,7 @@ $jscomp.polyfill = function (e, r, p, m) {
 
     _createClass(Parallax, [{
       key: "destroy",
+
 
       /**
        * Teardown component
@@ -4057,7 +3938,7 @@ $jscomp.polyfill = function (e, r, p, m) {
       }
     }, {
       key: "defaults",
-      get: function get() {
+      get: function () {
         return _defaults;
       }
     }]);
@@ -4069,6 +3950,7 @@ $jscomp.polyfill = function (e, r, p, m) {
    * @static
    * @memberof Parallax
    */
+
 
   Parallax._parallaxes = [];
 
@@ -4141,6 +4023,7 @@ $jscomp.polyfill = function (e, r, p, m) {
 
     _createClass(Tabs, [{
       key: "destroy",
+
 
       /**
        * Teardown component
@@ -4356,7 +4239,7 @@ $jscomp.polyfill = function (e, r, p, m) {
         this._tabsCarousel = M.Carousel.init($tabsWrapper[0], {
           fullWidth: true,
           noWrap: true,
-          onCycleTo: function onCycleTo(item) {
+          onCycleTo: function (item) {
             var prevIndex = _this25.index;
             _this25.index = $(item).index();
             _this25.$activeTabLink.removeClass('active');
@@ -4529,7 +4412,7 @@ $jscomp.polyfill = function (e, r, p, m) {
       }
     }, {
       key: "defaults",
-      get: function get() {
+      get: function () {
         return _defaults;
       }
     }]);
@@ -4589,6 +4472,7 @@ $jscomp.polyfill = function (e, r, p, m) {
 
     _createClass(Tooltip, [{
       key: "destroy",
+
 
       /**
        * Teardown component
@@ -4869,7 +4753,7 @@ $jscomp.polyfill = function (e, r, p, m) {
       }
     }, {
       key: "defaults",
-      get: function get() {
+      get: function () {
         return _defaults;
       }
     }]);
@@ -4915,7 +4799,7 @@ $jscomp.polyfill = function (e, r, p, m) {
 
     docElem = doc.documentElement;
 
-    if (_typeof(elem.getBoundingClientRect) !== ( true ? "undefined" : _typeof(undefined))) {
+    if (typeof elem.getBoundingClientRect !== typeof undefined) {
       box = elem.getBoundingClientRect();
     }
     win = getWindow(doc);
@@ -4942,7 +4826,7 @@ $jscomp.polyfill = function (e, r, p, m) {
     // Effect delay
     duration: 750,
 
-    show: function show(e, element) {
+    show: function (e, element) {
 
       // Disable right click
       if (e.button === 2) {
@@ -5005,7 +4889,7 @@ $jscomp.polyfill = function (e, r, p, m) {
       ripple.setAttribute('style', convertStyle(rippleStyle));
     },
 
-    hide: function hide(e) {
+    hide: function (e) {
       TouchHandler.touchup(e);
 
       var el = this;
@@ -5064,7 +4948,7 @@ $jscomp.polyfill = function (e, r, p, m) {
     },
 
     // Little hack to make <input> can perform waves effect
-    wrapInput: function wrapInput(elements) {
+    wrapInput: function (elements) {
       for (var a = 0; a < elements.length; a++) {
         var el = elements[a];
 
@@ -5108,7 +4992,7 @@ $jscomp.polyfill = function (e, r, p, m) {
      * within the 500ms. Cannot mouseup between touchstart and
      * touchend, nor in the 500ms after touchend. */
     touches: 0,
-    allowEvent: function allowEvent(e) {
+    allowEvent: function (e) {
       var allow = true;
 
       if (e.type === 'touchstart') {
@@ -5125,7 +5009,7 @@ $jscomp.polyfill = function (e, r, p, m) {
 
       return allow;
     },
-    touchup: function touchup(e) {
+    touchup: function (e) {
       TouchHandler.allowEvent(e);
     }
   };
@@ -5268,6 +5152,7 @@ $jscomp.polyfill = function (e, r, p, m) {
     _createClass(Toast, [{
       key: "_createToast",
 
+
       /**
        * Create toast and append it to toast container
        */
@@ -5281,7 +5166,7 @@ $jscomp.polyfill = function (e, r, p, m) {
         }
 
         // Set content
-        if ((typeof HTMLElement === "undefined" ? "undefined" : _typeof(HTMLElement)) === 'object' ? this.message instanceof HTMLElement : this.message && _typeof(this.message) === 'object' && this.message !== null && this.message.nodeType === 1 && typeof this.message.nodeName === 'string') {
+        if (typeof HTMLElement === 'object' ? this.message instanceof HTMLElement : this.message && typeof this.message === 'object' && this.message !== null && this.message.nodeType === 1 && typeof this.message.nodeName === 'string') {
           toast.appendChild(this.message);
 
           // Check if it is jQuery object
@@ -5364,7 +5249,7 @@ $jscomp.polyfill = function (e, r, p, m) {
           marginTop: -40,
           duration: this.options.outDuration,
           easing: 'easeOutExpo',
-          complete: function complete() {
+          complete: function () {
             // Call the optional callback
             if (typeof _this30.options.completeCallback === 'function') {
               _this30.options.completeCallback();
@@ -5380,6 +5265,7 @@ $jscomp.polyfill = function (e, r, p, m) {
       }
     }], [{
       key: "getInstance",
+
 
       /**
        * Get Instance
@@ -5530,7 +5416,7 @@ $jscomp.polyfill = function (e, r, p, m) {
       }
     }, {
       key: "defaults",
-      get: function get() {
+      get: function () {
         return _defaults;
       }
     }]);
@@ -5543,6 +5429,7 @@ $jscomp.polyfill = function (e, r, p, m) {
    * @memberof Toast
    * @type {Array.<Toast>}
    */
+
 
   Toast._toasts = [];
 
@@ -5648,6 +5535,7 @@ $jscomp.polyfill = function (e, r, p, m) {
 
     _createClass(Sidenav, [{
       key: "destroy",
+
 
       /**
        * Teardown component
@@ -6092,7 +5980,7 @@ $jscomp.polyfill = function (e, r, p, m) {
           translateX: [slideOutPercent * 100 + "%", 0],
           duration: this.options.inDuration,
           easing: 'easeOutQuad',
-          complete: function complete() {
+          complete: function () {
             // Run onOpenEnd callback
             if (typeof _this32.options.onOpenEnd === 'function') {
               _this32.options.onOpenEnd.call(_this32, _this32.el);
@@ -6143,7 +6031,7 @@ $jscomp.polyfill = function (e, r, p, m) {
           translateX: [slideOutPercent * 100 + "%", endPercent * 105 + "%"],
           duration: this.options.outDuration,
           easing: 'easeOutQuad',
-          complete: function complete() {
+          complete: function () {
             // Run onOpenEnd callback
             if (typeof _this33.options.onCloseEnd === 'function') {
               _this33.options.onCloseEnd.call(_this33, _this33.el);
@@ -6162,7 +6050,7 @@ $jscomp.polyfill = function (e, r, p, m) {
           opacity: 0,
           duration: this.options.outDuration,
           easing: 'easeOutQuad',
-          complete: function complete() {
+          complete: function () {
             $(_this34._overlay).css('display', 'none');
           }
         });
@@ -6185,7 +6073,7 @@ $jscomp.polyfill = function (e, r, p, m) {
       }
     }, {
       key: "defaults",
-      get: function get() {
+      get: function () {
         return _defaults;
       }
     }]);
@@ -6198,6 +6086,7 @@ $jscomp.polyfill = function (e, r, p, m) {
    * @memberof Sidenav
    * @type {Array.<Sidenav>}
    */
+
 
   Sidenav._sidenavs = [];
 
@@ -6214,7 +6103,7 @@ $jscomp.polyfill = function (e, r, p, m) {
     throttle: 100,
     scrollOffset: 200, // offset - 200 allows elements near bottom of page to scroll
     activeClass: 'active',
-    getActiveElement: function getActiveElement(id) {
+    getActiveElement: function (id) {
       return 'a[href="#' + id + '"]';
     }
   };
@@ -6263,6 +6152,7 @@ $jscomp.polyfill = function (e, r, p, m) {
 
     _createClass(ScrollSpy, [{
       key: "destroy",
+
 
       /**
        * Teardown component
@@ -6469,7 +6359,7 @@ $jscomp.polyfill = function (e, r, p, m) {
       }
     }, {
       key: "defaults",
-      get: function get() {
+      get: function () {
         return _defaults;
       }
     }]);
@@ -6482,6 +6372,7 @@ $jscomp.polyfill = function (e, r, p, m) {
    * @memberof ScrollSpy
    * @type {Array.<ScrollSpy>}
    */
+
 
   ScrollSpy._elements = [];
 
@@ -6531,7 +6422,7 @@ $jscomp.polyfill = function (e, r, p, m) {
     limit: Infinity, // Limit of results the autocomplete shows
     onAutocomplete: null, // Callback for when autocompleted
     minLength: 1, // Min characters before autocomplete starts
-    sortFunction: function sortFunction(a, b, inputString) {
+    sortFunction: function (a, b, inputString) {
       // Sort function for sorting autocomplete results
       return a.indexOf(inputString) - b.indexOf(inputString);
     }
@@ -6588,6 +6479,7 @@ $jscomp.polyfill = function (e, r, p, m) {
 
     _createClass(Autocomplete, [{
       key: "destroy",
+
 
       /**
        * Teardown component
@@ -6666,7 +6558,7 @@ $jscomp.polyfill = function (e, r, p, m) {
           autoFocus: false,
           closeOnClick: false,
           coverTrigger: false,
-          onItemClick: function onItemClick(itemEl) {
+          onItemClick: function (itemEl) {
             _this38.selectOption($(itemEl));
           }
         });
@@ -6905,7 +6797,7 @@ $jscomp.polyfill = function (e, r, p, m) {
 
         // Sort
         if (this.options.sortFunction) {
-          var sortFunctionBound = function sortFunctionBound(a, b) {
+          var sortFunctionBound = function (a, b) {
             return _this39.options.sortFunction(a.key.toLowerCase(), b.key.toLowerCase(), val.toLowerCase());
           };
           matchingData.sort(sortFunctionBound);
@@ -6994,7 +6886,7 @@ $jscomp.polyfill = function (e, r, p, m) {
       }
     }, {
       key: "defaults",
-      get: function get() {
+      get: function () {
         return _defaults;
       }
     }]);
@@ -7006,6 +6898,7 @@ $jscomp.polyfill = function (e, r, p, m) {
    * @static
    * @memberof Autocomplete
    */
+
 
   Autocomplete._keydown = false;
 
@@ -7371,6 +7264,7 @@ $jscomp.polyfill = function (e, r, p, m) {
     _createClass(Slider, [{
       key: "destroy",
 
+
       /**
        * Teardown component
        */
@@ -7543,7 +7437,7 @@ $jscomp.polyfill = function (e, r, p, m) {
             opacity: 0,
             duration: this.options.duration,
             easing: 'easeOutQuad',
-            complete: function complete() {
+            complete: function () {
               _this44.$slides.not('.active').each(function (el) {
                 anim({
                   targets: el,
@@ -7658,7 +7552,7 @@ $jscomp.polyfill = function (e, r, p, m) {
       }
     }, {
       key: "defaults",
-      get: function get() {
+      get: function () {
         return _defaults;
       }
     }]);
@@ -7687,7 +7581,7 @@ $jscomp.polyfill = function (e, r, p, m) {
           translateY: 0,
           duration: 225,
           easing: 'easeInOutQuad',
-          complete: function complete(anim) {
+          complete: function (anim) {
             var el = anim.animatables[0].target;
             $(el).css({ display: 'none' });
             $card.css('overflow', $card.data('initialOverflow'));
@@ -7788,6 +7682,7 @@ $jscomp.polyfill = function (e, r, p, m) {
     _createClass(Chips, [{
       key: "getData",
 
+
       /**
        * Get Chips Data
        */
@@ -7878,6 +7773,7 @@ $jscomp.polyfill = function (e, r, p, m) {
 
     }, {
       key: "_handleInputFocus",
+
 
       /**
        * Handle Input Focus
@@ -8225,7 +8121,7 @@ $jscomp.polyfill = function (e, r, p, m) {
       }
     }, {
       key: "defaults",
-      get: function get() {
+      get: function () {
         return _defaults;
       }
     }]);
@@ -8237,6 +8133,7 @@ $jscomp.polyfill = function (e, r, p, m) {
    * @static
    * @memberof Chips
    */
+
 
   Chips._keydown = false;
 
@@ -8303,6 +8200,7 @@ $jscomp.polyfill = function (e, r, p, m) {
 
     _createClass(Pushpin, [{
       key: "destroy",
+
 
       /**
        * Teardown component
@@ -8400,7 +8298,7 @@ $jscomp.polyfill = function (e, r, p, m) {
       }
     }, {
       key: "defaults",
-      get: function get() {
+      get: function () {
         return _defaults;
       }
     }]);
@@ -8412,6 +8310,7 @@ $jscomp.polyfill = function (e, r, p, m) {
    * @static
    * @memberof Pushpin
    */
+
 
   Pushpin._pushpins = [];
 
@@ -8486,6 +8385,7 @@ $jscomp.polyfill = function (e, r, p, m) {
 
     _createClass(FloatingActionButton, [{
       key: "destroy",
+
 
       /**
        * Teardown component
@@ -8642,7 +8542,7 @@ $jscomp.polyfill = function (e, r, p, m) {
             translateX: _this50.offsetX,
             duration: 175,
             easing: 'easeOutQuad',
-            complete: function complete() {
+            complete: function () {
               _this50.$el.removeClass('active');
             }
           });
@@ -8805,7 +8705,7 @@ $jscomp.polyfill = function (e, r, p, m) {
       }
     }, {
       key: "defaults",
-      get: function get() {
+      get: function () {
         return _defaults;
       }
     }]);
@@ -8924,7 +8824,7 @@ $jscomp.polyfill = function (e, r, p, m) {
       _this53.options = $.extend({}, Datepicker.defaults, options);
 
       // make sure i18n defaults are not lost when only few i18n option properties are passed
-      if (!!options && options.hasOwnProperty('i18n') && _typeof(options.i18n) === 'object') {
+      if (!!options && options.hasOwnProperty('i18n') && typeof options.i18n === 'object') {
         _this53.options.i18n = $.extend({}, Datepicker.defaults.i18n, options.i18n);
       }
 
@@ -8966,6 +8866,7 @@ $jscomp.polyfill = function (e, r, p, m) {
 
     _createClass(Datepicker, [{
       key: "destroy",
+
 
       /**
        * Teardown component
@@ -9013,7 +8914,7 @@ $jscomp.polyfill = function (e, r, p, m) {
 
         this.modalEl.id = 'modal-' + this.id;
         this.modal = M.Modal.init(this.modalEl, {
-          onCloseEnd: function onCloseEnd() {
+          onCloseEnd: function () {
             _this54.isOpen = false;
           }
         });
@@ -9468,36 +9369,36 @@ $jscomp.polyfill = function (e, r, p, m) {
         this.cancelBtn = this.modalEl.querySelector('.datepicker-cancel');
 
         this.formats = {
-          d: function d() {
+          d: function () {
             return _this56.date.getDate();
           },
-          dd: function dd() {
+          dd: function () {
             var d = _this56.date.getDate();
             return (d < 10 ? '0' : '') + d;
           },
-          ddd: function ddd() {
+          ddd: function () {
             return _this56.options.i18n.weekdaysShort[_this56.date.getDay()];
           },
-          dddd: function dddd() {
+          dddd: function () {
             return _this56.options.i18n.weekdays[_this56.date.getDay()];
           },
-          m: function m() {
+          m: function () {
             return _this56.date.getMonth() + 1;
           },
-          mm: function mm() {
+          mm: function () {
             var m = _this56.date.getMonth() + 1;
             return (m < 10 ? '0' : '') + m;
           },
-          mmm: function mmm() {
+          mmm: function () {
             return _this56.options.i18n.monthsShort[_this56.date.getMonth()];
           },
-          mmmm: function mmmm() {
+          mmmm: function () {
             return _this56.options.i18n.months[_this56.date.getMonth()];
           },
-          yy: function yy() {
+          yy: function () {
             return ('' + _this56.date.getFullYear()).slice(2);
           },
-          yyyy: function yyyy() {
+          yyyy: function () {
             return _this56.date.getFullYear();
           }
         };
@@ -9727,7 +9628,7 @@ $jscomp.polyfill = function (e, r, p, m) {
       }
     }, {
       key: "defaults",
-      get: function get() {
+      get: function () {
         return _defaults;
       }
     }]);
@@ -9806,6 +9707,7 @@ $jscomp.polyfill = function (e, r, p, m) {
 
     _createClass(Timepicker, [{
       key: "destroy",
+
 
       /**
        * Teardown component
@@ -9948,7 +9850,7 @@ $jscomp.polyfill = function (e, r, p, m) {
           onOpenStart: this.options.onOpenStart,
           onOpenEnd: this.options.onOpenEnd,
           onCloseStart: this.options.onCloseStart,
-          onCloseEnd: function onCloseEnd() {
+          onCloseEnd: function () {
             if (typeof _this59.options.onCloseEnd === 'function') {
               _this59.options.onCloseEnd.call(_this59);
             }
@@ -10363,7 +10265,7 @@ $jscomp.polyfill = function (e, r, p, m) {
       }
     }, {
       key: "defaults",
-      get: function get() {
+      get: function () {
         return _defaults;
       }
     }]);
@@ -10419,6 +10321,7 @@ $jscomp.polyfill = function (e, r, p, m) {
 
     _createClass(CharacterCounter, [{
       key: "destroy",
+
 
       /**
        * Teardown component
@@ -10534,7 +10437,7 @@ $jscomp.polyfill = function (e, r, p, m) {
       }
     }, {
       key: "defaults",
-      get: function get() {
+      get: function () {
         return _defaults;
       }
     }]);
@@ -10665,6 +10568,7 @@ $jscomp.polyfill = function (e, r, p, m) {
 
     _createClass(Carousel, [{
       key: "destroy",
+
 
       /**
        * Teardown component
@@ -11320,7 +11224,7 @@ $jscomp.polyfill = function (e, r, p, m) {
       }
     }, {
       key: "defaults",
-      get: function get() {
+      get: function () {
         return _defaults;
       }
     }]);
@@ -11384,6 +11288,7 @@ $jscomp.polyfill = function (e, r, p, m) {
 
     _createClass(TapTarget, [{
       key: "destroy",
+
 
       /**
        * Teardown component
@@ -11673,7 +11578,7 @@ $jscomp.polyfill = function (e, r, p, m) {
       }
     }, {
       key: "defaults",
-      get: function get() {
+      get: function () {
         return _defaults;
       }
     }]);
@@ -11741,6 +11646,7 @@ $jscomp.polyfill = function (e, r, p, m) {
 
     _createClass(FormSelect, [{
       key: "destroy",
+
 
       /**
        * Teardown component
@@ -12138,7 +12044,7 @@ $jscomp.polyfill = function (e, r, p, m) {
       }
     }, {
       key: "defaults",
-      get: function get() {
+      get: function () {
         return _defaults;
       }
     }]);
@@ -12195,6 +12101,7 @@ $jscomp.polyfill = function (e, r, p, m) {
 
     _createClass(Range, [{
       key: "destroy",
+
 
       /**
        * Teardown component
@@ -12435,7 +12342,7 @@ $jscomp.polyfill = function (e, r, p, m) {
       }
     }, {
       key: "defaults",
-      get: function get() {
+      get: function () {
         return _defaults;
       }
     }]);
@@ -12451,40 +12358,3 @@ $jscomp.polyfill = function (e, r, p, m) {
 
   Range.init($('input[type=range]'));
 })(cash, M.anime);
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
-
-/***/ }),
-/* 3 */
-/***/ (function(module, exports) {
-
-var g;
-
-// This works in non-strict mode
-g = (function() {
-	return this;
-})();
-
-try {
-	// This works if eval is allowed (see CSP)
-	g = g || Function("return this")() || (1,eval)("this");
-} catch(e) {
-	// This works if the window reference is available
-	if(typeof window === "object")
-		g = window;
-}
-
-// g can still be undefined, but nothing to do about it...
-// We return undefined, instead of nothing here, so it's
-// easier to handle this case. if(!global) { ...}
-
-module.exports = g;
-
-
-/***/ }),
-/* 4 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ })
-/******/ ]);
