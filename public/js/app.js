@@ -75,7 +75,6 @@ module.exports = __webpack_require__(4);
 /* 1 */
 /***/ (function(module, exports, __webpack_require__) {
 
-
 /**
  * First, we will load all of this project's Javascript utilities and other
  * dependencies. Then, we will be ready to develop a robust and powerful
@@ -83,6 +82,13 @@ module.exports = __webpack_require__(4);
  */
 
 __webpack_require__(2);
+
+//Modal setup
+var elems = document.querySelectorAll('.modal');
+if (elems instanceof NodeList) {
+  var options = {};
+  var instances = M.Modal.init(elems, options);
+}
 
 /***/ }),
 /* 2 */
