@@ -1,4 +1,6 @@
 nav {
+  margin-bottom: 50px;
+
   &.nav-extended {
     height: auto;
 
@@ -62,7 +64,11 @@ nav {
     color: $navbar-font-color;
     display: inline-block;
     font-size: $navbar-brand-font-size;
-    padding: 0;
+    padding-left: 5px;
+
+    & strong {
+      color: black;
+    }
 
     &.center {
       left: 50%;
