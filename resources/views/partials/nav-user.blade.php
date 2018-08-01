@@ -21,5 +21,8 @@
             <a><span class="white-text email">{{ $user->email }}</span></a>
         </div>
     </li>
-    <li><a href="{{ route('user.create') }}">Register employee</a></li>
+    @if($user->isManager())
+        <li><a href="{{ route('user.create') }}">Register employee</a></li>
+    @endif
+    <li><a href="{{ route('overtime.index') }}">Overtime</a></li>
 </ul>

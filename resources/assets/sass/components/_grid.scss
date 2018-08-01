@@ -58,6 +58,10 @@
   margin-right: auto;
   margin-bottom: 20px;
 
+  &-striped:nth-child(even) {
+    background-color: $striped-row;
+  }
+
   // Clear floating children
   &:after {
     content: "";
@@ -70,6 +74,8 @@
     box-sizing: border-box;
     padding: 0 $gutter-width / 2;
     min-height: 1px;
+
+
 
     &[class*="push-"],
     &[class*="pull-"] {

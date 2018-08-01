@@ -2197,8 +2197,7 @@ h1 {
  */
 
 figcaption,
-figure,
-main {
+figure {
   /* 1 */
   display: block;
 }
@@ -2621,10 +2620,6 @@ template {
 
 [hidden] {
   display: none;
-}
-
-main.main-with-sidebar {
-  padding-left: 300px;
 }
 
 @media only screen and (min-width: 601px) {
@@ -3587,6 +3582,10 @@ table span.badge {
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 20px;
+}
+
+.row-striped:nth-child(even) {
+  background-color: rgba(242, 242, 242, 0.5);
 }
 
 .row:after {
@@ -8050,6 +8049,7 @@ input[type=range]::-ms-thumb {
 .sidenav .user-view .email,
 .sidenav .user-view .company {
   display: block;
+  line-height: 16px;
 }
 
 .sidenav .user-view .circle {

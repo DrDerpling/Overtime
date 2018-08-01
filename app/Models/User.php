@@ -56,6 +56,16 @@ class User extends Authenticatable
     }
 
     /**
+     * Relationship method with Overtime class
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function overtimes()
+    {
+        return $this->hasMany(Overtime::class);
+    }
+
+    /**
      * Gets the full name attribute
      *
      * @return string

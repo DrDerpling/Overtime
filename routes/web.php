@@ -17,5 +17,9 @@ Auth::routes();
 Route::middleware('auth')->group(function () {
     Route::get('/', 'HomeController@index')->name('home');
     Route::resource('user', 'UserController');
+
+    /** Overtime */
+    Route::resource('overtime', 'OvertimeController', ['except' => 'update']);
+    Route::put('overtime', 'OvertimeController@update')->name('overtime.update');
 });
 

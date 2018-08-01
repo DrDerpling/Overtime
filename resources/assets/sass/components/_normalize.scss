@@ -59,7 +59,7 @@ h1 {
 
 figcaption,
 figure,
-main { /* 1 */
+ { /* 1 */
   display: block;
 }
 
@@ -446,11 +446,6 @@ template {
   display: none;
 }
 
-main {
-  &.main-with-sidebar {
-    padding-left: 300px;
-  }
-}
 @media #{$medium-and-up} {
   main {
     &.main-with-sidebar {
