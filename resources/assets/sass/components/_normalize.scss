@@ -445,3 +445,24 @@ template {
 [hidden] {
   display: none;
 }
+
+main {
+  &.main-with-sidebar {
+    padding-left: 300px;
+  }
+}
+@media #{$medium-and-up} {
+  main {
+    &.main-with-sidebar {
+      padding-left: 0;
+    }
+  }
+}
+@media #{$large-and-up} {
+  main {
+    &.main-with-sidebar {
+      padding-left: 300px;
+    }
+  }
+}
+

@@ -9,7 +9,7 @@ use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable
 {
-    use Notifiable, HasRoles;
+    use Notifiable;
 
     /**
      * The attributes that are mass assignable.
@@ -33,6 +33,19 @@ class User extends Authenticatable
     ];
 
     /**
+     * Eagerloads specific relations
+     *
+     * @var array
+     */
+    protected $with = [
+        'company'
+    ];
+
+    protected $casts = [
+        'manager' => 'boolean'
+    ];
+
+    /**
      * Relationship method with company class
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
@@ -40,5 +53,35 @@ class User extends Authenticatable
     public function company()
     {
         return $this->belongsTo(Company::class);
+    }
+
+    /**
+     * Gets the full name attribute
+     *
+     * @return string
+     */
+    public function getFullNameAttribute()
+    {
+        return $this->attributes['first_name'] . ' ' . $this->attributes['last_name'];
+    }
+
+    /**
+     * Sets password
+     *
+     * @param $string
+     */
+    public function setPasswordAttribute($string)
+    {
+        $this->attributes['password'] = bcrypt($string);
+    }
+
+    /**
+     * Checks if the user ia manager
+     *
+     * @return mixed
+     */
+    public function isManager()
+    {
+        return $this->manager;
     }
 }

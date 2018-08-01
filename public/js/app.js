@@ -96,6 +96,12 @@ if (inputs instanceof NodeList) {
     M.CharacterCounter.init(inputs);
 }
 
+var sidenav = document.querySelectorAll('.sidenav');
+if (inputs instanceof NodeList) {
+    var _options2 = { 'onOpenStart': true };
+    var _instances = M.Sidenav.init(sidenav, _options2);
+}
+
 /***/ }),
 /* 2 */
 /***/ (function(module, exports, __webpack_require__) {
