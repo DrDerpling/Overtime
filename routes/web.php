@@ -21,5 +21,9 @@ Route::middleware('auth')->group(function () {
     /** Overtime */
     Route::resource('overtime', 'OvertimeController', ['except' => 'update']);
     Route::put('overtime', 'OvertimeController@update')->name('overtime.update');
+    route::get('/test', function () {
+        return view('pages.overtime.employee.rangepicker');
+    });
+
 });
 

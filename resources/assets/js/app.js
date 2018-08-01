@@ -5,6 +5,7 @@
  */
 
 require('./materialize/materialize.js');
+const flatpickr = require("flatpickr");
 
 //Modal setup
 let modals = document.querySelectorAll('.modal');
@@ -21,6 +22,26 @@ if (inputs instanceof NodeList) {
 
 let sidenav = document.querySelectorAll('.sidenav');
 if (inputs instanceof NodeList) {
-    let options = {'onOpenStart' : true};
+    let options = {'onOpenStart': true};
     let instances = M.Sidenav.init(sidenav, options);
 }
+
+const myInput = document.querySelector(".start_datepicker");
+if (myInput instanceof HTMLElement) {
+    const fp = flatpickr(myInput, {
+        mode: 'range',
+        onChange: function(selectedDates, dateStr, instance) {
+            let maxDays = instance.config.max
+            let selectedDate = new Date(dateStr)
+
+            let weekendcalc = Math.round(maxDays / 5) * 2 - 1
+            selectedDate =  selectedDate.setDate(selectedDate.getDate() + +maxDays + weekendcalc)
+
+            instance.set('maxDate', selectedDate)
+
+        },
+        max: myInput.dataset.maxdays,
+        minDate: 'today',
+    });
+}
+
