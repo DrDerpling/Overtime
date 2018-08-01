@@ -2,11 +2,18 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Company;
 use App\Models\User;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('manager')->except(['edit', 'update']);
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -20,11 +27,12 @@ class UserController extends Controller
     /**
      * Show the form for creating a new resource.
      *
+     * @param Company $company
      * @return \Illuminate\Http\Response
      */
     public function create()
     {
-        return view('pages.users.create');
+        return view('pages.users.create', compact('company'));
     }
 
     /**
@@ -35,7 +43,18 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'first_name' => 'required|string|max:50',
+            'last_name' => 'required|string|max:50',
+            'company_name' => 'required|string|max:50',
+            'password' => 'required|string|min:6|confirmed',
+        ]);
+
+        if (User::create($request->all())) {
+            return redirect()->route('user.index')->with(['message'=> 'Employee successfully added']);
+        };
+
+        return redirect()->back()->with(['message'=> 'Was unable to create employee please try again']);
     }
 
     /**

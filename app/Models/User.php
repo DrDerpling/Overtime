@@ -41,6 +41,10 @@ class User extends Authenticatable
         'company'
     ];
 
+    protected $casts = [
+        'manager' => 'boolean'
+    ];
+
     /**
      * Relationship method with company class
      *
@@ -59,5 +63,25 @@ class User extends Authenticatable
     public function getFullNameAttribute()
     {
         return $this->attributes['first_name'] . ' ' . $this->attributes['last_name'];
+    }
+
+    /**
+     * Sets password
+     *
+     * @param $string
+     */
+    public function setPasswordAttribute($string)
+    {
+        $this->attributes['password'] = bcrypt($string);
+    }
+
+    /**
+     * Checks if the user ia manager
+     *
+     * @return mixed
+     */
+    public function isManager()
+    {
+        return $this->manager;
     }
 }

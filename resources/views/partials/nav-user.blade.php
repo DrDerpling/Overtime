@@ -1,7 +1,6 @@
 <nav class="nav nav-with-sidebar">
     <div class="nav-wrapper">
         <a href="#" class="brand-logo"><strong>Over</strong>time</a>
-
         <ul id="nav-mobile" class="right hide-on-med-and-down">
             <li><a href="sass.html">Hour overview</a></li>
             <li><a href="badges.html">Use overtime</a></li>
@@ -22,5 +21,5 @@
             <a><span class="white-text email">{{ $user->email }}</span></a>
         </div>
     </li>
-    <li><a href="{{ route('user.create') }}">Create employee</a></li>
+    <li><a href="{{ route('user.create') }}">Registration employee</a></li>
 </ul>
