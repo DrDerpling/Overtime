@@ -4511,6 +4511,7 @@ table span.badge {
 }
 
 nav {
+  margin-bottom: 50px;
   color: #fff;
   background-color: #0090e3;
   width: 100%;

@@ -7,10 +7,16 @@
 require('./materialize/materialize.js');
 
 //Modal setup
-var elems = document.querySelectorAll('.modal');
-if (elems instanceof NodeList) {
-    var options = {};
-    var instances = M.Modal.init(elems, options);
+let modals = document.querySelectorAll('.modal');
+if (modals instanceof NodeList) {
+    let options = {};
+    let instances = M.Modal.init(modals, options);
+}
+
+let inputs = document.querySelectorAll('.has-character-counter');
+if (inputs instanceof NodeList) {
+    let options = {};
+    M.CharacterCounter.init(inputs);
 }
 
 

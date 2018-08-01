@@ -84,10 +84,16 @@ module.exports = __webpack_require__(4);
 __webpack_require__(2);
 
 //Modal setup
-var elems = document.querySelectorAll('.modal');
-if (elems instanceof NodeList) {
-  var options = {};
-  var instances = M.Modal.init(elems, options);
+var modals = document.querySelectorAll('.modal');
+if (modals instanceof NodeList) {
+    var options = {};
+    var instances = M.Modal.init(modals, options);
+}
+
+var inputs = document.querySelectorAll('.has-character-counter');
+if (inputs instanceof NodeList) {
+    var _options = {};
+    M.CharacterCounter.init(inputs);
 }
 
 /***/ }),
