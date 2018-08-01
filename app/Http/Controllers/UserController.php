@@ -8,12 +8,6 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
-
-    public function __construct()
-    {
-        $this->middleware('manager')->except(['edit', 'update']);
-    }
-
     /**
      * Display a listing of the resource.
      *

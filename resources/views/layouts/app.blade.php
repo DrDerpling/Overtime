@@ -29,7 +29,7 @@
         @include('partials.nav-guest')
     @endif
 </header>
-<main>
+<main class="{{ $user ? 'main-with-sidebar' : '' }}">
     <div class="container">
         @yield('content')
     </div>

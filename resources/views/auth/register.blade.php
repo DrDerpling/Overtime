@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col l6 s12">
             <div class="card">
-                <form action="{{ route('register') }}" method="POST">
+                <form action="{{ route('login') }}" method="POST">
                     {{ csrf_field() }}
                     {{ method_field('POST') }}
                     <div class="card-content">
