@@ -109,12 +109,20 @@ if (myInput instanceof HTMLElement) {
         mode: 'range',
         onChange: function onChange(selectedDates, dateStr, instance) {
             var maxDays = instance.config.max;
-            var selectedDate = new Date(dateStr);
+            var firstDate = new Date(dateStr);
+            var endDate = new Date(dateStr).fp_incr(maxDays);
+            while (firstDate <= endDate) {
+                var dayOfWeek = firstDate.getDay();
+                if (dayOfWeek === 6 || dayOfWeek === 0) {
+                    maxDays++;
+                }
 
-            var weekendcalc = Math.round(maxDays / 5) * 2 - 1;
-            selectedDate = selectedDate.setDate(selectedDate.getDate() + +maxDays + weekendcalc);
+                firstDate.setDate(firstDate.getDate() + 1);
+            }
 
-            instance.set('maxDate', selectedDate);
+            endDate = new Date(dateStr).fp_incr(maxDays + 1);
+
+            instance.set('maxDate', endDate);
         },
         max: myInput.dataset.maxdays,
         minDate: 'today'
