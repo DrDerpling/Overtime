@@ -19,6 +19,6 @@ class IsManager
             return $next($request);
         }
 
-        return redirect()->with('message', 'You lack the permissions to do this');
+        return redirect()->back()->with('message', 'You lack the permissions to do this');
     }
 }

@@ -21,5 +21,5 @@
             <a><span class="white-text email">{{ $user->email }}</span></a>
         </div>
     </li>
-    <li><a href="{{ route('user.create') }}">Registration employee</a></li>
+    <li><a href="{{ route('user.create') }}">Register employee</a></li>
 </ul>

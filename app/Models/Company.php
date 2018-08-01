@@ -11,18 +11,9 @@ class Company extends Model
         'name'
     ];
 
-    /**
-     * Eagerloads all relationships in array
-     *
-     * @var array
-     */
-    protected $with = [
-        'users'
-    ];
-
 
     /**
-     * Relationship method with user class
+     * Relationship method cwith user class
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */

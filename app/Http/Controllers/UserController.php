@@ -9,6 +9,14 @@ use Illuminate\Http\Request;
 class UserController extends Controller
 {
     /**
+     * UserController constructor.
+     */
+    public function __construct()
+    {
+        $this->middleware('manager')->except(['edit', 'update']);
+    }
+
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
@@ -40,15 +48,18 @@ class UserController extends Controller
         $this->validate($request, [
             'first_name' => 'required|string|max:50',
             'last_name' => 'required|string|max:50',
-            'company_name' => 'required|string|max:50',
             'password' => 'required|string|min:6|confirmed',
         ]);
 
-        if (User::create($request->all())) {
+        if ($manager = auth()->user()) {
+            $user = $manager->company->users()->create($request->all());
+        }
+
+        if ($user) {
             return redirect()->route('user.index')->with(['message'=> 'Employee successfully added']);
         };
 
-        return redirect()->back()->with(['message'=> 'Was unable to create employee please try again']);
+        return redirect()->back()->withErrors(['error'=> 'Was unable to create employee please try again']);
     }
 
     /**

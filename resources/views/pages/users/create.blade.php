@@ -8,10 +8,11 @@
                     {{ csrf_field() }}
                     {{ method_field('POST') }}
                     <div class="card-content">
-                        <span class="card-title">Registration employee</span>
+                        <span class="card-title">Register employee</span>
                         <div class="row">
                             <div class="input-field col s12 l6">
                                 @component('components.inputs.text-field')
+                                    {{ old('first_name') }}
                                     @slot('name', 'first_name')
                                     @slot('label', 'First name')
                                     @slot('charLength', '50')
@@ -20,6 +21,7 @@
                             </div>
                             <div class="input-field col s12 l6">
                                 @component('components.inputs.text-field')
+                                    {{ old('last_name') }}
                                     @slot('name', 'last_name')
                                     @slot('label', 'Last name')
                                     @slot('charLength', '50')
@@ -28,6 +30,7 @@
                             </div>
                             <div class="input-field col s12">
                                 @component('components.inputs.text-field')
+                                    {{ old('email') }}
                                     @slot('name', 'email')
                                     @slot('label', 'Email address')
                                     @slot('charLength', '50')
