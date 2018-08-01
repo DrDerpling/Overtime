@@ -2623,6 +2623,22 @@ template {
   display: none;
 }
 
+main {
+  padding-left: 300px;
+}
+
+@media only screen and (min-width: 601px) {
+  main {
+    padding-left: 0;
+  }
+}
+
+@media only screen and (min-width: 993px) {
+  main {
+    padding-left: 300px;
+  }
+}
+
 html {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -3510,7 +3526,7 @@ nav ul a span.badge {
 }
 
 .sidenav span.badge {
-  margin-top: calc(24px - 11px);
+  margin-top: calc(16px - 11px);
 }
 
 table span.badge {
@@ -4517,6 +4533,10 @@ nav {
   width: 100%;
   height: 56px;
   line-height: 56px;
+}
+
+nav.nav-with-sidebar {
+  padding-left: 300px;
 }
 
 nav.nav-extended {
@@ -7918,7 +7938,7 @@ input[type=range]::-ms-thumb {
 
 .sidenav li {
   float: none;
-  line-height: 48px;
+  line-height: 32px;
 }
 
 .sidenav li.active {
@@ -7931,7 +7951,7 @@ input[type=range]::-ms-thumb {
   font-size: 14px;
   font-weight: 500;
   height: 48px;
-  line-height: 48px;
+  line-height: 32px;
   padding: 0 32px;
 }
 
@@ -7977,7 +7997,7 @@ input[type=range]::-ms-thumb {
 .sidenav li > a > i.material-icons {
   float: left;
   height: 48px;
-  line-height: 48px;
+  line-height: 32px;
   margin: 0 32px 0 0;
   width: 24px;
   color: rgba(0, 0, 0, 0.54);
@@ -7993,7 +8013,7 @@ input[type=range]::-ms-thumb {
   color: rgba(0, 0, 0, 0.54);
   font-size: 14px;
   font-weight: 500;
-  line-height: 48px;
+  line-height: 32px;
 }
 
 .sidenav .subheader:hover {
@@ -8027,7 +8047,8 @@ input[type=range]::-ms-thumb {
 
 .sidenav .user-view .circle,
 .sidenav .user-view .name,
-.sidenav .user-view .email {
+.sidenav .user-view .email,
+.sidenav .user-view .company {
   display: block;
 }
 
@@ -8039,11 +8060,14 @@ input[type=range]::-ms-thumb {
 .sidenav .user-view .name,
 .sidenav .user-view .email {
   font-size: 14px;
-  line-height: 24px;
+  line-height: 16px;
 }
 
 .sidenav .user-view .name {
-  margin-top: 16px;
+  font-weight: 400;
+}
+
+.sidenav .user-view .company {
   font-weight: 500;
 }
 

@@ -1,6 +1,10 @@
 nav {
   margin-bottom: 50px;
 
+  &.nav-with-sidebar {
+    padding-left: 300px;
+  }
+
   &.nav-extended {
     height: auto;
 

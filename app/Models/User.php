@@ -33,6 +33,15 @@ class User extends Authenticatable
     ];
 
     /**
+     * Eagerloads specific relations
+     *
+     * @var array
+     */
+    protected $with = [
+        'company'
+    ];
+
+    /**
      * Relationship method with company class
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
@@ -40,5 +49,15 @@ class User extends Authenticatable
     public function company()
     {
         return $this->belongsTo(Company::class);
+    }
+
+    /**
+     * Gets the full name attribute
+     *
+     * @return string
+     */
+    public function getFullNameAttribute()
+    {
+        return $this->attributes['first_name'] . ' ' . $this->attributes['last_name'];
     }
 }

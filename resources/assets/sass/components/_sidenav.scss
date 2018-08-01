@@ -97,6 +97,7 @@
     padding: ($sidenav-padding * 2) ($sidenav-padding * 2) 0;
     margin-bottom: $sidenav-padding / 2;
 
+
     & > a {
       &:hover { background-color: transparent; }
       height: auto;
@@ -113,7 +114,7 @@
       z-index: -1;
     }
 
-    .circle, .name, .email {
+    .circle, .name, .email, .company {
       display: block;
     }
 
@@ -129,7 +130,10 @@
     }
 
     .name {
-      margin-top: 16px;
+      font-weight: 400;
+    }
+
+    .company {
       font-weight: 500;
     }
 

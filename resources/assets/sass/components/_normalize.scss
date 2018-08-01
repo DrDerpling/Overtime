@@ -445,3 +445,18 @@ template {
 [hidden] {
   display: none;
 }
+
+main {
+  padding-left: 300px;
+}
+@media #{$medium-and-up} {
+  main {
+    padding-left: 0;
+  }
+}
+@media #{$large-and-up} {
+  main {
+    padding-left: 300px;
+  }
+}
+

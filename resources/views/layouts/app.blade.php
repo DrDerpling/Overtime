@@ -20,22 +20,24 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
+<body>
+
+<header>
+    @if($user)
+        @include('partials.nav-user', ['user' => $user])
+    @else
+        @include('partials.nav-guest')
+    @endif
+</header>
+<main>
+    <div class="container">
+        @yield('content')
+    </div>
+</main>
 
 
-        <body>
-        <nav>
-            <div class="nav-wrapper">
-                <a href="#" class="brand-logo"><strong>Over</strong>time</a>
-                <ul id="nav-mobile" class="right hide-on-med-and-down">
-                    <li><a href="sass.html">Hour overview</a></li>
-                    <li><a href="badges.html">Use overtime</a></li>
-                </ul>
-            </div>
-        </nav>
 
-        <div class="container">
-                    @yield('content')
-            </div>
-        </body>
+
+</body>
 
 </html>

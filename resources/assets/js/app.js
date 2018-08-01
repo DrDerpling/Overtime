@@ -19,4 +19,8 @@ if (inputs instanceof NodeList) {
     M.CharacterCounter.init(inputs);
 }
 
-
+let sidenav = document.querySelectorAll('.sidenav');
+if (inputs instanceof NodeList) {
+    let options = {'onOpenStart' : true};
+    let instances = M.Sidenav.init(sidenav, options);
+}
