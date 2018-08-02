@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateOvertimesTable extends Migration
+class CreateOffTimesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,10 @@ class CreateOvertimesTable extends Migration
      */
     public function up()
     {
-        Schema::create('overtimes', function (Blueprint $table) {
+        Schema::create('off_times', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('user_id');
-            $table->boolean('off_time')->default(0);
-            $table->boolean('paid_out')->default(0);
-            $table->float('hours');
-            $table->string('description');
+            $table->timestamp('start_date')->nullable(true);
+            $table->timestamp('off_time')->nullable(true);
             $table->timestamps();
         });
     }
@@ -31,6 +28,6 @@ class CreateOvertimesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('overtimes');
+        Schema::dropIfExists('off_times');
     }
 }

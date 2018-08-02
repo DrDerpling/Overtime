@@ -19,11 +19,11 @@ Route::middleware('auth')->group(function () {
     Route::resource('user', 'UserController');
 
     /** Overtime */
-    Route::resource('overtime', 'OvertimeController', ['except' => 'update']);
+    Route::resource('overtime', 'OvertimeController', ['except' => ['update', 'show']]);
     Route::put('overtime', 'OvertimeController@update')->name('overtime.update');
-    route::get('/test', function () {
-        return view('pages.overtime.employee.rangepicker');
-    });
+
+    /** offtime */
+    Route::resource('off_time', 'OffTimeController', ['only' => ['update', 'destroy', 'edit']]);
 
 });
 

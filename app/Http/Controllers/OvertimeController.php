@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\OffTime;
 use App\Models\Overtime;
 use Illuminate\Http\Request;
 
@@ -18,7 +19,7 @@ class OvertimeController extends Controller
             if ($user->isManager()) {
 
             } else {
-                $overtimes = $user->overtimes()->active()->get();
+                $overtimes = $user->overtimes()->orderBy('hours', 'DESC')->active()->get();
                 return view('pages.overtime.employee.index', compact('overtimes'));
             }
         }
@@ -50,17 +51,6 @@ class OvertimeController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  \App\Overtime $overtime
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Overtime $overtime)
-    {
-        //
-    }
-
-    /**
      * Show the form for editing the specified resource.
      *
      * @param  \App\Overtime $overtime
@@ -80,13 +70,22 @@ class OvertimeController extends Controller
      */
     public function update(Request $request)
     {
-
         if ($request->has('payout')) {
-            Overtime::whereIn('id', array_keys($request->input('use')))->update(['paid_out' => 1]);
+            Overtime::whereIn('id', $request->input('use'))->update(['paid_out' => 1]);
             return redirect()->back()->with(['message', 'Overtime successfully updated']);
+        } elseif ($request->has('off_time')) {
+            $array = Overtime::getDaysWithRemainder(['ids' => $request->input('use')]);
+            $days = $array['days'];
+            $minutesLeft = $array['minutesLeft'];
+
+            if ($days < 1) {
+                return redirect()->back()->withErrors(['insouciant_days', 'Not enough time was given for a off time']);
+            }
+
+            $offTime = OffTime::create();
+            $offTime->overtimes()->sync($request->input('use'));
+            return view('pages.overtime.employee.rangepicker', compact('days', 'minutesLeft', 'offTime'));
         }
-
-
     }
 
     /**

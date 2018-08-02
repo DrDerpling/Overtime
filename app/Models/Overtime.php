@@ -10,10 +10,10 @@ class Overtime extends Model
      * @var array
      */
     protected $fillable = [
-        'off_period',
+        'off_time',
         'paid_out',
         'description',
-        'minutes'
+        'hours'
     ];
 
     /**
@@ -21,7 +21,7 @@ class Overtime extends Model
      */
     protected $casts = [
         'off_period' => 'boolean',
-        'paid_out'  => 'boolean',
+        'paid_out' => 'boolean',
     ];
 
     /**
@@ -42,7 +42,7 @@ class Overtime extends Model
      */
     public function scopeActive($query)
     {
-       return $query->where('off_period', 0)->where('paid_out', 0);
+        return $query->where('off_time', 0)->where('paid_out', 0);
     }
 
     /**
@@ -52,6 +52,29 @@ class Overtime extends Model
      */
     public function isUsed()
     {
-        return (bool)$this->attributes['off_period'] || (bool)$this->attributes['paid_out'];
+        return (bool)$this->attributes['off_time'] || (bool)$this->attributes['paid_out'];
+    }
+
+    /**
+     * Gets the days with remaining minutes
+     *
+     * @param $ids
+     * @return array
+     */
+    public static function getDaysWithRemainder($arguments = [])
+    {
+        if (array_has($arguments, 'ids')) {
+            $hours = Overtime::whereIn('id', array_get($arguments, 'ids'))->sum('hours');
+        } elseif (array_has($arguments, 'hours')) {
+            $hours = array_get($arguments, 'hours');
+        } else {
+            return false;
+        }
+
+        $minutes = convert_to_minutes($hours);
+        $minutesLeft = $minutes % (60 * 8);
+        $days = floor($minutes / (60 * 8));
+
+        return compact('minutesLeft', 'days');
     }
 }

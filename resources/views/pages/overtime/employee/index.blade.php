@@ -13,10 +13,11 @@
                         @forelse ($overtimes as $overtime)
                             <div class="row row-striped valign-wrapper">
                                 @if(!$overtime->isUsed())
-                                    <div class="col m1 l1  s1">
+                                    <div class="col m1 l1  s1 ">
                                         @component('components.inputs.checkbox')
+                                            {{ $overtime->id }}
                                             @slot('label', '')
-                                            @slot('name', 'use')
+                                            @slot('name', 'use[]')
                                             @slot('checked', $overtime->isUsed())
                                         @endcomponent
                                     </div>
@@ -26,13 +27,21 @@
                                         {{ $overtime->created_at->format('H:i d-m-Y') }}
                                     </div>
                                     <div class="col l2 m2 s12">
-                                        {{ $overtime->minutes }} Min
+                                        {{ $overtime->hours }} Hours
                                     </div>
                                     <div class="col l7 m5 s12">
                                         {{ $overtime->description }}
                                     </div>
                                 </div>
                             </div>
+                            @if($loop->last)
+                                <div class="row row-striped valign-wrapper">
+                                    <div class="col offset-l3 l9 offset-m5 m7 s12">
+                                        Total: {{ floor($overtimes->sum('hours')) }} Hours <br>
+                                        Total: {{ floor($overtimes->sum('hours') / 8) }} Days
+                                    </div>
+                                </div>
+                            @endif
                         @empty
                             <p>No overtime was found</p>
                         @endforelse
@@ -69,9 +78,9 @@
             <div class="input-field col l2 m4 s12">
                 @component('components.inputs.text-field')
                     {{ old('first_name') }}
-                    @slot('name', 'minutes')
-                    @slot('label', 'Minutes')
-                    @slot('charLength', '3')
+                    @slot('name', 'hours')
+                    @slot('label', 'hours')
+                    @slot('charLength', '4')
                     @slot('error', $errors->first('first_name'))
                 @endcomponent
             </div>

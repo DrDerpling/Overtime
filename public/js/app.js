@@ -68,7 +68,7 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(1);
-module.exports = __webpack_require__(4);
+module.exports = __webpack_require__(5);
 
 
 /***/ }),
@@ -82,7 +82,8 @@ module.exports = __webpack_require__(4);
  */
 
 __webpack_require__(2);
-var flatpickr = __webpack_require__(9);
+var flatpickr = __webpack_require__(4);
+var rangePlugin = __webpack_require__(10);
 
 //Modal setup
 var modals = document.querySelectorAll('.modal');
@@ -103,29 +104,72 @@ if (inputs instanceof NodeList) {
     var _instances = M.Sidenav.init(sidenav, _options2);
 }
 
-var myInput = document.querySelector(".start_datepicker");
-if (myInput instanceof HTMLElement) {
-    var fp = flatpickr(myInput, {
-        mode: 'range',
+var startDateInput = document.querySelector(".start_datepicker");
+
+var daysLeft = document.querySelector("#daysLeft");
+if (startDateInput instanceof HTMLElement) {
+    var max = parseInt(startDateInput.dataset.maxdays);
+    var mode = startDateInput.dataset.maxdays < 2 ? 'single' : 'range';
+    console.log(max);
+    var fp = flatpickr(startDateInput, {
         onChange: function onChange(selectedDates, dateStr, instance) {
-            var maxDays = instance.config.max;
+            var maxDays = 0;
+            if (instance.config.mode.match('single')) {
+                maxDays = instance.config.max;
+            } else {
+                maxDays = instance.config.max - 1;
+            }
+
             var firstDate = new Date(dateStr);
-            var endDate = new Date(dateStr).fp_incr(maxDays);
+            var endDate = new Date(firstDate);
+            endDate.setDate(firstDate.getDate() + maxDays);
+            console.log(maxDays);
+            console.log(endDate);
+            var count = 0;
+            //Calculate how many weekend happen
             while (firstDate <= endDate) {
                 var dayOfWeek = firstDate.getDay();
                 if (dayOfWeek === 6 || dayOfWeek === 0) {
-                    maxDays++;
+                    count++;
+                    endDate.setDate(endDate.getDate() + 1);
                 }
 
                 firstDate.setDate(firstDate.getDate() + 1);
             }
+            console.log(count);
 
-            endDate = new Date(dateStr).fp_incr(maxDays + 1);
-
+            instance.set('weekendDays', count);
+            instance.set('endDate', endDate);
             instance.set('maxDate', endDate);
         },
-        max: myInput.dataset.maxdays,
-        minDate: 'today'
+        onClose: function onClose(selectedDates, dateStr, instance) {
+            var endDate = instance.config.endDate;
+            var weekendDays = instance.config.weekendDays;
+            if (selectedDates[0] < endDate) {
+                // The number of milliseconds in one day
+                var one_day = 1000 * 60 * 60 * 24;
+
+                // Convert both dates to milliseconds
+                var date1_ms = selectedDates[0].getTime();
+                var date2_ms = endDate.getTime();
+
+                // Calculate the difference in milliseconds
+                var difference_ms = Math.abs(date1_ms - date2_ms);
+
+                // Convert back to days
+                var _daysLeft = Math.round(difference_ms / one_day - weekendDays - 1);
+
+                //Sets days left in display
+                instance.config.dayLeftDisplay.innerText = "" + _daysLeft;
+            } else if (instance.config.mode.match('single')) {
+                instance.config.dayLeftDisplay.innerText = "" + 0;
+            }
+        },
+        max: max,
+        mode: mode,
+        minDate: 'today',
+        dayLeftDisplay: daysLeft,
+        plugins: [new rangePlugin({ input: ".end_datepicker" })]
     });
 }
 
@@ -12527,16 +12571,6 @@ module.exports = g;
 
 /***/ }),
 /* 4 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 5 */,
-/* 6 */,
-/* 7 */,
-/* 8 */,
-/* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* flatpickr v4.5.1, @license MIT */
@@ -14693,6 +14727,169 @@ module.exports = g;
     }
 
     return flatpickr;
+
+})));
+
+
+/***/ }),
+/* 5 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 6 */,
+/* 7 */,
+/* 8 */,
+/* 9 */,
+/* 10 */
+/***/ (function(module, exports, __webpack_require__) {
+
+/* flatpickr v4.5.1, @license MIT */
+(function (global, factory) {
+     true ? module.exports = factory() :
+    typeof define === 'function' && define.amd ? define(factory) :
+    (global.rangePlugin = factory());
+}(this, (function () { 'use strict';
+
+    function rangePlugin(config) {
+      if (config === void 0) {
+        config = {};
+      }
+
+      return function (fp) {
+        var dateFormat = "",
+            secondInput,
+            _secondInputFocused,
+            _prevDates;
+
+        var createSecondInput = function createSecondInput() {
+          if (config.input) {
+            secondInput = config.input instanceof Element ? config.input : window.document.querySelector(config.input);
+          } else {
+            secondInput = fp._input.cloneNode();
+            secondInput.removeAttribute("id");
+            secondInput._flatpickr = undefined;
+          }
+
+          if (secondInput.value) {
+            var parsedDate = fp.parseDate(secondInput.value);
+            if (parsedDate) fp.selectedDates.push(parsedDate);
+          }
+
+          secondInput.setAttribute("data-fp-omit", "");
+
+          fp._bind(secondInput, ["focus", "click"], function () {
+            if (fp.selectedDates[1]) {
+              fp.latestSelectedDateObj = fp.selectedDates[1];
+
+              fp._setHoursFromDate(fp.selectedDates[1]);
+
+              fp.jumpToDate(fp.selectedDates[1]);
+            }
+            _secondInputFocused = true;
+            fp.isOpen = false;
+            fp.open(undefined, secondInput);
+          });
+
+          fp._bind(fp._input, ["focus", "click"], function (e) {
+            e.preventDefault();
+            fp.isOpen = false;
+            fp.open();
+          });
+
+          if (fp.config.allowInput) fp._bind(secondInput, "keydown", function (e) {
+            if (e.key === "Enter") {
+              fp.setDate([fp.selectedDates[0], secondInput.value], true, dateFormat);
+              secondInput.click();
+            }
+          });
+          if (!config.input) fp._input.parentNode && fp._input.parentNode.insertBefore(secondInput, fp._input.nextSibling);
+        };
+
+        var plugin = {
+          onParseConfig: function onParseConfig() {
+            fp.config.mode = "range";
+            dateFormat = fp.config.altInput ? fp.config.altFormat : fp.config.dateFormat;
+          },
+          onReady: function onReady() {
+            createSecondInput();
+            fp.config.ignoredFocusElements.push(secondInput);
+
+            if (fp.config.allowInput) {
+              fp._input.removeAttribute("readonly");
+
+              secondInput.removeAttribute("readonly");
+            } else {
+              secondInput.setAttribute("readonly", "readonly");
+            }
+
+            fp._bind(fp._input, "focus", function () {
+              fp.latestSelectedDateObj = fp.selectedDates[0];
+
+              fp._setHoursFromDate(fp.selectedDates[0]);
+              _secondInputFocused = false;
+              fp.jumpToDate(fp.selectedDates[0]);
+            });
+
+            if (fp.config.allowInput) fp._bind(fp._input, "keydown", function (e) {
+              if (e.key === "Enter") fp.setDate([fp._input.value, fp.selectedDates[1]], true, dateFormat);
+            });
+            fp.setDate(fp.selectedDates, false);
+            plugin.onValueUpdate(fp.selectedDates);
+          },
+          onPreCalendarPosition: function onPreCalendarPosition() {
+            if (_secondInputFocused) {
+              fp._positionElement = secondInput;
+              setTimeout(function () {
+                fp._positionElement = fp._input;
+              }, 0);
+            }
+          },
+          onChange: function onChange() {
+            if (!fp.selectedDates.length) {
+              setTimeout(function () {
+                if (fp.selectedDates.length) return;
+                secondInput.value = "";
+                _prevDates = [];
+              }, 10);
+            }
+
+            if (_secondInputFocused) {
+              setTimeout(function () {
+                secondInput.focus();
+              }, 0);
+            }
+          },
+          onDestroy: function onDestroy() {
+            if (!config.input) secondInput.parentNode && secondInput.parentNode.removeChild(secondInput);
+          },
+          onValueUpdate: function onValueUpdate(selDates) {
+            if (!secondInput) return;
+            _prevDates = !_prevDates || selDates.length >= _prevDates.length ? selDates.concat() : _prevDates;
+
+            if (_prevDates.length > selDates.length) {
+              var newSelectedDate = selDates[0];
+              var newDates = _secondInputFocused ? [_prevDates[0], newSelectedDate] : [newSelectedDate, _prevDates[1]];
+              fp.setDate(newDates, false);
+              _prevDates = newDates.concat();
+            }
+
+            var _fp$selectedDates$map = fp.selectedDates.map(function (d) {
+              return fp.formatDate(d, dateFormat);
+            });
+
+            var _fp$selectedDates$map2 = _fp$selectedDates$map[0];
+            fp._input.value = _fp$selectedDates$map2 === void 0 ? "" : _fp$selectedDates$map2;
+            var _fp$selectedDates$map3 = _fp$selectedDates$map[1];
+            secondInput.value = _fp$selectedDates$map3 === void 0 ? "" : _fp$selectedDates$map3;
+          }
+        };
+        return plugin;
+      };
+    }
+
+    return rangePlugin;
 
 })));
 

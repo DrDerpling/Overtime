@@ -25,4 +25,12 @@
         <li><a href="{{ route('user.create') }}">Register employee</a></li>
     @endif
     <li><a href="{{ route('overtime.index') }}">Overtime</a></li>
+
+
+    <form action="{{ route('logout') }}" method="post">
+        {{ csrf_field() }}
+        {{ method_field('POST') }}
+        <li><button type="submit">Logout</button></li>
+
+    </form>
 </ul>

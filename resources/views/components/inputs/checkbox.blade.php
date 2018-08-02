@@ -2,8 +2,8 @@
     <input type="checkbox"
            class="filled-in"
            id="{{ $name }}"
-           @if($checked) checked="checked" @endif
-           value="1"
+           @if(isset($checked) && $checked) checked="checked" @endif
+           value="{{ isset($slot) ? $slot : 1 }}"
            name="{{ $name }}"
     />
     <span>{{ $label }}</span>
