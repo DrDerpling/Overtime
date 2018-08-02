@@ -11,24 +11,26 @@
                     <div class="card-content">
                         <span class="card-title">Overtime overview</span>
                         @forelse ($overtimes as $overtime)
-                            <div class="row row-striped">
+                            <div class="row row-striped valign-wrapper">
                                 @if(!$overtime->isUsed())
-                                    <div class="col m1 l1  s12">
+                                    <div class="col m1 l1  s1">
                                         @component('components.inputs.checkbox')
                                             @slot('label', '')
-                                            @slot('name', 'use['.$overtime->id.']')
+                                            @slot('name', 'use')
                                             @slot('checked', $overtime->isUsed())
                                         @endcomponent
                                     </div>
                                 @endif
-                                <div class="col l2 m4 s12">
-                                    {{ $overtime->created_at->format('H:i d-m-Y') }}
-                                </div>
-                                <div class="col l2 m2 s12">
-                                    {{ $overtime->minutes }} Min
-                                </div>
-                                <div class="col l7 m5 s12">
-                                    {{ $overtime->description }}
+                                <div for class="col l11 m11 s11">
+                                    <div class="col l2 m4 s12">
+                                        {{ $overtime->created_at->format('H:i d-m-Y') }}
+                                    </div>
+                                    <div class="col l2 m2 s12">
+                                        {{ $overtime->minutes }} Min
+                                    </div>
+                                    <div class="col l7 m5 s12">
+                                        {{ $overtime->description }}
+                                    </div>
                                 </div>
                             </div>
                         @empty
@@ -36,8 +38,12 @@
                         @endforelse
                     </div>
                     <div class="card-action">
-                        <button class="waves-effect waves-light btn" value="1" name="off_time" type="submit">Use selected for off time</button>
-                        <button class="waves-effect waves-light btn"  value="1" name="payout" type="submit">Payout selected</button>
+                        <button class="waves-effect waves-light btn" value="1" name="off_time" type="submit">Use
+                            selected for off time
+                        </button>
+                        <button class="waves-effect waves-light btn" value="1" name="payout" type="submit">Payout
+                            selected
+                        </button>
                     </div>
                 </form>
             </div>
