@@ -83,6 +83,10 @@ class OffTimeController extends Controller
             return redirect()->back()->withErrors(['errors' => 'Please use all days']);
         }
 
+        if ($minutesLeft) {
+
+        }
+
         $offTime->update([
            'start_date' => $start_date,
            'end_date' => $end_date

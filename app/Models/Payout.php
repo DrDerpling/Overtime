@@ -6,5 +6,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class Payout extends Model
 {
-    //
+
+
+    /**
+     * Morph relationship with Overtime class
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\MorphToMany
+     */
+    public function overtimes()
+    {
+        return $this->morphToMany(Overtime::class, 'overtimable');
+    }
 }
