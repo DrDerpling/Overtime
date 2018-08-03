@@ -35,3 +35,35 @@ if (!function_exists('calc_minutes')) {
         return false;
     }
 }
+
+if (!function_exists('getDays')) {
+
+    /**
+     * Gets total days from overtime
+     *
+     * @param Float $hours
+     * @return float
+     */
+    function getDays(Float $hours)
+    {
+        $minutes = convert_to_minutes($hours);
+
+        return floor($minutes / (60 * 8));
+    }
+}
+
+if (!function_exists('getRemainingMinutes')) {
+
+    /**
+     * This function gets the remaining minutes of a work day
+     *
+     * @param Float $hours
+     * @return int
+     */
+    function getRemainingMinutes(Float $hours)
+    {
+        $minutes = convert_to_minutes($hours);
+
+        return $minutes % (60 * 8);
+    }
+}

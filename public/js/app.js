@@ -68,7 +68,7 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(1);
-module.exports = __webpack_require__(5);
+module.exports = __webpack_require__(6);
 
 
 /***/ }),
@@ -83,7 +83,7 @@ module.exports = __webpack_require__(5);
 
 __webpack_require__(2);
 var flatpickr = __webpack_require__(4);
-var rangePlugin = __webpack_require__(10);
+var rangePlugin = __webpack_require__(5);
 
 //Modal setup
 var modals = document.querySelectorAll('.modal');
@@ -14733,16 +14733,6 @@ module.exports = g;
 
 /***/ }),
 /* 5 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 6 */,
-/* 7 */,
-/* 8 */,
-/* 9 */,
-/* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* flatpickr v4.5.1, @license MIT */
@@ -14893,6 +14883,12 @@ module.exports = g;
 
 })));
 
+
+/***/ }),
+/* 6 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
 
 /***/ })
 /******/ ]);

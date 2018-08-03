@@ -66,6 +66,26 @@ class User extends Authenticatable
     }
 
     /**
+     * Relationship method with offTime class
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function offTimes()
+    {
+        return $this->hasMany(OffTime::class);
+    }
+
+    /**
+     * Relationship method with Payout class
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function payouts()
+    {
+        return $this->hasMany(Payout::class);
+    }
+
+    /**
      * Gets the full name attribute
      *
      * @return string

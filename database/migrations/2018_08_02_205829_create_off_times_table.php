@@ -15,8 +15,9 @@ class CreateOffTimesTable extends Migration
     {
         Schema::create('off_times', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('user_id');
             $table->timestamp('start_date')->nullable(true);
-            $table->timestamp('off_time')->nullable(true);
+            $table->timestamp('end_date')->nullable(true);
             $table->timestamps();
         });
     }

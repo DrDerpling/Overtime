@@ -25,13 +25,13 @@
 <body>
 
 <header>
-    @if($user)
+    @if(auth()->user()->isManager())
         @include('partials.nav-user', ['user' => $user])
     @else
         @include('partials.nav-guest')
     @endif
 </header>
-<main class="{{ $user ? 'main-with-sidebar' : '' }}">
+<main class="{{ auth()->user()->isManager() ? 'main-with-sidebar' : '' }}">
     <div class="container">
         @yield('content')
     </div>

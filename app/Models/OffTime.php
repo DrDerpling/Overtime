@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
 class OffTime extends Model
@@ -30,5 +31,28 @@ class OffTime extends Model
     public function overtimes()
     {
         return $this->morphToMany(Overtime::class, 'overtimable');
+    }
+
+    /**
+     * Relationship method with User Class
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+
+    /**
+     * Scope to check if a off times hasn't been used
+     *
+     * @param $query
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public function scopeNotExpired($query)
+    {
+        return $query->whereDate('start_date', '>', Carbon::now())
+            ->whereDate('end_date', '>', Carbon::now())->orWhereNull('start_date');
     }
 }

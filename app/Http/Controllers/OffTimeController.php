@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\OffTime;
+use App\Models\Payout;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Models\Overtime;
@@ -16,34 +17,15 @@ class OffTimeController extends Controller
      */
     public function index()
     {
-        //
-    }
+        $offTimes = auth()->user()->offTimes()->notExpired()->get();
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
+        return view('pages.offtime.index', compact('offTimes'));
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\OffTime  $offTime
+     * @param  \App\OffTime $offTime
      * @return \Illuminate\Http\Response
      */
     public function show(OffTime $offTime)
@@ -54,49 +36,72 @@ class OffTimeController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\OffTime  $offTime
+     * @param  \App\OffTime $offTime
      * @return \Illuminate\Http\Response
      */
     public function edit(OffTime $offTime)
     {
-        //
+        $hours = $offTime->overtimes->sum('hours');
+        $days = getDays($hours);
+        $minutesLeft = getRemainingMinutes($hours);
+
+        if ($days < 1) {
+            return redirect()->back()->withErrors(['insouciant_days', 'Not enough time was given for a off time']);
+        }
+
+        return view('pages.offtime.edit', compact('days', 'minutesLeft', 'offTime'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\OffTime  $offTime
+     * @param  \Illuminate\Http\Request $request
+     * @param  \App\OffTime $offTime
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, OffTime $offTime)
     {
         $start_date = Carbon::createFromFormat('Y-m-d', $request->input('start_date'));
         $end_date = Carbon::createFromFormat('Y-m-d', $request->input('end_date'));
-        $diff = $end_date->diffInDays($start_date) + 1;
 
-        $array = Overtime::getDaysWithRemainder(['hours' => $offTime->overtimes->sum('hours')]);
-        $days = $array['days'];
-        $minutesLeft = $array['minutesLeft'];
+        $diff = $start_date->diffInDaysFiltered(function (Carbon $date) {
+                return !$date->isWeekend();
+            }, $end_date) + 1;
 
-        if ($diff !== $days) {
+        $overtimes = $offTime->overtimes;
+
+        $hours = $overtimes->sum('hours');
+        $days = getDays($hours);
+        $minutesLeft = getRemainingMinutes($hours);
+
+        if ($diff !== (int)$days) {
             return redirect()->back()->withErrors(['errors' => 'Please use all days']);
         }
 
-        if ($minutesLeft) {
-
+        if ($minutesLeft !== 0) {
+            //Check if a payout exist
+            $payout = Payout::whereHas('overtimes', function ($query) use ($overtimes) {
+                $query->whereIn('id', $overtimes->pluck('id'));
+            })->first();
+            if ($payout) {
+                $payout->update(['minutes' => $minutesLeft]);
+            } else {
+                $payout = $offTime->user->payouts()->create(['minutes' => $minutesLeft]);
+                $payout->overtimes()->sync($offTime->overtimes);
+            }
         }
-
         $offTime->update([
-           'start_date' => $start_date,
-           'end_date' => $end_date
+            'start_date' => $start_date,
+            'end_date' => $end_date
         ]);
+
+        return redirect()->route('off_time.index');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\OffTime  $offTime
+     * @param  \App\OffTime $offTime
      * @return \Illuminate\Http\Response
      */
     public function destroy(OffTime $offTime)

@@ -19,7 +19,11 @@ class OvertimeController extends Controller
             if ($user->isManager()) {
 
             } else {
-                $overtimes = $user->overtimes()->orderBy('hours', 'DESC')->active()->get();
+                $overtimes = $user->overtimes()
+                    ->orderBy('hours', 'DESC')
+                    ->unused()
+                    ->get();
+
                 return view('pages.overtime.employee.index', compact('overtimes'));
             }
         }
@@ -74,17 +78,9 @@ class OvertimeController extends Controller
             Overtime::whereIn('id', $request->input('use'))->update(['paid_out' => 1]);
             return redirect()->back()->with(['message', 'Overtime successfully updated']);
         } elseif ($request->has('off_time')) {
-            $array = Overtime::getDaysWithRemainder(['ids' => $request->input('use')]);
-            $days = $array['days'];
-            $minutesLeft = $array['minutesLeft'];
-
-            if ($days < 1) {
-                return redirect()->back()->withErrors(['insouciant_days', 'Not enough time was given for a off time']);
-            }
-
-            $offTime = OffTime::create();
+            $offTime = auth()->user()->offTimes()->create();
             $offTime->overtimes()->sync($request->input('use'));
-            return view('pages.overtime.employee.rangepicker', compact('days', 'minutesLeft', 'offTime'));
+            return redirect()->route('off_time.edit', $offTime);
         }
     }
 

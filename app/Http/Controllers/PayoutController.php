@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Payout;
+use App\Models\Payout;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class PayoutController extends Controller
@@ -14,72 +15,8 @@ class PayoutController extends Controller
      */
     public function index()
     {
-        //
-    }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Payout  $payout
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Payout $payout)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Payout  $payout
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Payout $payout)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Payout  $payout
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Payout $payout)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Payout  $payout
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Payout $payout)
-    {
-        //
+        return view('pages.payout.index', compact('hours'));
     }
 }

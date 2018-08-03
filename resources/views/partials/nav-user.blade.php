@@ -25,6 +25,7 @@
         <li><a href="{{ route('user.create') }}">Register employee</a></li>
     @endif
     <li><a href="{{ route('overtime.index') }}">Overtime</a></li>
+    <li><a href="{{ route('off_time.index') }}">Off time</a></li>
 
 
     <form action="{{ route('logout') }}" method="post">

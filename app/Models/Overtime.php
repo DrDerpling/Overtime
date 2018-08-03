@@ -35,14 +35,48 @@ class Overtime extends Model
     }
 
     /**
+     * Morph relationship with OffTime
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\MorphToMany
+     */
+    public function offTimes()
+    {
+        return $this->morphedByMany(OffTime::class, 'overtimable');
+    }
+
+    /**
+     * Morph relationship with Payout
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\MorphToMany
+     */
+    public function payouts()
+    {
+        return $this->morphedByMany(Payout::class, 'overtimable');
+    }
+
+    /**
      * Scope for all active overtime
      *
      * @param $query
-     * @return mixed
+     * @return \Illuminate\Database\Eloquent\Builder
      */
-    public function scopeActive($query)
+    public function scopeUnused($query)
     {
-        return $query->where('off_time', 0)->where('paid_out', 0);
+        return $query->doesntHave('payouts')->doesntHave('offTimes');
+    }
+
+    /**
+     * Scope that detaches all morphs
+     *
+     * @param $query
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public function scopeDetachAllMorphs($query)
+    {
+         $query->offTimes()->detach();
+         $query->payouts()->detach();
+
+         return $query;
     }
 
     /**
@@ -52,29 +86,6 @@ class Overtime extends Model
      */
     public function isUsed()
     {
-        return (bool)$this->attributes['off_time'] || (bool)$this->attributes['paid_out'];
-    }
-
-    /**
-     * Gets the days with remaining minutes
-     *
-     * @param $ids
-     * @return array
-     */
-    public static function getDaysWithRemainder($arguments = [])
-    {
-        if (array_has($arguments, 'ids')) {
-            $hours = Overtime::whereIn('id', array_get($arguments, 'ids'))->sum('hours');
-        } elseif (array_has($arguments, 'hours')) {
-            $hours = array_get($arguments, 'hours');
-        } else {
-            return false;
-        }
-
-        $minutes = convert_to_minutes($hours);
-        $minutesLeft = $minutes % (60 * 8);
-        $days = floor($minutes / (60 * 8));
-
-        return compact('minutesLeft', 'days');
+        return !$this->has('payouts')->has('offTimes');
     }
 }
