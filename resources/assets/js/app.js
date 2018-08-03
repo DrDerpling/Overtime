@@ -27,47 +27,42 @@ if (inputs instanceof NodeList) {
     let instances = M.Sidenav.init(sidenav, options);
 }
 
-const startDateInput = document.querySelector(".start_datepicker");
 
-const daysLeft = document.querySelector("#daysLeft")
-if (startDateInput instanceof HTMLElement) {
-    const max = parseInt(startDateInput.dataset.maxdays)
-    const mode =  (startDateInput.dataset.maxdays < 2) ? 'single' : 'range'
-    console.log(max)
+const rangepicker = (vacadtionDays) => {
+    const max = parseInt(startDateInput.dataset.maxdays) + vacadtionDays
+    const mode = (startDateInput.dataset.maxdays < 2) ? 'single' : 'range'
+
     const fp = flatpickr(startDateInput, {
-        onChange: function(selectedDates, dateStr, instance) {
+        onChange: function (selectedDates, dateStr, instance) {
             let maxDays = 0;
             if (instance.config.mode.match('single')) {
                 maxDays = instance.config.max
             } else {
                 maxDays = instance.config.max - 1
+                instance.set('plugins', [new rangePlugin({input: ".end_datepicker"})])
             }
 
             let firstDate = new Date(dateStr);
             let endDate = new Date(firstDate)
             endDate.setDate(firstDate.getDate() + maxDays)
-            console.log(maxDays)
-            console.log(endDate)
             let count = 0;
             //Calculate how many weekend happen
             while (firstDate <= endDate) {
                 let dayOfWeek = firstDate.getDay();
-                if(dayOfWeek === 6 || dayOfWeek === 0)
-                {
+                if (dayOfWeek === 6 || dayOfWeek === 0) {
                     count++
                     endDate.setDate(endDate.getDate() + 1)
                 }
 
                 firstDate.setDate(firstDate.getDate() + 1);
             }
-            console.log(count)
 
             instance.set('weekendDays', count)
             instance.set('endDate', endDate)
             instance.set('maxDate', endDate)
 
         },
-        onClose: function(selectedDates, dateStr, instance) {
+        onClose: function (selectedDates, dateStr, instance) {
             const endDate = instance.config.endDate
             const weekendDays = instance.config.weekendDays
             if (selectedDates[0] < endDate) {
@@ -92,9 +87,29 @@ if (startDateInput instanceof HTMLElement) {
         },
         max: max,
         mode: mode,
-        minDate: 'today',
+        minDate: 'tomorrow',
         dayLeftDisplay: daysLeft,
-        plugins: [new rangePlugin({ input: ".end_datepicker"})]
     });
 }
+
+const startDateInput = document.querySelector(".start_datepicker");
+const daysLeft = document.querySelector("#daysLeft")
+
+if (startDateInput instanceof HTMLElement) {
+    rangepicker(0)
+}
+
+const vacationDays = document.querySelector('#vacation_days');
+if (vacationDays instanceof HTMLElement) {
+    console.log('test')
+    vacationDays.addEventListener('change', (event) => {
+            if (event.target.checked) {
+                rangepicker(parseInt(event.target.value))
+            } else {
+                console.log('not legit')
+            }
+        }
+    )
+}
+
 

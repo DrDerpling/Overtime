@@ -5,35 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2f84bf9d-4a0d-499f-98f3-1d9d3ed0ed18" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/DashboardController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/pages/dashboard/index.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/pages/offtime/edit.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/pages/offtime/index.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/pages/payout/index.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/OffTimeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/OffTimeController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/OvertimeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/OvertimeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PayoutController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/PayoutController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/OffTime.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/OffTime.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Overtime.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Overtime.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Payout.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Payout.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Support/Helpers.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Support/Helpers.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/factories/OvertimeFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/OvertimeFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2018_07_31_201730_create_companies_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2018_07_31_201730_create_companies_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2018_08_01_124205_create_overtimes_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2018_08_01_124205_create_overtimes_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2018_08_02_205829_create_off_times_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2018_08_02_205829_create_off_times_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2018_08_02_205841_create_payouts_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2018_08_02_205841_create_payouts_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/CompanySeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/CompanySeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/assets/sass/components/_sidenav.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/sass/components/_sidenav.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/components/inputs/checkbox.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/inputs/checkbox.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/pages/overtime/employee/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/overtime/employee/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/pages/overtime/employee/rangepicker.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/partials/nav-user.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/nav-user.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/assets/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/pages/offtime/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/offtime/edit.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -64,8 +43,8 @@
       <file leaf-file-name="OffTimeController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/OffTimeController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="343">
-              <caret line="19" column="8" selection-start-line="19" selection-start-column="8" selection-end-line="19" selection-end-column="68" />
+            <state relative-caret-position="288">
+              <caret line="41" column="97" selection-start-line="41" selection-start-column="97" selection-end-line="41" selection-end-column="97" />
               <folding>
                 <element signature="e#40#63#0#PHP" expanded="true" />
               </folding>
@@ -73,11 +52,23 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.blade.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/pages/dashboard/index.blade.php">
+      <file leaf-file-name="OvertimeController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/OvertimeController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="8" column="33" selection-start-line="8" selection-start-column="33" selection-end-line="8" selection-end-column="33" />
+            <state relative-caret-position="374">
+              <caret line="85" column="9" lean-forward="true" selection-start-line="85" selection-start-column="9" selection-end-line="85" selection-end-column="9" />
+              <folding>
+                <element signature="e#40#63#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="2014_10_12_000000_create_users_table.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="332">
+              <caret line="22" column="33" lean-forward="true" selection-start-line="22" selection-start-column="33" selection-end-line="22" selection-end-column="33" />
             </state>
           </provider>
         </entry>
@@ -85,8 +76,8 @@
       <file leaf-file-name="index.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/pages/offtime/index.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="216">
-              <caret line="8" column="16" selection-start-line="8" selection-start-column="16" selection-end-line="8" selection-end-column="16" />
+            <state relative-caret-position="189">
+              <caret line="7" column="32" selection-start-line="7" selection-start-column="32" selection-end-line="7" selection-end-column="32" />
             </state>
           </provider>
         </entry>
@@ -94,8 +85,8 @@
       <file leaf-file-name="index.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/pages/overtime/employee/index.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1326">
-              <caret line="51" column="6" selection-start-line="51" selection-start-column="6" selection-end-line="51" selection-end-column="6" />
+            <state relative-caret-position="312">
+              <caret line="12" column="50" selection-start-line="12" selection-start-column="50" selection-end-line="12" selection-end-column="50" />
             </state>
           </provider>
         </entry>
@@ -103,7 +94,7 @@
       <file leaf-file-name="index.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/pages/payout/index.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
+            <state relative-caret-position="102">
               <caret line="6" selection-start-line="6" selection-end-line="6" />
             </state>
           </provider>
@@ -112,47 +103,39 @@
       <file leaf-file-name="edit.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/pages/offtime/edit.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret selection-end-line="5" selection-end-column="30" />
+            <state relative-caret-position="-212">
+              <caret line="30" column="82" selection-start-line="30" selection-start-column="82" selection-end-line="30" selection-end-column="82" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="app.blade.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/layouts/app.blade.php">
+      <file leaf-file-name="app.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/resources/assets/js/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="503">
-              <caret line="33" column="41" selection-start-line="33" selection-start-column="41" selection-end-line="33" selection-end-column="41" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UserFactory.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/database/factories/UserFactory.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="18" column="33" selection-start-line="18" selection-start-column="33" selection-end-line="18" selection-end-column="33" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="User.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Models/User.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="24">
-              <caret line="82" column="29" selection-start-line="82" selection-start-column="29" selection-end-line="82" selection-end-column="29" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DashboardController.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/DashboardController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="510">
-              <caret line="17" selection-start-line="17" selection-end-line="17" />
+            <state relative-caret-position="226">
+              <caret line="105" column="36" selection-start-line="105" selection-start-column="36" selection-end-line="105" selection-end-column="36" />
               <folding>
-                <element signature="e#40#62#0#PHP" expanded="true" />
+                <element signature="e#939#3858#0" />
+                <element signature="e#1152#3482#0" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="checkbox.blade.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/components/inputs/checkbox.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="65">
+              <caret line="4" column="7" selection-start-line="4" selection-start-column="7" selection-end-line="4" selection-end-column="7" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.blade.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/pages/dashboard/index.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="85">
+              <caret line="8" column="33" selection-start-line="8" selection-start-column="33" selection-end-line="8" selection-end-column="33" />
             </state>
           </provider>
         </entry>
@@ -196,7 +179,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/resources/assets/sass/components/_navbar.scss" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" />
         <option value="$PROJECT_DIR$/resources/views/auth/register.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" />
@@ -219,11 +201,9 @@
         <option value="$PROJECT_DIR$/composer.json" />
         <option value="$PROJECT_DIR$/database/factories/UserFactory.php" />
         <option value="$PROJECT_DIR$/database/migrations/2018_08_02_195154_many_to_many_morph.php" />
-        <option value="$PROJECT_DIR$/resources/assets/js/app.js" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/resources/views/components/inputs/checkbox.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/pages/overtime/employee/rangepicker.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/pages/offtime/edit.blade.php" />
         <option value="$PROJECT_DIR$/database/migrations/2018_08_01_124205_create_overtimes_table.php" />
         <option value="$PROJECT_DIR$/database/factories/OvertimeFactory.php" />
         <option value="$PROJECT_DIR$/database/migrations/2018_08_02_205841_create_payouts_table.php" />
@@ -235,18 +215,21 @@
         <option value="$PROJECT_DIR$/database/seeds/CompanySeeder.php" />
         <option value="$PROJECT_DIR$/database/migrations/2018_07_31_201730_create_companies_table.php" />
         <option value="$PROJECT_DIR$/app/Support/Helpers.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/OvertimeController.php" />
         <option value="$PROJECT_DIR$/app/Models/Overtime.php" />
         <option value="$PROJECT_DIR$/resources/views/pages/payout/index.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/PayoutController.php" />
         <option value="$PROJECT_DIR$/routes/web.php" />
         <option value="$PROJECT_DIR$/app/Models/Payout.php" />
         <option value="$PROJECT_DIR$/resources/views/layouts/app.blade.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/OffTimeController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/DashboardController.php" />
         <option value="$PROJECT_DIR$/resources/views/pages/overtime/employee/index.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/pages/dashboard/index.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/pages/offtime/index.blade.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/OvertimeController.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/OffTimeController.php" />
+        <option value="$PROJECT_DIR$/resources/views/pages/offtime/edit.blade.php" />
+        <option value="$PROJECT_DIR$/resources/assets/js/app.js" />
       </list>
     </option>
   </component>
@@ -362,126 +345,20 @@
             <path>
               <item name="overtime" type="b2602c69:ProjectViewProjectNode" />
               <item name="overtime" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="app" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="overtime" type="b2602c69:ProjectViewProjectNode" />
-              <item name="overtime" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="app" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Http" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="overtime" type="b2602c69:ProjectViewProjectNode" />
-              <item name="overtime" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="app" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Http" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Controllers" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="overtime" type="b2602c69:ProjectViewProjectNode" />
-              <item name="overtime" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="app" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Models" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="overtime" type="b2602c69:ProjectViewProjectNode" />
-              <item name="overtime" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="app" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Support" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="overtime" type="b2602c69:ProjectViewProjectNode" />
-              <item name="overtime" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="database" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="overtime" type="b2602c69:ProjectViewProjectNode" />
-              <item name="overtime" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="database" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="factories" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="overtime" type="b2602c69:ProjectViewProjectNode" />
-              <item name="overtime" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="database" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="migrations" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="overtime" type="b2602c69:ProjectViewProjectNode" />
-              <item name="overtime" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="database" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="seeds" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="overtime" type="b2602c69:ProjectViewProjectNode" />
-              <item name="overtime" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="resources" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
               <item name="overtime" type="b2602c69:ProjectViewProjectNode" />
               <item name="overtime" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="resources" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="views" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="assets" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
               <item name="overtime" type="b2602c69:ProjectViewProjectNode" />
               <item name="overtime" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="resources" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="views" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="layouts" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="overtime" type="b2602c69:ProjectViewProjectNode" />
-              <item name="overtime" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="resources" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="views" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="pages" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="overtime" type="b2602c69:ProjectViewProjectNode" />
-              <item name="overtime" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="resources" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="views" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="pages" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="dashboard" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="overtime" type="b2602c69:ProjectViewProjectNode" />
-              <item name="overtime" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="resources" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="views" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="pages" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="offtime" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="overtime" type="b2602c69:ProjectViewProjectNode" />
-              <item name="overtime" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="resources" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="views" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="pages" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="overtime" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="overtime" type="b2602c69:ProjectViewProjectNode" />
-              <item name="overtime" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="resources" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="views" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="pages" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="overtime" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="employee" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="overtime" type="b2602c69:ProjectViewProjectNode" />
-              <item name="overtime" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="resources" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="views" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="pages" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="payout" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="overtime" type="b2602c69:ProjectViewProjectNode" />
-              <item name="overtime" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="routes" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="assets" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="js" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
           </expand>
           <select />
@@ -491,13 +368,13 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="SearchEverywhereHistoryKey" value="Das&#9;FILE&#9;file://C:/Users/dlind/projects/overtime/app/Http/Controllers/DashboardController.php&#10;Use&#9;null&#9;null&#10;USer&#9;FILE&#9;file://C:/Users/dlind/projects/overtime/database/factories/UserFactory.php&#10;Web.&#9;FILE&#9;file://C:/Users/dlind/projects/overtime/routes/web.php&#10;Pay&#9;null&#9;null&#10;OVer&#9;null&#9;null&#10;OFf&#9;FILE&#9;file://C:/Users/dlind/projects/overtime/app/Http/Controllers/OffTimeController.php&#10;web&#9;FILE&#9;file://C:/Users/dlind/projects/overtime/routes/web.php&#10;PAyCo&#9;null&#9;null&#10;ff&#9;FILE&#9;file://C:/Users/dlind/projects/overtime/app/Models/OffTime.php&#10;Off&#9;FILE&#9;file://C:/Users/dlind/projects/overtime/app/Models/OffTime.php&#10;siden&#9;FILE&#9;file://C:/Users/dlind/projects/overtime/resources/assets/sass/components/_sidenav.scss&#10;we&#9;FILE&#9;file://C:/Users/dlind/projects/overtime/routes/web.php&#10;side&#9;FILE&#9;file://C:/Users/dlind/projects/overtime/resources/assets/sass/components/_sidenav.scss&#10;web.&#9;FILE&#9;file://C:/Users/dlind/projects/overtime/routes/web.php&#10;OverTi&#9;null&#9;null&#10;OFfT&#9;null&#9;null&#10;OVerTi&#9;null&#9;null&#10;Over&#9;FILE&#9;file://C:/Users/dlind/projects/overtime/app/Models/Overtime.php&#10;Helper&#9;FILE&#9;file://C:/Users/dlind/projects/overtime/app/Support/Helpers.php&#10;OverTimeC&#9;FILE&#9;file://C:/Users/dlind/projects/overtime/app/Http/Controllers/OvertimeController.php&#10;OffTi&#9;FILE&#9;file://C:/Users/dlind/projects/overtime/app/Http/Controllers/OffTimeController.php&#10;OVerT&#9;FILE&#9;file://C:/Users/dlind/projects/overtime/app/Models/Overtime.php&#10;OFfTi&#9;FILE&#9;file://C:/Users/dlind/projects/overtime/app/Http/Controllers/OffTimeController.php&#10;Helpe&#9;FILE&#9;file://C:/Users/dlind/projects/overtime/app/Support/Helpers.php&#10;ovER&#9;FILE&#9;file://C:/Users/dlind/projects/overtime/app/Http/Controllers/OvertimeController.php&#10;OverTim&#9;FILE&#9;file://C:/Users/dlind/projects/overtime/app/Http/Controllers/OvertimeController.php&#10;Web&#9;FILE&#9;file://C:/Users/dlind/projects/overtime/routes/web.php&#10;OVertim&#9;FILE&#9;file://C:/Users/dlind/projects/overtime/app/Http/Controllers/OvertimeController.php&#10;OverT&#9;FILE&#9;file://C:/Users/dlind/projects/overtime/app/Models/Overtime.php&#10;User&#9;FILE&#9;file://C:/Users/dlind/projects/overtime/app/Models/User.php&#10;OVe&#9;null&#9;null&#10;UserCo&#9;FILE&#9;file://C:/Users/dlind/projects/overtime/app/Http/Controllers/UserController.php&#10;HomeC&#9;FILE&#9;file://C:/Users/dlind/projects/overtime/app/Http/Controllers/HomeController.php&#10;Logi&#9;FILE&#9;file://C:/Users/dlind/projects/overtime/app/Http/Controllers/Auth/LoginController.php&#10;Comp&#9;FILE&#9;file://C:/Users/dlind/projects/overtime/app/Models/Company.php&#10;web.p&#9;FILE&#9;file://C:/Users/dlind/projects/overtime/routes/web.php&#10;Compan&#9;FILE&#9;file://C:/Users/dlind/projects/overtime/app/Models/Company.php&#10;ViewSe&#9;null&#9;null&#10;web.php&#9;FILE&#9;file://C:/Users/dlind/projects/overtime/routes/web.php&#10;Com&#9;FILE&#9;file://C:/Users/dlind/projects/overtime/app/Models/Company.php" />
+    <property name="SearchEverywhereHistoryKey" value="Off&#9;FILE&#9;file://C:/Users/dlind/projects/overtime/app/Http/Controllers/OffTimeController.php&#10;USer&#9;FILE&#9;file://C:/Users/dlind/projects/overtime/app/Models/User.php&#10;Das&#9;FILE&#9;file://C:/Users/dlind/projects/overtime/app/Http/Controllers/DashboardController.php&#10;Use&#9;null&#9;null&#10;Web.&#9;FILE&#9;file://C:/Users/dlind/projects/overtime/routes/web.php&#10;Pay&#9;null&#9;null&#10;OVer&#9;null&#9;null&#10;OFf&#9;FILE&#9;file://C:/Users/dlind/projects/overtime/app/Http/Controllers/OffTimeController.php&#10;web&#9;FILE&#9;file://C:/Users/dlind/projects/overtime/routes/web.php&#10;PAyCo&#9;null&#9;null&#10;ff&#9;FILE&#9;file://C:/Users/dlind/projects/overtime/app/Models/OffTime.php&#10;siden&#9;FILE&#9;file://C:/Users/dlind/projects/overtime/resources/assets/sass/components/_sidenav.scss&#10;we&#9;FILE&#9;file://C:/Users/dlind/projects/overtime/routes/web.php&#10;side&#9;FILE&#9;file://C:/Users/dlind/projects/overtime/resources/assets/sass/components/_sidenav.scss&#10;web.&#9;FILE&#9;file://C:/Users/dlind/projects/overtime/routes/web.php&#10;OverTi&#9;null&#9;null&#10;OFfT&#9;null&#9;null&#10;OVerTi&#9;null&#9;null&#10;Over&#9;FILE&#9;file://C:/Users/dlind/projects/overtime/app/Models/Overtime.php&#10;Helper&#9;FILE&#9;file://C:/Users/dlind/projects/overtime/app/Support/Helpers.php&#10;OverTimeC&#9;FILE&#9;file://C:/Users/dlind/projects/overtime/app/Http/Controllers/OvertimeController.php&#10;OffTi&#9;FILE&#9;file://C:/Users/dlind/projects/overtime/app/Http/Controllers/OffTimeController.php&#10;OVerT&#9;FILE&#9;file://C:/Users/dlind/projects/overtime/app/Models/Overtime.php&#10;OFfTi&#9;FILE&#9;file://C:/Users/dlind/projects/overtime/app/Http/Controllers/OffTimeController.php&#10;Helpe&#9;FILE&#9;file://C:/Users/dlind/projects/overtime/app/Support/Helpers.php&#10;ovER&#9;FILE&#9;file://C:/Users/dlind/projects/overtime/app/Http/Controllers/OvertimeController.php&#10;OverTim&#9;FILE&#9;file://C:/Users/dlind/projects/overtime/app/Http/Controllers/OvertimeController.php&#10;Web&#9;FILE&#9;file://C:/Users/dlind/projects/overtime/routes/web.php&#10;OVertim&#9;FILE&#9;file://C:/Users/dlind/projects/overtime/app/Http/Controllers/OvertimeController.php&#10;OverT&#9;FILE&#9;file://C:/Users/dlind/projects/overtime/app/Models/Overtime.php&#10;User&#9;FILE&#9;file://C:/Users/dlind/projects/overtime/app/Models/User.php&#10;OVe&#9;null&#9;null&#10;UserCo&#9;FILE&#9;file://C:/Users/dlind/projects/overtime/app/Http/Controllers/UserController.php&#10;HomeC&#9;FILE&#9;file://C:/Users/dlind/projects/overtime/app/Http/Controllers/HomeController.php&#10;Logi&#9;FILE&#9;file://C:/Users/dlind/projects/overtime/app/Http/Controllers/Auth/LoginController.php&#10;Comp&#9;FILE&#9;file://C:/Users/dlind/projects/overtime/app/Models/Company.php&#10;web.p&#9;FILE&#9;file://C:/Users/dlind/projects/overtime/routes/web.php&#10;Compan&#9;FILE&#9;file://C:/Users/dlind/projects/overtime/app/Models/Company.php&#10;ViewSe&#9;null&#9;null&#10;web.php&#9;FILE&#9;file://C:/Users/dlind/projects/overtime/routes/web.php&#10;Com&#9;FILE&#9;file://C:/Users/dlind/projects/overtime/app/Models/Company.php" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="yarn" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.PHP" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -537,7 +414,7 @@
       <workItem from="1533112563928" duration="8828000" />
       <workItem from="1533122102586" duration="2274000" />
       <workItem from="1533229111730" duration="21552000" />
-      <workItem from="1533288105276" duration="15800000" />
+      <workItem from="1533288105276" duration="19671000" />
     </task>
     <task id="LOCAL-00001" summary="Setup basic authentication and roles">
       <created>1532974184247</created>
@@ -630,22 +507,30 @@
       <option name="project" value="LOCAL" />
       <updated>1533250810794</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Added dashboard">
+      <created>1533304674263</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1533304674263</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="91428000" />
+    <option name="totallyTimeSpent" value="95299000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.22068231" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22068231" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.50319827" side_tool="true" weight="0.3297414" />
       <window_info anchor="right" id="Database" order="3" weight="0.22707888" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
-      <window_info active="true" anchor="bottom" id="Version Control" order="7" sideWeight="0.4968017" visible="true" weight="0.3297414" />
+      <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.4968017" visible="true" weight="0.3297414" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.49946696" weight="0.3297414" />
@@ -704,7 +589,8 @@
     <MESSAGE value="Employees now can use over time for off time" />
     <MESSAGE value="Updated ignore" />
     <MESSAGE value="Meeh just use public" />
-    <option name="LAST_COMMIT_MESSAGE" value="Meeh just use public" />
+    <MESSAGE value="Added dashboard" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added dashboard" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -718,7 +604,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/Models/OvertimeTotal.php" />
     <entry file="file://$PROJECT_DIR$/app/Models/OvertimeTotal.php" />
     <entry file="file://$PROJECT_DIR$/resources/assets/sass/components/_normalize.scss">
       <provider selected="true" editor-type-id="text-editor">
@@ -787,16 +672,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/assets/js/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="14" column="26" selection-start-line="14" selection-start-column="26" selection-end-line="14" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/js/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-765" />
+        <state relative-caret-position="-765">
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/js/.gitignore">
@@ -817,13 +699,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
           <caret line="9" selection-start-line="9" selection-end-line="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/components/inputs/checkbox.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="4" column="7" selection-start-line="4" selection-start-column="7" selection-end-line="4" selection-end-column="7" />
         </state>
       </provider>
     </entry>
@@ -854,13 +729,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="328">
           <caret line="17" column="39" selection-start-line="17" selection-start-column="39" selection-end-line="17" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2018_08_02_205841_create_payouts_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="18" column="36" selection-start-line="18" selection-start-column="36" selection-end-line="18" selection-end-column="36" />
         </state>
       </provider>
     </entry>
@@ -949,16 +817,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/OvertimeController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="393">
-          <caret line="23" column="30" selection-start-line="23" selection-start-column="30" selection-end-line="23" selection-end-column="30" />
-          <folding>
-            <element signature="e#40#63#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/routes/web.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="287">
@@ -979,13 +837,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Models/User.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="24">
-          <caret line="82" column="29" selection-start-line="82" selection-start-column="29" selection-end-line="82" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/database/factories/UserFactory.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
@@ -1000,57 +851,106 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/DashboardController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="10" column="5" selection-start-line="10" selection-start-column="5" selection-end-line="10" selection-end-column="5" />
+          <folding>
+            <element signature="e#40#62#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Models/User.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="82" column="29" selection-start-line="82" selection-start-column="29" selection-end-line="82" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2018_08_02_205841_create_payouts_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="18" column="36" selection-start-line="18" selection-start-column="36" selection-end-line="18" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/pages/dashboard/index.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="8" column="33" selection-start-line="8" selection-start-column="33" selection-end-line="8" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/pages/payout/index.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" selection-start-line="6" selection-end-line="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/pages/overtime/employee/index.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="312">
+          <caret line="12" column="50" selection-start-line="12" selection-start-column="50" selection-end-line="12" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/components/inputs/checkbox.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="65">
+          <caret line="4" column="7" selection-start-line="4" selection-start-column="7" selection-end-line="4" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="332">
+          <caret line="22" column="33" lean-forward="true" selection-start-line="22" selection-start-column="33" selection-end-line="22" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/OffTimeController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="343">
-          <caret line="19" column="8" selection-start-line="19" selection-start-column="8" selection-end-line="19" selection-end-column="68" />
+        <state relative-caret-position="288">
+          <caret line="41" column="97" selection-start-line="41" selection-start-column="97" selection-end-line="41" selection-end-column="97" />
           <folding>
             <element signature="e#40#63#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/pages/payout/index.blade.php">
+    <entry file="file://$PROJECT_DIR$/resources/views/pages/offtime/index.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="6" selection-start-line="6" selection-end-line="6" />
+        <state relative-caret-position="189">
+          <caret line="7" column="32" selection-start-line="7" selection-start-column="32" selection-end-line="7" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/OvertimeController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="85" column="9" lean-forward="true" selection-start-line="85" selection-start-column="9" selection-end-line="85" selection-end-column="9" />
+          <folding>
+            <element signature="e#40#63#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/pages/offtime/edit.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-line="5" selection-end-column="30" />
+        <state relative-caret-position="-212">
+          <caret line="30" column="82" selection-start-line="30" selection-start-column="82" selection-end-line="30" selection-end-column="82" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/pages/overtime/employee/index.blade.php">
+    <entry file="file://$PROJECT_DIR$/resources/assets/js/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1326">
-          <caret line="51" column="6" selection-start-line="51" selection-start-column="6" selection-end-line="51" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/pages/dashboard/index.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="8" column="33" selection-start-line="8" selection-start-column="33" selection-end-line="8" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/pages/offtime/index.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="8" column="16" selection-start-line="8" selection-start-column="16" selection-end-line="8" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/DashboardController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="17" selection-start-line="17" selection-end-line="17" />
+        <state relative-caret-position="226">
+          <caret line="105" column="36" selection-start-line="105" selection-start-column="36" selection-end-line="105" selection-end-column="36" />
           <folding>
-            <element signature="e#40#62#0#PHP" expanded="true" />
+            <element signature="e#939#3858#0" />
+            <element signature="e#1152#3482#0" />
           </folding>
         </state>
       </provider>

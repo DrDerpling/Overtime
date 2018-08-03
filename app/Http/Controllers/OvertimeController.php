@@ -75,7 +75,9 @@ class OvertimeController extends Controller
     public function update(Request $request)
     {
         if ($request->has('payout')) {
-            Overtime::whereIn('id', $request->input('use'))->update(['paid_out' => 1]);
+            $hours = Overtime::whereIn('id', $request->input('use'))->sum('hours');
+            $payout = auth()->user()->payouts()->create(['minutes' => convert_to_minutes($hours)]);
+            $payout->overtimes()->sync($request->input('use'));
             return redirect()->back()->with(['message', 'Overtime successfully updated']);
         } elseif ($request->has('off_time')) {
             $offTime = auth()->user()->offTimes()->create();

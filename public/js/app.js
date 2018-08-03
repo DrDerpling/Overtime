@@ -104,13 +104,10 @@ if (inputs instanceof NodeList) {
     var _instances = M.Sidenav.init(sidenav, _options2);
 }
 
-var startDateInput = document.querySelector(".start_datepicker");
-
-var daysLeft = document.querySelector("#daysLeft");
-if (startDateInput instanceof HTMLElement) {
-    var max = parseInt(startDateInput.dataset.maxdays);
+var rangepicker = function rangepicker(vacadtionDays) {
+    var max = parseInt(startDateInput.dataset.maxdays) + vacadtionDays;
     var mode = startDateInput.dataset.maxdays < 2 ? 'single' : 'range';
-    console.log(max);
+
     var fp = flatpickr(startDateInput, {
         onChange: function onChange(selectedDates, dateStr, instance) {
             var maxDays = 0;
@@ -118,13 +115,12 @@ if (startDateInput instanceof HTMLElement) {
                 maxDays = instance.config.max;
             } else {
                 maxDays = instance.config.max - 1;
+                instance.set('plugins', [new rangePlugin({ input: ".end_datepicker" })]);
             }
 
             var firstDate = new Date(dateStr);
             var endDate = new Date(firstDate);
             endDate.setDate(firstDate.getDate() + maxDays);
-            console.log(maxDays);
-            console.log(endDate);
             var count = 0;
             //Calculate how many weekend happen
             while (firstDate <= endDate) {
@@ -136,7 +132,6 @@ if (startDateInput instanceof HTMLElement) {
 
                 firstDate.setDate(firstDate.getDate() + 1);
             }
-            console.log(count);
 
             instance.set('weekendDays', count);
             instance.set('endDate', endDate);
@@ -167,9 +162,27 @@ if (startDateInput instanceof HTMLElement) {
         },
         max: max,
         mode: mode,
-        minDate: 'today',
-        dayLeftDisplay: daysLeft,
-        plugins: [new rangePlugin({ input: ".end_datepicker" })]
+        minDate: 'tomorrow',
+        dayLeftDisplay: daysLeft
+    });
+};
+
+var startDateInput = document.querySelector(".start_datepicker");
+var daysLeft = document.querySelector("#daysLeft");
+
+if (startDateInput instanceof HTMLElement) {
+    rangepicker(0);
+}
+
+var vacationDays = document.querySelector('#vacation_days');
+if (vacationDays instanceof HTMLElement) {
+    console.log('test');
+    vacationDays.addEventListener('change', function (event) {
+        if (event.target.checked) {
+            rangepicker(parseInt(event.target.value));
+        } else {
+            console.log('not legit');
+        }
     });
 }
 

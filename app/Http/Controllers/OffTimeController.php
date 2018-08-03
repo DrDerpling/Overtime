@@ -23,17 +23,6 @@ class OffTimeController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  \App\OffTime $offTime
-     * @return \Illuminate\Http\Response
-     */
-    public function show(OffTime $offTime)
-    {
-        //
-    }
-
-    /**
      * Show the form for editing the specified resource.
      *
      * @param  \App\OffTime $offTime
@@ -44,12 +33,13 @@ class OffTimeController extends Controller
         $hours = $offTime->overtimes->sum('hours');
         $days = getDays($hours);
         $minutesLeft = getRemainingMinutes($hours);
+        $vacationDays = auth()->user()->vacation_days;
 
         if ($days < 1) {
             return redirect()->back()->withErrors(['insouciant_days', 'Not enough time was given for a off time']);
         }
 
-        return view('pages.offtime.edit', compact('days', 'minutesLeft', 'offTime'));
+        return view('pages.offtime.edit', compact('days', 'minutesLeft', 'offTime', 'vacationDays'));
     }
 
     /**
@@ -64,9 +54,12 @@ class OffTimeController extends Controller
         $start_date = Carbon::createFromFormat('Y-m-d', $request->input('start_date'));
         $end_date = Carbon::createFromFormat('Y-m-d', $request->input('end_date'));
 
-        $diff = $start_date->diffInDaysFiltered(function (Carbon $date) {
+        $diff = $start_date->diffInDaysFiltered(
+            function (Carbon $date) {
                 return !$date->isWeekend();
-            }, $end_date) + 1;
+            },
+            $end_date
+        ) + 1;
 
         $overtimes = $offTime->overtimes;
 
@@ -90,6 +83,7 @@ class OffTimeController extends Controller
                 $payout->overtimes()->sync($offTime->overtimes);
             }
         }
+
         $offTime->update([
             'start_date' => $start_date,
             'end_date' => $end_date

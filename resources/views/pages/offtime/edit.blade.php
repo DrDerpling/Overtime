@@ -24,6 +24,15 @@
                                 <label for="end_date">End date</label>
                             </div>
                         </div>
+                        <div class="row">
+                            <div class="col m12 l12  s12 ">
+                                @component('components.inputs.checkbox')
+                                        {{ $vacationDays }}
+                                    @slot('label', 'Use vacation days (Days left: ' . $vacationDays .')')
+                                    @slot('name', 'vacation_days' )
+                                @endcomponent
+                            </div>
+                        </div>
 
                         <div class="row">
                             <p><strong>Note:</strong> Remaining minutes will be payed out</p>
