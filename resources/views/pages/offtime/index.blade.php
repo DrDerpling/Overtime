@@ -2,7 +2,7 @@
     <div class="card-content">
         <span class="card-title">Upcoming off time</span>
         @forelse($offTimes as $offTime)
-            <div class="row row-striped">
+            <div class="row row-striped valign-wrapper">
                 <div class="col s10 l10 m10">
                     <div class="col s12 l6 m12">
                         Start Date:

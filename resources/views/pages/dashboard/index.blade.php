@@ -6,8 +6,8 @@
         <div class="col l6 m6 s12">
             @include('pages.offtime.index', ['offtimes' => $offTimes])
         </div>
-        <div class="col offset-l2 l4 m6 s12">
-            @include('pages.payout.index', ['hours' => $payoutHours])
+        <div class="col l6 m6 s12">
+            @include('pages.users.stats', $userStats)
         </div>
     </div>
 

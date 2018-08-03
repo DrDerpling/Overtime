@@ -58,6 +58,14 @@
   margin-right: auto;
   margin-bottom: 20px;
 
+  &-narrow {
+    margin-bottom: 10px;
+  }
+
+  &-stacked {
+    margin-bottom: 0px;
+  }
+
   &-striped:nth-child(even) {
     background-color: $striped-row;
   }

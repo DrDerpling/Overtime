@@ -27,89 +27,64 @@ if (inputs instanceof NodeList) {
     let instances = M.Sidenav.init(sidenav, options);
 }
 
+const countWorkDays = (firstDate, endDate, calcEndDate = false) => {
+    let weekendDays = 0;
+    let workDays = 0;
+    //Calculate how many weekend days are in between
+    while (firstDate <= endDate) {
+        let dayOfWeek = firstDate.getDay();
+        if (dayOfWeek === 6 || dayOfWeek === 0) {
+            weekendDays++;
+            if (calcEndDate) {
+                endDate.setDate(endDate.getDate() + 1);
+            }
+        } else {
+            workDays++
+        }
 
-const rangepicker = (vacadtionDays) => {
-    const max = parseInt(startDateInput.dataset.maxdays) + vacadtionDays
-    const mode = (startDateInput.dataset.maxdays < 2) ? 'single' : 'range'
+        firstDate.setDate(firstDate.getDate() + 1);
+    }
+    return {endDate: endDate, weekendDays: weekendDays, workDays: workDays}
+}
+
+const rangepicker = (startDateInput) => {
+    const max = startDateInput.dataset.maxdays;
+    const mode = (max < 2) ? 'single' : 'range';
+    const daysLeft = document.querySelector("#daysLeft");
 
     const fp = flatpickr(startDateInput, {
         onChange: function (selectedDates, dateStr, instance) {
-            let maxDays = 0;
-            if (instance.config.mode.match('single')) {
-                maxDays = instance.config.max
-            } else {
-                maxDays = instance.config.max - 1
-                instance.set('plugins', [new rangePlugin({input: ".end_datepicker"})])
-            }
+            let maxDays = parseInt(instance.config.max);
+            if (selectedDates.length === 1 && instance.config.mode.match('range')) {
+                let firstDate = new Date(dateStr);
+                let endDate = new Date(firstDate);
+                endDate.setDate(firstDate.getDate() + maxDays);
 
-            let firstDate = new Date(dateStr);
-            let endDate = new Date(firstDate)
-            endDate.setDate(firstDate.getDate() + maxDays)
-            let count = 0;
-            //Calculate how many weekend happen
-            while (firstDate <= endDate) {
-                let dayOfWeek = firstDate.getDay();
-                if (dayOfWeek === 6 || dayOfWeek === 0) {
-                    count++
-                    endDate.setDate(endDate.getDate() + 1)
-                }
+                let object = countWorkDays(firstDate, endDate, true);
 
-                firstDate.setDate(firstDate.getDate() + 1);
-            }
-
-            instance.set('weekendDays', count)
-            instance.set('endDate', endDate)
-            instance.set('maxDate', endDate)
-
-        },
-        onClose: function (selectedDates, dateStr, instance) {
-            const endDate = instance.config.endDate
-            const weekendDays = instance.config.weekendDays
-            if (selectedDates[0] < endDate) {
-                // The number of milliseconds in one day
-                const one_day = 1000 * 60 * 60 * 24
-
-                // Convert both dates to milliseconds
-                let date1_ms = selectedDates[0].getTime()
-                let date2_ms = endDate.getTime()
-
-                // Calculate the difference in milliseconds
-                var difference_ms = Math.abs(date1_ms - date2_ms)
-
-                // Convert back to days
-                const daysLeft = Math.round(difference_ms / one_day - weekendDays - 1)
-
-                //Sets days left in display
-                instance.config.dayLeftDisplay.innerText = "" + daysLeft
+                instance.set('maxDate', object.endDate)
+            } else if (selectedDates.length === 2) {
+                let object = countWorkDays(selectedDates[0], selectedDates[1], false);
+                daysLeft.innerText = "" + maxDays - object.workDays + 1
             } else if (instance.config.mode.match('single')) {
-                instance.config.dayLeftDisplay.innerText = "" + 0
+                daysLeft.innerText = "" + 0
             }
         },
         max: max,
         mode: mode,
-        minDate: 'tomorrow',
+        minDate: new Date().fp_incr(1),
         dayLeftDisplay: daysLeft,
+        weekNumbers: true,
+        locale: {
+            "firstDayOfWeek": 1
+        }
     });
 }
 
 const startDateInput = document.querySelector(".start_datepicker");
-const daysLeft = document.querySelector("#daysLeft")
 
 if (startDateInput instanceof HTMLElement) {
-    rangepicker(0)
-}
-
-const vacationDays = document.querySelector('#vacation_days');
-if (vacationDays instanceof HTMLElement) {
-    console.log('test')
-    vacationDays.addEventListener('change', (event) => {
-            if (event.target.checked) {
-                rangepicker(parseInt(event.target.value))
-            } else {
-                console.log('not legit')
-            }
-        }
-    )
+    rangepicker(startDateInput);
 }
 
 

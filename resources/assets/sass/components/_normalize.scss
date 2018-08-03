@@ -59,7 +59,7 @@ h1 {
 
 figcaption,
 figure,
- { /* 1 */
+{ /* 1 */
   display: block;
 }
 
@@ -453,6 +453,7 @@ template {
     }
   }
 }
+
 @media #{$large-and-up} {
   main {
     &.main-with-sidebar {
@@ -461,3 +462,8 @@ template {
   }
 }
 
+@for $i from 1 through 20 {
+  .margin-bottom-#{$i} {
+    margin-bottom: #{$i}px;
+  }
+}

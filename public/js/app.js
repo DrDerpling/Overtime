@@ -104,86 +104,66 @@ if (inputs instanceof NodeList) {
     var _instances = M.Sidenav.init(sidenav, _options2);
 }
 
-var rangepicker = function rangepicker(vacadtionDays) {
-    var max = parseInt(startDateInput.dataset.maxdays) + vacadtionDays;
-    var mode = startDateInput.dataset.maxdays < 2 ? 'single' : 'range';
+var countWorkDays = function countWorkDays(firstDate, endDate) {
+    var calcEndDate = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
+
+    var weekendDays = 0;
+    var workDays = 0;
+    //Calculate how many weekend days are in between
+    while (firstDate <= endDate) {
+        var dayOfWeek = firstDate.getDay();
+        if (dayOfWeek === 6 || dayOfWeek === 0) {
+            weekendDays++;
+            if (calcEndDate) {
+                endDate.setDate(endDate.getDate() + 1);
+            }
+        } else {
+            workDays++;
+        }
+
+        firstDate.setDate(firstDate.getDate() + 1);
+    }
+    return { endDate: endDate, weekendDays: weekendDays, workDays: workDays };
+};
+
+var rangepicker = function rangepicker(startDateInput) {
+    var max = startDateInput.dataset.maxdays;
+    var mode = max < 2 ? 'single' : 'range';
+    var daysLeft = document.querySelector("#daysLeft");
 
     var fp = flatpickr(startDateInput, {
         onChange: function onChange(selectedDates, dateStr, instance) {
-            var maxDays = 0;
-            if (instance.config.mode.match('single')) {
-                maxDays = instance.config.max;
-            } else {
-                maxDays = instance.config.max - 1;
-                instance.set('plugins', [new rangePlugin({ input: ".end_datepicker" })]);
-            }
+            var maxDays = parseInt(instance.config.max);
+            if (selectedDates.length === 1 && instance.config.mode.match('range')) {
+                var firstDate = new Date(dateStr);
+                var endDate = new Date(firstDate);
+                endDate.setDate(firstDate.getDate() + maxDays);
 
-            var firstDate = new Date(dateStr);
-            var endDate = new Date(firstDate);
-            endDate.setDate(firstDate.getDate() + maxDays);
-            var count = 0;
-            //Calculate how many weekend happen
-            while (firstDate <= endDate) {
-                var dayOfWeek = firstDate.getDay();
-                if (dayOfWeek === 6 || dayOfWeek === 0) {
-                    count++;
-                    endDate.setDate(endDate.getDate() + 1);
-                }
+                var object = countWorkDays(firstDate, endDate, true);
 
-                firstDate.setDate(firstDate.getDate() + 1);
-            }
-
-            instance.set('weekendDays', count);
-            instance.set('endDate', endDate);
-            instance.set('maxDate', endDate);
-        },
-        onClose: function onClose(selectedDates, dateStr, instance) {
-            var endDate = instance.config.endDate;
-            var weekendDays = instance.config.weekendDays;
-            if (selectedDates[0] < endDate) {
-                // The number of milliseconds in one day
-                var one_day = 1000 * 60 * 60 * 24;
-
-                // Convert both dates to milliseconds
-                var date1_ms = selectedDates[0].getTime();
-                var date2_ms = endDate.getTime();
-
-                // Calculate the difference in milliseconds
-                var difference_ms = Math.abs(date1_ms - date2_ms);
-
-                // Convert back to days
-                var _daysLeft = Math.round(difference_ms / one_day - weekendDays - 1);
-
-                //Sets days left in display
-                instance.config.dayLeftDisplay.innerText = "" + _daysLeft;
+                instance.set('maxDate', object.endDate);
+            } else if (selectedDates.length === 2) {
+                var _object = countWorkDays(selectedDates[0], selectedDates[1], false);
+                daysLeft.innerText = "" + maxDays - _object.workDays + 1;
             } else if (instance.config.mode.match('single')) {
-                instance.config.dayLeftDisplay.innerText = "" + 0;
+                daysLeft.innerText = "" + 0;
             }
         },
         max: max,
         mode: mode,
-        minDate: 'tomorrow',
-        dayLeftDisplay: daysLeft
+        minDate: new Date().fp_incr(1),
+        dayLeftDisplay: daysLeft,
+        weekNumbers: true,
+        locale: {
+            "firstDayOfWeek": 1
+        }
     });
 };
 
 var startDateInput = document.querySelector(".start_datepicker");
-var daysLeft = document.querySelector("#daysLeft");
 
 if (startDateInput instanceof HTMLElement) {
-    rangepicker(0);
-}
-
-var vacationDays = document.querySelector('#vacation_days');
-if (vacationDays instanceof HTMLElement) {
-    console.log('test');
-    vacationDays.addEventListener('change', function (event) {
-        if (event.target.checked) {
-            rangepicker(parseInt(event.target.value));
-        } else {
-            console.log('not legit');
-        }
-    });
+    rangepicker(startDateInput);
 }
 
 /***/ }),

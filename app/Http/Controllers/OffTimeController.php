@@ -23,6 +23,19 @@ class OffTimeController extends Controller
     }
 
     /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request $request
+     * @return \Illuminate\Http\Response
+     */
+    public function create(Request $request)
+    {
+        $offTime = auth()->user()->offTimes()->create();
+
+        return redirect()->route('off_time.edit', $offTime);
+    }
+
+    /**
      * Show the form for editing the specified resource.
      *
      * @param  \App\OffTime $offTime
@@ -30,10 +43,9 @@ class OffTimeController extends Controller
      */
     public function edit(OffTime $offTime)
     {
-        $hours = $offTime->overtimes->sum('hours');
-        $days = getDays($hours);
-        $minutesLeft = getRemainingMinutes($hours);
-        $vacationDays = auth()->user()->vacation_days;
+        $user = auth()->user();
+
+        $days = getDays($user->overtimes()->sum('hours')) + $user->vacation_days;
 
         if ($days < 1) {
             return redirect()->back()->withErrors(['insouciant_days', 'Not enough time was given for a off time']);
@@ -55,11 +67,11 @@ class OffTimeController extends Controller
         $end_date = Carbon::createFromFormat('Y-m-d', $request->input('end_date'));
 
         $diff = $start_date->diffInDaysFiltered(
-            function (Carbon $date) {
-                return !$date->isWeekend();
-            },
-            $end_date
-        ) + 1;
+                function (Carbon $date) {
+                    return !$date->isWeekend();
+                },
+                $end_date
+            ) + 1;
 
         $overtimes = $offTime->overtimes;
 
