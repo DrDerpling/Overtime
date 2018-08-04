@@ -38,7 +38,7 @@ class CompanySeeder extends Seeder
             'manager' => 0
         ])->company()->associate(1);
         $user->save();
-        factory(Overtime::class, 20)->make()->each(function ($overtime) use ($user) {
+        factory(Overtime::class, 40)->make()->each(function ($overtime) use ($user) {
             $user->overtimes()->save($overtime);
         });
     }

@@ -12,7 +12,8 @@ class OffTime extends Model
      */
     protected $fillable = [
         'start_date',
-        'end_date'
+        'end_date',
+        'vacation_days_used'
     ];
 
     /**
@@ -54,5 +55,15 @@ class OffTime extends Model
     {
         return $query->whereDate('start_date', '>', Carbon::now())
             ->whereDate('end_date', '>', Carbon::now())->orWhereNull('start_date');
+    }
+
+    /**
+     * Gets the available days
+     *
+     * @return float|mixed
+     */
+    public function daysAvailable()
+    {
+        return getDays($this->overtimes->sum('hours')) + $this->vacation_days_used;
     }
 }

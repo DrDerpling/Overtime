@@ -8,7 +8,7 @@ if (!function_exists('calc_minutes')) {
      */
     function convert_to_minutes($float)
     {
-        if (floor($float) != $float) {
+        if (is_float($float) && floor($float) != $float) {
             list($whole, $decimal) = explode('.', $float);
         } else {
             $whole = $float;
@@ -61,6 +61,22 @@ if (!function_exists('getRemainingMinutes')) {
      * @return int
      */
     function getRemainingMinutes(Float $hours)
+    {
+        $minutes = convert_to_minutes($hours);
+
+        return $minutes % (60 * 8);
+    }
+}
+
+if (!function_exists('getRemainingHours')) {
+
+    /**
+     * This function gets the remaining minutes of a work day
+     *
+     * @param Float $hours
+     * @return int
+     */
+    function getRemainingHours($overTimes)
     {
         $minutes = convert_to_minutes($hours);
 

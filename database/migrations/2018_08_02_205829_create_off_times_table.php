@@ -18,6 +18,7 @@ class CreateOffTimesTable extends Migration
             $table->integer('user_id');
             $table->timestamp('start_date')->nullable(true);
             $table->timestamp('end_date')->nullable(true);
+            $table->integer('vacation_days_used')->default(0);
             $table->timestamps();
         });
     }

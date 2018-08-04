@@ -114,4 +114,17 @@ class User extends Authenticatable
     {
         return $this->manager;
     }
+
+    public function updateVacationDays($offTime, $days)
+    {
+        if ($this->vacation_days > $days) {
+            $offTime->update(['vacation_days_used' => $days]);
+            $this->vacation_days = $this->vacation_days - $days;
+            $this->save();
+            return 0;
+        } else {
+            $this->update(['vacation_days' => 0]);
+            return $days - $this->vacation_days;
+        }
+    }
 }

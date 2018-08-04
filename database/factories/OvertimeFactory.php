@@ -3,8 +3,9 @@
 use Faker\Generator as Faker;
 
 $factory->define(App\Models\Overtime::class, function (Faker $faker) {
+    $rangeOfNumbers = range(0.25, 3, 0.25);
     return [
-        'hours' => $faker->numberBetween(1, 3),
-        'description' => $faker->text('50'),
+        'hours' => array_random($rangeOfNumbers),
+        'description' => $faker->text('50')
     ];
 });

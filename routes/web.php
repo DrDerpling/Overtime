@@ -23,7 +23,7 @@ Route::middleware('auth')->group(function () {
     Route::put('overtime', 'OvertimeController@update')->name('overtime.update');
 
     /** offtime */
-    Route::resource('off_time', 'OffTimeController', ['only' => ['update', 'destroy', 'edit', 'create']]);
+    Route::resource('off_time', 'OffTimeController');
 
     /** payout */
     Route::resource('payout', 'PayoutController', ['only' => 'store', 'edit', 'update']);
