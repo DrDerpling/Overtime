@@ -31,6 +31,6 @@ class PayoutController extends Controller
             $payout->overtimes()->update(['paid_out' => 1]);
         }
 
-        return redirect()->back()->with(['message', 'Payout logged successfully']);
+        return redirect()->back()->with(['message' => 'Payout logged successfully']);
     }
 }

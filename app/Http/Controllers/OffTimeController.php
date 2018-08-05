@@ -125,6 +125,6 @@ class OffTimeController extends Controller
             $offTime->overtimes()->update(['off_time' => 1]);
         }
 
-        return redirect()->route('home')->with(['message', 'Overtime logged successfully']);
+        return redirect()->route('home')->with(['message' => 'Off time logged successfully']);
     }
 }

@@ -49,7 +49,6 @@ const countWorkDays = (firstDate, endDate, calcEndDate = false) => {
 
 const rangepicker = (startDateInput) => {
     const max = startDateInput.dataset.maxdays;
-    const mode = (max < 2) ? 'single' : 'range';
     const daysLeft = document.querySelector("#daysLeft");
 
     const fp = flatpickr(startDateInput, {
@@ -71,7 +70,7 @@ const rangepicker = (startDateInput) => {
             }
         },
         max: max,
-        mode: mode,
+        mode: 'range',
         minDate: new Date().fp_incr(1),
         dayLeftDisplay: daysLeft,
         weekNumbers: true,
@@ -103,4 +102,9 @@ if (payoutSlider instanceof HTMLElement) {
             decimals: 2
         })
     });
+}
+
+let toastMessage = document.querySelector('#toastMessage')
+if (toastMessage instanceof HTMLElement) {
+    M.toast({html: toastMessage.innerText});
 }

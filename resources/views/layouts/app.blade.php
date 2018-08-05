@@ -40,9 +40,10 @@
     <div class="container">
         @yield('content')
     </div>
+    @if(session()->has('message'))
+        <a style="display: none" id="toastMessage">{{ session()->get('message') }}</a>
+    @endif
 </main>
-
-
 
 
 </body>

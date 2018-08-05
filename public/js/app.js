@@ -128,7 +128,6 @@ var countWorkDays = function countWorkDays(firstDate, endDate) {
 
 var rangepicker = function rangepicker(startDateInput) {
     var max = startDateInput.dataset.maxdays;
-    var mode = max < 2 ? 'single' : 'range';
     var daysLeft = document.querySelector("#daysLeft");
 
     var fp = flatpickr(startDateInput, {
@@ -150,7 +149,7 @@ var rangepicker = function rangepicker(startDateInput) {
             }
         },
         max: max,
-        mode: mode,
+        mode: 'range',
         minDate: new Date().fp_incr(1),
         dayLeftDisplay: daysLeft,
         weekNumbers: true,
@@ -182,6 +181,11 @@ if (payoutSlider instanceof HTMLElement) {
             decimals: 2
         })
     });
+}
+
+var toastMessage = document.querySelector('#toastMessage');
+if (toastMessage instanceof HTMLElement) {
+    M.toast({ html: toastMessage.innerText });
 }
 
 /***/ }),
