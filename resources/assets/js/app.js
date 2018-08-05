@@ -87,4 +87,20 @@ if (startDateInput instanceof HTMLElement) {
     rangepicker(startDateInput);
 }
 
-
+var payoutSlider = document.getElementById('#payout-slider');
+if (payoutSlider instanceof HTMLElement) {
+    let max = payoutSlider.dataset.maxHours;
+    M.noUiSlider.create(payoutSlider, {
+        start: [0, max],
+        connect: true,
+        step: 0.25,
+        orientation: 'horizontal', // 'horizontal' or 'vertical'
+        range: {
+            'min': 0,
+            'max': max
+        },
+        format: wNumb({
+            decimals: 2
+        })
+    });
+}

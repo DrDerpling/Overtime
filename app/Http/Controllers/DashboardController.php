@@ -14,12 +14,18 @@ class DashboardController extends Controller
         $payoutHours = Payout::getUpcomingPayoutHours();
         $overtimes = $user->overtimes()->orderBy('hours', 'DESC')->unused()->get();
         $offTimes = $user->offTimes()->notExpired()->get();
-        $overtimeHours  = floor($overtimes->sum('hours'));
-        $overtimeMinutes = convert_to_minutes($overtimeHours) % 60;
+        $totalHours = $overtimes->sum('hours');
+
+        $overtimeHours = floor(convert_to_minutes($totalHours) / 60);
+        $overtimeDays = getDays($totalHours);
+        $overtimeMinutes = convert_to_minutes($totalHours) %  60;
 
         $userStats = compact('overtimeHours', 'overtimeMinutes', 'payoutHours');
 
 
-        return view('pages.dashboard.index', compact('userStats', 'overtimes', 'offTimes'));
+        return view(
+            'pages.dashboard.index',
+            compact('userStats', 'overtimes', 'offTimes', 'user', 'totalHours', 'overtimeDays')
+        );
     }
 }

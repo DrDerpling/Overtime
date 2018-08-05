@@ -19,14 +19,4 @@
             </div>
         </div>
     </div>
-    <div class="card-action">
-        <div class="row row-stacked">
-            <div class="col l6 m6 s12">
-                <a href="{{ route('off_time.create') }}">Register off time</a>
-            </div>
-            <div class="col l6 m6 s12 right-align">
-                {{--<a {{ route('payout.create') }}>Payout overtime</a>--}}
-            </div>
-        </div>
-    </div>
 </div>

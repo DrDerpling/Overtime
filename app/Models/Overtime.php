@@ -92,7 +92,7 @@ class Overtime extends Model
     public static function getRequiredOverTimes($days, $offTime)
     {
         $user = auth()->user();
-        $overtimes = auth()->user()->overtimes;
+        $overtimes = $user->overtimes()->unused()->get();
         //Check to see if total days are available
         if (getDays($overtimes->sum('hours')) < $days) {
             $remainingHours = getRemainingMinutes($overtimes->sum('hours')) / 60;
@@ -100,23 +100,45 @@ class Overtime extends Model
             if ($remainingOvertime) {
                 $overtimes->reject($remainingOvertime);
             } else {
-                $user->overtimes()->create(
-                    [
-                        'hours' => $remainingHours,
-                        'description' => 'Overtime created by off time',
-                        'off_time' => 0,
-                    ]
-                );
+                $remainingOvertimes = Overtime::calcRequiredOvertime($remainingHours, $overtimes);
+                if ($remainingOvertimes) {
+                    $overtimes->reject($remainingOvertimes);
+                }
             }
             return $overtimes;
         };
+
+        $overtimes = Overtime::calcRequiredOvertime($days * 8, $overtimes);
+        if ($overtimes) {
+            return $overtimes;
+        }
+
+        return false;
+    }
+
+    /**
+     * Returns a collection with all overtime models matching the hours provided
+     *
+     * @param $hours
+     * @return $this|bool
+     */
+    public static function calcRequiredOvertime($hours, $overtimes)
+    {
+        $user = auth()->user();
+        if (!$user) {
+            return false;
+        }
+
+        if ($overtimes->sum('hours') < $hours) {
+            return false;
+        }
+
         // if all the hours are available we need to get the correct number of overtime
-        $hours = $days * 8.0;
         $_overtimes = collect();
 
         // Lower the number below 3 and save overtime used
         foreach ($overtimes->sortByDesc('hours') as $key => $overtime) {
-            if ($hours < 3) {
+            if ($hours <= 3) {
                 break;
             }
             $hours -= $overtime->hours;
@@ -125,17 +147,17 @@ class Overtime extends Model
         }
         // Check if we have a overtime with the required hours left
         if ($overtime = $overtimes->where('hours', $hours)->first()) {
-            return $_overtimes->push($overtime);
+            $_overtimes->push($overtime);
         } else {
             //Split up the decimal number
             if (is_float($hours) && floor($hours) != $hours) {
-                list($whole, $decimal) = explode('.', $float);
+                list($whole, $decimal) = explode('.', $hours);
             } else {
                 $whole = $hours;
                 $decimal = 0;
             }
             // Check if we have a overtime with the required decimal
-            if ($decimalOvertime = $overtimes->where('hours', $decimal)->first()) {
+            if ($decimalOvertime = $overtimes->where('hours', $decimal)->first() && $decimal !== 0) {
                 $hours -= $decimalOvertime->hours;
                 $_overtimes->push($decimalOvertime);
                 // Check if we have a whole number left of the remaining hours
@@ -150,25 +172,59 @@ class Overtime extends Model
                             'description' => 'Overtime created by off time',
                             'off_time' => 0,
                         ]
-                    )->offTimes()->attach($offTime);
+                    );
                     $maxOvertime->update(['hours' => $hours]);
 
-                    return $_overtimes->push($maxOvertime);
+                    $_overtimes->push($maxOvertime);
                 }
             } else {
                 //IF we don't have the required over time hours we then have to create one
-                $maxOvertime = $overtimes->max('hours');
-                $user->overtimes()->create(
-                    [
-                        'hours' => $maxOvertime->hours - $hours,
-                        'description' => 'Overtime created by off time',
-                        'off_time' => 0,
-                    ]
-                );
-                $maxOvertime->update(['hours' => $hours]);
+                $maxOvertime = $overtimes->where('hours', $overtimes->max('hours'))->first();
 
-                return $_overtimes->push($maxOvertime);
+                if ($maxOvertime->hours > $hours) {
+                    $user->overtimes()->create(
+                        [
+                            'hours' => $maxOvertime->hours - $hours,
+                            'description' => 'Overtime created by off time',
+                            'off_time' => 0,
+                        ]
+                    );
+                    $maxOvertime->update(['hours' => $hours]);
+                    $_overtimes->push($maxOvertime);
+                } else {
+                    //Stack up the lowest numbers
+                    foreach ($overtimes->sortBy('hours') as $key => $overtime) {
+                        if ($hours > 0) {
+                            if ($hours - $overtime->hours > 0) {
+                                $hours -= $overtime->hours;
+                                $_overtimes->push($overtime);
+                                $overtimes->forget($key);
+                            } else {
+                                break;
+                            }
+                        } else {
+                            break;
+                        }
+                    }
+                    if ($hours > 0) {
+                        //IF we don't have the required over time hours we then have to create one
+                        $maxOvertime = $overtimes->where('hours', $overtimes->max('hours'))->first();
+                        if ($maxOvertime->hours > $hours) {
+                            $user->overtimes()->create(
+                                [
+                                    'hours' => $maxOvertime->hours - $hours,
+                                    'description' => 'Overtime created by off time',
+                                    'off_time' => 0,
+                                ]
+                            );
+                            $maxOvertime->update(['hours' => $hours]);
+                            $_overtimes->push($maxOvertime);
+                        }
+                    }
+                }
             }
         }
+
+        return $_overtimes;
     }
 }

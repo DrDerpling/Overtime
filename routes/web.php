@@ -26,7 +26,6 @@ Route::middleware('auth')->group(function () {
     Route::resource('off_time', 'OffTimeController');
 
     /** payout */
-    Route::resource('payout', 'PayoutController', ['only' => 'store', 'edit', 'update']);
-
+    Route::resource('payout', 'PayoutController', ['only' => ['store', 'edit', 'update', 'create']]);
 });
 

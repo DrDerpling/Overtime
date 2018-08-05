@@ -16,18 +16,16 @@ if (!function_exists('calc_minutes')) {
         }
 
         $minutes = 0;
-        if ($decimal < 1) {
-            switch ($decimal) {
-                case 25:
-                    $minutes = 15;
-                    break;
-                case 5:
-                    $minutes = 30;
-                    break;
-                case 75:
-                    $minutes = 45;
-                    break;
-            }
+        switch ($decimal) {
+            case 25:
+                $minutes = 15;
+                break;
+            case 5:
+                $minutes = 30;
+                break;
+            case 75:
+                $minutes = 45;
+                break;
         }
 
         return $minutes + ($whole * 60);

@@ -2,16 +2,28 @@
 
 @section('content')
 
-    <div class="row">
-        <div class="col l6 m6 s12">
-            @include('pages.offtime.index', ['offtimes' => $offTimes])
-        </div>
-        <div class="col l6 m6 s12">
-            @include('pages.users.stats', $userStats)
-        </div>
-    </div>
 
     <div class="row">
+        <div class="col l6 m6 s12">
+            <div class="row">
+                <div class="col l12 m12 s12">
+                    @include('pages.offtime.create', ['days' => $overtimeDays + $user->vacation_days])
+                </div>
+                <div class="col l12 m12 s12">
+                    @include('pages.offtime.index', ['offtimes' => $offTimes])
+                </div>
+            </div>
+        </div>
+        <div class="col l6 m6 s12">
+            <div class="row">
+                <div class="col l12 m12 s12">
+                    @include('pages.payout.create', ['totalHours' => $totalHours])
+                </div>
+                <div class="col l12 m12 s12">
+                    @include('pages.users.stats', $userStats)
+                </div>
+            </div>
+        </div>
         <div class="col l12 m12 s12">
             @include('pages.overtime.employee.index', ['overtimes' => $overtimes])
         </div>
