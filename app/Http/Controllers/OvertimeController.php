@@ -4,39 +4,26 @@ namespace App\Http\Controllers;
 
 use App\Models\OffTime;
 use App\Models\Overtime;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class OvertimeController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('manager')->except(['store']);
+    }
+
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(User $user)
     {
-        if ($user = auth()->user()) {
-            if ($user->isManager()) {
+        $overtimes = $user->overtimes()->unused()->get();
 
-            } else {
-                $overtimes = $user->overtimes()
-                    ->orderBy('hours', 'DESC')
-                    ->unused()
-                    ->get();
-
-                return view('pages.overtime.employee.index', compact('overtimes'));
-            }
-        }
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+        return view('pages.overtime.manager.index', compact('overtimes', 'user'));
     }
 
     /**
@@ -54,46 +41,20 @@ class OvertimeController extends Controller
         return redirect()->back()->with(['message', 'Overtime logged successfully']);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Overtime $overtime
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Overtime $overtime)
-    {
-        //
-    }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request $request
-     * @param  \App\Overtime $overtime
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request)
     {
-        if ($request->has('payout')) {
-            $hours = Overtime::whereIn('id', $request->input('use'))->sum('hours');
-            $payout = auth()->user()->payouts()->create(['minutes' => convert_to_minutes($hours)]);
-            $payout->overtimes()->sync($request->input('use'));
-            return redirect()->back()->with(['message', 'Overtime successfully updated']);
-        } elseif ($request->has('off_time')) {
-            $offTime = auth()->user()->offTimes()->create();
-            $offTime->overtimes()->sync($request->input('use'));
-            return redirect()->route('off_time.edit', $offTime);
-        }
-    }
+        Overtime::whereIn('id', $request->input('use'))->update([
+            'off_time' => $request->has('off_time'),
+            'paid_out' => $request->has('paid_out')
+        ]);
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Overtime $overtime
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Overtime $overtime)
-    {
-        //
+        return redirect()->back()->with(['message', 'Overtime successfully updated']);
     }
 }

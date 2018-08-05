@@ -19,8 +19,11 @@ Route::middleware('auth')->group(function () {
     Route::resource('user', 'UserController');
 
     /** Overtime */
-    Route::resource('overtime', 'OvertimeController', ['except' => ['update', 'show']]);
+    Route::resource('overtime', 'OvertimeController', ['only' => ['store']]);
     Route::put('overtime', 'OvertimeController@update')->name('overtime.update');
+
+    /** user.overtime */
+    Route::resource('user.overtime', 'OvertimeController', ['only' => ['index', 'updated']]);
 
     /** offtime */
     Route::resource('off_time', 'OffTimeController');

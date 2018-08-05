@@ -37,9 +37,6 @@ class User extends Authenticatable
      *
      * @var array
      */
-    protected $with = [
-        'company'
-    ];
 
     protected $casts = [
         'manager' => 'boolean'
@@ -93,6 +90,36 @@ class User extends Authenticatable
     public function getFullNameAttribute()
     {
         return $this->attributes['first_name'] . ' ' . $this->attributes['last_name'];
+    }
+
+    /**
+     * Gets all unused overtime hours
+     *
+     * @return float
+     */
+    public function getOvertimeHoursAttribute()
+    {
+        return $this->overtimes()->unused()->sum('hours');
+    }
+
+    /**
+     * Returns overtime hours with no decimals
+     *
+     * @return float
+     */
+    public function getOvertimeHoursFlooredAttribute()
+    {
+        return floor($this->overtimeHours);
+    }
+
+    /**
+     * Gets als unused overtime minutes
+     *
+     * @return int
+     */
+    public function getOvertimeMinutesAttribute()
+    {
+        return convert_to_minutes($this->overtimeHours) %  60;
     }
 
     /**

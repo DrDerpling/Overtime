@@ -22,7 +22,6 @@ class DashboardController extends Controller
 
         $userStats = compact('overtimeHours', 'overtimeMinutes', 'payoutHours');
 
-
         return view(
             'pages.dashboard.index',
             compact('userStats', 'overtimes', 'offTimes', 'user', 'totalHours', 'overtimeDays')

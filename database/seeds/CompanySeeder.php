@@ -35,7 +35,7 @@ class CompanySeeder extends Seeder
             'last_name' => 'lindeboom',
             'password' => 'password',
             'email' => 'dlindeboom19@outlook.com',
-            'manager' => 0
+            'manager' => 1
         ])->company()->associate(1);
         $user->save();
         factory(Overtime::class, 40)->make()->each(function ($overtime) use ($user) {

@@ -23,7 +23,10 @@ class UserController extends Controller
      */
     public function index()
     {
-        //
+        $user = auth()->user();
+        $users = $user->company->users;
+
+        return view('pages.users.index', compact('users'));
     }
 
     /**

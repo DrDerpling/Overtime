@@ -8,7 +8,7 @@
         </div>
         <div class="row row-striped row-narrow">
             <div class="col l12 s12 m12">
-                Total over time:
+                Total overtime:
                 {{ $overtimeHours }} Hours
                 {{ $overtimeMinutes ? $overtimeMinutes . ' Minutes' : '' }}
             </div>

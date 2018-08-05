@@ -4,24 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Models\OffTime;
 use App\Models\Payout;
+use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Models\Overtime;
 
 class OffTimeController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        $offTimes = auth()->user()->offTimes()->notExpired()->get();
-
-        return view('pages.offtime.index', compact('offTimes'));
-    }
-
     /**
      * Store a newly created resource in storage.
      *

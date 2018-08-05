@@ -11,9 +11,8 @@ class Company extends Model
         'name'
     ];
 
-
     /**
-     * Relationship method cwith user class
+     * Relationship method with user class
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
@@ -21,6 +20,15 @@ class Company extends Model
     {
         return $this->hasMany(User::class);
     }
+
+    /**
+     * Eagerloads relations
+     *
+     * @var array
+     */
+    protected $with = [
+        'users'
+    ];
 
     /**
      * Checks if the user is part of company

@@ -2632,6 +2632,10 @@ template {
   main.main-with-sidebar {
     padding-left: 300px;
   }
+
+  main .container {
+    width: 85%;
+  }
 }
 
 .margin-bottom-1 {
@@ -4622,10 +4626,6 @@ nav {
   line-height: 56px;
 }
 
-nav.nav-with-sidebar {
-  padding-left: 300px;
-}
-
 nav.nav-extended {
   height: auto;
 }
@@ -4860,6 +4860,16 @@ nav .input-field label.active i {
 
   .navbar-fixed {
     height: 64px;
+  }
+
+  .nav-with-sidebar {
+    padding-left: 300px;
+  }
+}
+
+@media only screen and (max-width: 992px) {
+  .nav-with-sidebar {
+    padding-left: 0px;
   }
 }
 

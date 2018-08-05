@@ -1,8 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-
-
     <div class="row">
         <div class="col l6 m6 s12">
             <div class="row">

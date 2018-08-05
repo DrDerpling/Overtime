@@ -1,12 +1,13 @@
 <nav class="nav nav-with-sidebar">
     <div class="nav-wrapper">
-        <a href="#" class="brand-logo"><strong>Over</strong>time</a>
+        <a href="#" class="brand-logo center"><strong>Over</strong>time</a>
+        <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <li><a href="sass.html">Hour overview</a></li>
-            <li><a href="badges.html">Use overtime</a></li>
-            <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-
-
+            <form action="{{ route('logout') }}" method="post">
+                {{ csrf_field() }}
+                {{ method_field('POST') }}
+                <li><button class="btn-flat" type="submit">Logout</button></li>
+            </form>
         </ul>
     </div>
 </nav>
@@ -24,16 +25,10 @@
         </div>
     </li>
     @if($user->isManager())
+        <li><a href="{{ route('home') }}">Dashboard</a></li>
         <li><a href="{{ route('user.create') }}">Register employee</a></li>
+        <li><a href="{{ route('user.index') }}">Employee overview</a></li>
     @endif
-    <li><a href="{{ route('overtime.index') }}">Overtime</a></li>
-    <li><a href="{{ route('off_time.index') }}">Off time</a></li>
 
 
-    <form action="{{ route('logout') }}" method="post">
-        {{ csrf_field() }}
-        {{ method_field('POST') }}
-        <li><button type="submit">Logout</button></li>
-
-    </form>
 </ul>

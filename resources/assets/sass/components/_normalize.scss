@@ -452,12 +452,16 @@ template {
       padding-left: 0;
     }
   }
+
 }
 
 @media #{$large-and-up} {
   main {
     &.main-with-sidebar {
       padding-left: 300px;
+    }
+    & .container {
+      width: 85%;
     }
   }
 }
