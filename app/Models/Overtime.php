@@ -93,6 +93,9 @@ class Overtime extends Model
     {
         $user = auth()->user();
         $overtimes = $user->overtimes()->unused()->get();
+        if ($overtimes->sum('hours') === 0) {
+            return collect();
+        }
         //Check to see if total days are available
         if (getDays($overtimes->sum('hours')) < $days) {
             $remainingHours = getRemainingMinutes($overtimes->sum('hours')) / 60;
