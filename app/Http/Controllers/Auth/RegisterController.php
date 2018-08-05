@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\User;
+use App\Models\Company;
+use App\Models\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -28,7 +29,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/';
 
     /**
      * Create a new controller instance.
@@ -49,9 +50,11 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users',
-            'password' => 'required|string|min:6|confirmed',
+            'reg_first_name' => 'required|string|max:50',
+            'reg_last_name' => 'required|string|max:50',
+            'reg_company_name' => 'required|string|max:50',
+            'reg_email' => 'required|string|email|max:255|unique:users,email',
+            'reg_password' => 'required|string|min:6|confirmed',
         ]);
     }
 
@@ -59,14 +62,18 @@ class RegisterController extends Controller
      * Create a new user instance after a valid registration.
      *
      * @param  array  $data
-     * @return \App\User
+     * @return \App\Models\User
      */
     protected function create(array $data)
     {
-        return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
+        $company = Company::create(['name' => $data['reg_company_name'] ]);
+
+        return $company->users()->create([
+            'first_name' => $data['reg_first_name'],
+            'last_name' => $data['reg_last_name'],
+            'email' => $data['reg_email'],
+            'password' => $data['reg_password'],
+            'manager'  => 1
         ]);
     }
 }
