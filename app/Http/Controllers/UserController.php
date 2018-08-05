@@ -51,6 +51,7 @@ class UserController extends Controller
         $this->validate($request, [
             'first_name' => 'required|string|max:50',
             'last_name' => 'required|string|max:50',
+            'email'    => 'required|email',
             'password' => 'required|string|min:6|confirmed',
         ]);
 
