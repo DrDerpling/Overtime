@@ -6,6 +6,7 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Support\Facades\App;
 use Spatie\Permission\Traits\HasRoles;
+use Carbon\Carbon;
 
 class User extends Authenticatable
 {
@@ -131,6 +132,15 @@ class User extends Authenticatable
     public function setPasswordAttribute($string)
     {
         $this->attributes['password'] = bcrypt($string);
+    }
+
+    public function getPayoutHoursThisMonthAttribute()
+    {
+        $payoutDay = $this->company->payout_day;
+        $payoutDate = Carbon::now()->day($payoutDay);
+        $prevPayoutDate = Carbon::createFromTimestamp($payoutDate->getTimestamp())->subMonth();
+        return $this->payouts()->whereDate('created_at', '<', $payoutDate)
+                ->whereDate('created_at', '>', $prevPayoutDate)->sum('minutes') / 60;
     }
 
     /**

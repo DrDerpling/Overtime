@@ -13,14 +13,17 @@
                                 <a href="{{ route('user.overtime.index', $user) }}">Name: {{ $user->full_name }} </a>
                             </div>
                             <div class="col l8 m8 s12 ">
-                                <div class="col l6 m6 s12">
+                                <div class="col l4 m4 s12">
                                     Vacation days: {{ $user->vacation_days }}
                                 </div>
-                                <div class="col l6 m6 s12">
+                                <div class="col l4 m4 s12">
                                     Overtime: {{ $user->overtime_hours_floored > 1 ?
                                         $user->overtime_hours_floored. ' H' :
                                         $user->overtime_hours_floored . ' H'}}
                                     {{ $user->overtimeMinutes ?  $user->overtimeMinutes .' Min': '' }}
+                                </div>
+                                <div class="col l4 m4 s12">
+                                    Payout: {{ $user->payout_hours_this_month }}H
                                 </div>
                             </div>
                         </div>

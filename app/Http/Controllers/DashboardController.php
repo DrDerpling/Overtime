@@ -11,7 +11,7 @@ class DashboardController extends Controller
     {
         $user = auth()->user();
 
-        $payoutHours = Payout::getUpcomingPayoutHours();
+        $payoutHours = $user->payout_hours_this_month;
         $overtimes = $user->overtimes()->orderBy('hours', 'DESC')->unused()->get();
         $offTimes = $user->offTimes()->notExpired()->get();
         $totalHours = $overtimes->sum('hours');
