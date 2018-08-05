@@ -50,11 +50,11 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'first_name' => 'required|string|max:50',
-            'last_name' => 'required|string|max:50',
-            'company_name' => 'required|string|max:50',
-            'email' => 'required|string|email|max:255|unique:users',
-            'password' => 'required|string|min:6|confirmed',
+            'reg_first_name' => 'required|string|max:50',
+            'reg_last_name' => 'required|string|max:50',
+            'reg_company_name' => 'required|string|max:50',
+            'reg_email' => 'required|string|email|max:255|unique:users,email',
+            'reg_password' => 'required|string|min:6|confirmed',
         ]);
     }
 
@@ -66,13 +66,13 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        $company = Company::create(['name' => $data['company_name'] ]);
+        $company = Company::create(['name' => $data['reg_company_name'] ]);
 
         return $company->users()->create([
-            'first_name' => $data['first_name'],
-            'last_name' => $data['last_name'],
-            'email' => $data['email'],
-            'password' => bcrypt($data['password']),
+            'first_name' => $data['reg_first_name'],
+            'last_name' => $data['reg_last_name'],
+            'email' => $data['reg_email'],
+            'password' => $data['reg_password'],
             'manager'  => 1
         ]);
     }

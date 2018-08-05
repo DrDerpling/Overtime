@@ -25,9 +25,9 @@
         </div>
     </li>
     @if($user->isManager())
-        <li><a href="{{ route('home') }}">Dashboard</a></li>
-        <li><a href="{{ route('user.create') }}">Register employee</a></li>
-        <li><a href="{{ route('user.index') }}">Employee overview</a></li>
+        <li class="{{ request()->routeIs('home') ? 'active' : '' }}" ><a href="{{ route('home') }}">Dashboard</a></li>
+        <li class="{{ request()->routeIs('user.create') ? 'active' : '' }}" ><a href="{{ route('user.create') }}">Register employee</a></li>
+        <li class="{{ request()->routeIs('user.index') ? 'active' : '' }}" ><a href="{{ route('user.index') }}">Employee overview</a></li>
     @endif
 
 

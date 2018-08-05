@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\OvertimeRequest;
 use App\Models\OffTime;
 use App\Models\Overtime;
 use App\Models\User;
@@ -32,7 +33,7 @@ class OvertimeController extends Controller
      * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(OvertimeRequest $request)
     {
         if ($user = auth()->user()) {
             $user->overtimes()->create($request->all());

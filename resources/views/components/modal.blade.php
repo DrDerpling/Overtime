@@ -1,5 +1,5 @@
 <!-- Modal Structure -->
-<div id="{{ $id }}" class="modal">
+<div id="{{ $id }}" class="modal {{ isset($open) && $open ? 'open' : ''}}">
     <form method="POST" action="{{ $action }}">
         {{ method_field($method ?: 'GET') }}
         {{ csrf_field() }}

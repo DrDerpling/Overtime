@@ -33,23 +33,24 @@
     </div>
 
     @component('components.modal')
+        @slot('open', $errors->has('description') || $errors->has('hours'))
         <div class="row">
-            <div class="input-field col l10 m8 s12">
+            <div class="input-field col l8 m8 s12">
                 @component('components.inputs.text-field')
-                    {{ old('first_name') }}
+                    {{ old('description') }}
                     @slot('name', 'description')
                     @slot('label', 'Description')
                     @slot('charLength', '50')
-                    @slot('error', $errors->first('first_name'))
+                    @slot('error', $errors->first('description'))
                 @endcomponent
             </div>
-            <div class="input-field col l2 m4 s12">
+            <div class="input-field col l4 m4 s12">
                 @component('components.inputs.text-field')
-                    {{ old('first_name') }}
+                    {{ old('hours') }}
                     @slot('name', 'hours')
                     @slot('label', 'hours')
                     @slot('charLength', '4')
-                    @slot('error', $errors->first('first_name'))
+                    @slot('error', $errors->first('hours'))
                 @endcomponent
             </div>
         </div>
