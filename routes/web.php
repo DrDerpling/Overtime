@@ -15,7 +15,20 @@
 Auth::routes();
 
 Route::middleware('auth')->group(function () {
-    Route::get('/', 'HomeController@index')->name('home');
-    Route::resource('user', 'UserController');
+    Route::get('/', 'DashboardController@index')->name('home');
+    Route::resource('user', 'UserController', ['only' => ['create', 'store', 'index']]);
+
+    /** Overtime */
+    Route::resource('overtime', 'OvertimeController', ['only' => ['store']]);
+    Route::put('overtime', 'OvertimeController@update')->name('overtime.update');
+
+    /** user.overtime */
+    Route::resource('user.overtime', 'OvertimeController', ['only' => ['index', 'updated']]);
+
+    /** offtime */
+    Route::resource('off_time', 'OffTimeController', ['except' => ['index', 'show', 'destroy']]);
+
+    /** payout */
+    Route::resource('payout', 'PayoutController', ['only' => ['store']]);
 });
 

@@ -46,50 +46,50 @@
                         <div class="row">
                             <div class="input-field col s12">
                                 @component('components.inputs.text-field')
-                                    @slot('name', 'first_name')
+                                    @slot('name', 'reg_first_name')
                                     @slot('label', 'First name')
                                     @slot('charLength', '50')
-                                    @slot('error', $errors->first('first_name'))
+                                    @slot('error', $errors->first('reg_first_name'))
                                 @endcomponent
                             </div>
                             <div class="input-field col s12">
                                 @component('components.inputs.text-field')
-                                    @slot('name', 'last_name')
+                                    @slot('name', 'reg_last_name')
                                     @slot('label', 'Last name')
                                     @slot('charLength', '50')
-                                    @slot('error', $errors->first('last_name'))
+                                    @slot('error', $errors->first('reg_last_name'))
                                 @endcomponent
                             </div>
                             <div class="input-field col s12">
                                 @component('components.inputs.text-field')
-                                    @slot('name', 'email')
+                                    @slot('name', 'reg_email')
                                     @slot('label', 'Email address')
                                     @slot('charLength', '50')
-                                    @slot('error', $errors->first('email'))
+                                    @slot('error', $errors->first('reg_email'))
                                 @endcomponent
                             </div>
                             <div class="input-field col s12">
                                 @component('components.inputs.text-field')
-                                    @slot('name', 'company_name')
+                                    @slot('name', 'reg_company_name')
                                     @slot('label', 'Company name')
                                     @slot('charLength', '50')
-                                    @slot('error', $errors->first('company_name'))
+                                    @slot('error', $errors->first('reg_company_name'))
                                 @endcomponent
                             </div>
                             <div class="input-field col s12">
                                 @component('components.inputs.password-field')
-                                    @slot('name', 'password')
+                                    @slot('name', 'reg_password')
                                     @slot('label', 'Password')
                                     @slot('charLength', '50')
-                                    @slot('error', $errors->first('password'))
+                                    @slot('error', $errors->first('reg_password'))
                                 @endcomponent
                             </div>
                             <div class="input-field col s12">
                                 @component('components.inputs.password-field')
-                                    @slot('name', 'password_confirmation')
+                                    @slot('name', 'reg_password_confirmation')
                                     @slot('label', 'Confirm password')
                                     @slot('charLength', '50')
-                                    @slot('error', $errors->first('password_confirmation'))
+                                    @slot('error', $errors->first('reg_password_confirmation'))
                                 @endcomponent
                             </div>
                         </div>

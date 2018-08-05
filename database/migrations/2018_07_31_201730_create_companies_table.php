@@ -15,6 +15,8 @@ class CreateCompaniesTable extends Migration
     {
         Schema::create('companies', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('payout_day')->default(25);
+            $table->float('max_overtime')->default(3.0);
             $table->string('name');
             $table->timestamps();
         });

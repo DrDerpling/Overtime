@@ -1,10 +1,13 @@
 <nav class="nav nav-with-sidebar">
     <div class="nav-wrapper">
-        <a href="#" class="brand-logo"><strong>Over</strong>time</a>
+        <a href="#" class="brand-logo center"><strong>Over</strong>time</a>
+        <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <li><a href="sass.html">Hour overview</a></li>
-            <li><a href="badges.html">Use overtime</a></li>
-            <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+            <form action="{{ route('logout') }}" method="post">
+                {{ csrf_field() }}
+                {{ method_field('POST') }}
+                <li><button class="btn-flat" type="submit">Logout</button></li>
+            </form>
         </ul>
     </div>
 </nav>
@@ -21,5 +24,11 @@
             <a><span class="white-text email">{{ $user->email }}</span></a>
         </div>
     </li>
-    <li><a href="{{ route('user.create') }}">Register employee</a></li>
+    @if($user->isManager())
+        <li class="{{ request()->routeIs('home') ? 'active' : '' }}" ><a href="{{ route('home') }}">Dashboard</a></li>
+        <li class="{{ request()->routeIs('user.create') ? 'active' : '' }}" ><a href="{{ route('user.create') }}">Register employee</a></li>
+        <li class="{{ request()->routeIs('user.index') ? 'active' : '' }}" ><a href="{{ route('user.index') }}">Employee overview</a></li>
+    @endif
+
+
 </ul>

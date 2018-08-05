@@ -21,6 +21,7 @@ class User extends Authenticatable
         'last_name',
         'email',
         'password',
+        'manager'
     ];
 
     /**
@@ -37,9 +38,6 @@ class User extends Authenticatable
      *
      * @var array
      */
-    protected $with = [
-        'company'
-    ];
 
     protected $casts = [
         'manager' => 'boolean'
@@ -56,6 +54,36 @@ class User extends Authenticatable
     }
 
     /**
+     * Relationship method with Overtime class
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function overtimes()
+    {
+        return $this->hasMany(Overtime::class);
+    }
+
+    /**
+     * Relationship method with offTime class
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function offTimes()
+    {
+        return $this->hasMany(OffTime::class);
+    }
+
+    /**
+     * Relationship method with Payout class
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function payouts()
+    {
+        return $this->hasMany(Payout::class);
+    }
+
+    /**
      * Gets the full name attribute
      *
      * @return string
@@ -63,6 +91,36 @@ class User extends Authenticatable
     public function getFullNameAttribute()
     {
         return $this->attributes['first_name'] . ' ' . $this->attributes['last_name'];
+    }
+
+    /**
+     * Gets all unused overtime hours
+     *
+     * @return float
+     */
+    public function getOvertimeHoursAttribute()
+    {
+        return $this->overtimes()->unused()->sum('hours');
+    }
+
+    /**
+     * Returns overtime hours with no decimals
+     *
+     * @return float
+     */
+    public function getOvertimeHoursFlooredAttribute()
+    {
+        return floor($this->overtimeHours);
+    }
+
+    /**
+     * Gets als unused overtime minutes
+     *
+     * @return int
+     */
+    public function getOvertimeMinutesAttribute()
+    {
+        return convert_to_minutes($this->overtimeHours) %  60;
     }
 
     /**
@@ -83,5 +141,18 @@ class User extends Authenticatable
     public function isManager()
     {
         return $this->manager;
+    }
+
+    public function updateVacationDays($offTime, $days)
+    {
+        if ($this->vacation_days > $days) {
+            $offTime->update(['vacation_days_used' => $days]);
+            $this->vacation_days = $this->vacation_days - $days;
+            $this->save();
+            return 0;
+        } else {
+            $this->update(['vacation_days' => 0]);
+            return $days - $this->vacation_days;
+        }
     }
 }

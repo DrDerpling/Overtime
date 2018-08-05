@@ -3,6 +3,7 @@
 use Illuminate\Database\Seeder;
 use App\Models\Company;
 use App\Models\User;
+use App\Models\Overtime;
 
 class CompanySeeder extends Seeder
 {
@@ -23,15 +24,22 @@ class CompanySeeder extends Seeder
                         $user->manager = 0;
                     }
                     $user->company()->associate($company->id)->save();
+                    factory(Overtime::class, rand(0, 10))->make()->each(function ($overtime) use ($user) {
+                        $user->overtimes()->save($overtime);
+                    });
                 });
         });
 
-        User::make([
+        $user = User::make([
             'first_name' => 'Dennis',
             'last_name' => 'lindeboom',
-            'password'  => bcrypt('password'),
-            'email'     => 'dlindeboom19@outlook.com',
-            'manager'   => 1
-        ])->company()->associate(1)->save();
+            'password' => 'password',
+            'email' => 'dlindeboom19@outlook.com',
+            'manager' => 1
+        ])->company()->associate(1);
+        $user->save();
+        factory(Overtime::class, 40)->make()->each(function ($overtime) use ($user) {
+            $user->overtimes()->save($overtime);
+        });
     }
 }
