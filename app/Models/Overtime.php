@@ -132,7 +132,7 @@ class Overtime extends Model
             return false;
         }
 
-        if ($overtimes->sum('hours') < $hours) {
+        if ($overtimes->sum('hours') < $hours || !$hours || !$overtimes->count()) {
             return false;
         }
 
