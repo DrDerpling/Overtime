@@ -2197,8 +2197,7 @@ h1 {
  */
 
 figcaption,
-figure,
-main {
+figure {
   /* 1 */
   display: block;
 }
@@ -2623,6 +2622,102 @@ template {
   display: none;
 }
 
+@media only screen and (min-width: 601px) {
+  main.main-with-sidebar {
+    padding-left: 0;
+  }
+}
+
+@media only screen and (min-width: 993px) {
+  main.main-with-sidebar {
+    padding-left: 300px;
+  }
+
+  main .container {
+    width: 85%;
+  }
+}
+
+.margin-bottom-1 {
+  margin-bottom: 1px;
+}
+
+.margin-bottom-2 {
+  margin-bottom: 2px;
+}
+
+.margin-bottom-3 {
+  margin-bottom: 3px;
+}
+
+.margin-bottom-4 {
+  margin-bottom: 4px;
+}
+
+.margin-bottom-5 {
+  margin-bottom: 5px;
+}
+
+.margin-bottom-6 {
+  margin-bottom: 6px;
+}
+
+.margin-bottom-7 {
+  margin-bottom: 7px;
+}
+
+.margin-bottom-8 {
+  margin-bottom: 8px;
+}
+
+.margin-bottom-9 {
+  margin-bottom: 9px;
+}
+
+.margin-bottom-10 {
+  margin-bottom: 10px;
+}
+
+.margin-bottom-11 {
+  margin-bottom: 11px;
+}
+
+.margin-bottom-12 {
+  margin-bottom: 12px;
+}
+
+.margin-bottom-13 {
+  margin-bottom: 13px;
+}
+
+.margin-bottom-14 {
+  margin-bottom: 14px;
+}
+
+.margin-bottom-15 {
+  margin-bottom: 15px;
+}
+
+.margin-bottom-16 {
+  margin-bottom: 16px;
+}
+
+.margin-bottom-17 {
+  margin-bottom: 17px;
+}
+
+.margin-bottom-18 {
+  margin-bottom: 18px;
+}
+
+.margin-bottom-19 {
+  margin-bottom: 19px;
+}
+
+.margin-bottom-20 {
+  margin-bottom: 20px;
+}
+
 html {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -2753,7 +2848,7 @@ nav,
 blockquote {
   margin: 20px 0;
   padding-left: 1.5rem;
-  border-left: 5px solid #ee6e73;
+  border-left: 5px solid #0090e3;
 }
 
 i {
@@ -2813,7 +2908,7 @@ video.responsive-video {
 }
 
 .pagination li.active {
-  background-color: #ee6e73;
+  background-color: #0090e3;
 }
 
 .pagination li.disabled a {
@@ -3019,7 +3114,7 @@ ul.staggered-list li {
 .page-footer {
   padding-top: 20px;
   color: #fff;
-  background-color: #ee6e73;
+  background-color: #0090e3;
 }
 
 .page-footer .footer-copyright {
@@ -3510,7 +3605,7 @@ nav ul a span.badge {
 }
 
 .sidenav span.badge {
-  margin-top: calc(24px - 11px);
+  margin-top: calc(16px - 11px);
 }
 
 table span.badge {
@@ -3571,6 +3666,18 @@ table span.badge {
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 20px;
+}
+
+.row-narrow {
+  margin-bottom: 10px;
+}
+
+.row-stacked {
+  margin-bottom: 0px;
+}
+
+.row-striped:nth-child(even) {
+  background-color: rgba(242, 242, 242, 0.5);
 }
 
 .row:after {
@@ -4511,8 +4618,9 @@ table span.badge {
 }
 
 nav {
+  margin-bottom: 50px;
   color: #fff;
-  background-color: #ee6e73;
+  background-color: #0090e3;
   width: 100%;
   height: 56px;
   line-height: 56px;
@@ -4575,7 +4683,11 @@ nav .brand-logo {
   color: #fff;
   display: inline-block;
   font-size: 2.1rem;
-  padding: 0;
+  padding-left: 5px;
+}
+
+nav .brand-logo strong {
+  color: black;
 }
 
 nav .brand-logo.center {
@@ -4748,6 +4860,16 @@ nav .input-field label.active i {
 
   .navbar-fixed {
     height: 64px;
+  }
+
+  .nav-with-sidebar {
+    padding-left: 300px;
+  }
+}
+
+@media only screen and (max-width: 992px) {
+  .nav-with-sidebar {
+    padding-left: 0px;
   }
 }
 
@@ -5356,7 +5478,7 @@ small {
 }
 
 .tabs .tab a {
-  color: rgba(238, 110, 115, 0.7);
+  color: rgba(0, 144, 227, 0.7);
   display: block;
   width: 100%;
   height: 100%;
@@ -5370,19 +5492,19 @@ small {
 
 .tabs .tab a:focus,
 .tabs .tab a:focus.active {
-  background-color: rgba(246, 178, 181, 0.2);
+  background-color: rgba(49, 179, 255, 0.2);
   outline: none;
 }
 
 .tabs .tab a:hover,
 .tabs .tab a.active {
   background-color: transparent;
-  color: #ee6e73;
+  color: #0090e3;
 }
 
 .tabs .tab.disabled a,
 .tabs .tab.disabled a:hover {
-  color: rgba(238, 110, 115, 0.4);
+  color: rgba(0, 144, 227, 0.4);
   cursor: default;
 }
 
@@ -5390,7 +5512,7 @@ small {
   position: absolute;
   bottom: 0;
   height: 2px;
-  background-color: #f6b2b5;
+  background-color: #31b3ff;
   will-change: left, right;
 }
 
@@ -7867,13 +7989,13 @@ input[type=range]::-ms-thumb {
 .table-of-contents a:hover {
   color: #a8a8a8;
   padding-left: 15px;
-  border-left: 1px solid #ee6e73;
+  border-left: 1px solid #0090e3;
 }
 
 .table-of-contents a.active {
   font-weight: 500;
   padding-left: 14px;
-  border-left: 2px solid #ee6e73;
+  border-left: 2px solid #0090e3;
 }
 
 .sidenav {
@@ -7913,7 +8035,7 @@ input[type=range]::-ms-thumb {
 
 .sidenav li {
   float: none;
-  line-height: 48px;
+  line-height: 32px;
 }
 
 .sidenav li.active {
@@ -7925,8 +8047,8 @@ input[type=range]::-ms-thumb {
   display: block;
   font-size: 14px;
   font-weight: 500;
-  height: 48px;
-  line-height: 48px;
+  height: auto;
+  line-height: 32px;
   padding: 0 32px;
 }
 
@@ -7972,7 +8094,7 @@ input[type=range]::-ms-thumb {
 .sidenav li > a > i.material-icons {
   float: left;
   height: 48px;
-  line-height: 48px;
+  line-height: 32px;
   margin: 0 32px 0 0;
   width: 24px;
   color: rgba(0, 0, 0, 0.54);
@@ -7988,7 +8110,7 @@ input[type=range]::-ms-thumb {
   color: rgba(0, 0, 0, 0.54);
   font-size: 14px;
   font-weight: 500;
-  line-height: 48px;
+  line-height: 32px;
 }
 
 .sidenav .subheader:hover {
@@ -7998,7 +8120,6 @@ input[type=range]::-ms-thumb {
 .sidenav .user-view {
   position: relative;
   padding: 32px 32px 0;
-  margin-bottom: 8px;
 }
 
 .sidenav .user-view > a {
@@ -8022,8 +8143,10 @@ input[type=range]::-ms-thumb {
 
 .sidenav .user-view .circle,
 .sidenav .user-view .name,
-.sidenav .user-view .email {
+.sidenav .user-view .email,
+.sidenav .user-view .company {
   display: block;
+  line-height: 16px;
 }
 
 .sidenav .user-view .circle {
@@ -8034,11 +8157,14 @@ input[type=range]::-ms-thumb {
 .sidenav .user-view .name,
 .sidenav .user-view .email {
   font-size: 14px;
-  line-height: 24px;
+  line-height: 16px;
 }
 
 .sidenav .user-view .name {
-  margin-top: 16px;
+  font-weight: 400;
+}
+
+.sidenav .user-view .company {
   font-weight: 500;
 }
 
@@ -8093,7 +8219,7 @@ input[type=range]::-ms-thumb {
 
 .sidenav .collapsible-body > ul:not(.collapsible) > li.active,
 .sidenav.sidenav-fixed .collapsible-body > ul:not(.collapsible) > li.active {
-  background-color: #ee6e73;
+  background-color: #0090e3;
 }
 
 .sidenav .collapsible-body > ul:not(.collapsible) > li.active a,
@@ -8926,7 +9052,7 @@ input[type=range]::-ms-thumb {
   position: absolute;
   font-size: 1rem;
   border-radius: 50%;
-  background-color: #ee6e73;
+  background-color: #0090e3;
   -webkit-box-shadow: 0 20px 20px 0 rgba(0, 0, 0, 0.14), 0 10px 50px 0 rgba(0, 0, 0, 0.12), 0 30px 10px -20px rgba(0, 0, 0, 0.2);
           box-shadow: 0 20px 20px 0 rgba(0, 0, 0, 0.14), 0 10px 50px 0 rgba(0, 0, 0, 0.12), 0 30px 10px -20px rgba(0, 0, 0, 0.2);
   width: 100%;

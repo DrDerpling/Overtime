@@ -16,6 +16,9 @@
         "lodash": "^4.17.4"
     },
     "dependencies": {
-        "materialize-css": "^1.0.0-rc.2"
+        "ajv": "^6.5.2",
+        "flatpickr": "^4.5.1",
+        "materialize-css": "^1.0.0-rc.2",
+        "range-datepicker": "0.0.13"
     }
 }

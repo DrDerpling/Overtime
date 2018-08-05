@@ -43,7 +43,7 @@
     display: block;
     font-size: $sidenav-font-size;
     font-weight: 500;
-    height: $sidenav-item-height;
+    height: auto;
     line-height: $sidenav-line-height;
     padding: 0 ($sidenav-padding * 2);
 
@@ -95,7 +95,6 @@
   .user-view {
     position: relative;
     padding: ($sidenav-padding * 2) ($sidenav-padding * 2) 0;
-    margin-bottom: $sidenav-padding / 2;
 
     & > a {
       &:hover { background-color: transparent; }
@@ -113,8 +112,9 @@
       z-index: -1;
     }
 
-    .circle, .name, .email {
+    .circle, .name, .email, .company {
       display: block;
+      line-height: 16px;
     }
 
     .circle {
@@ -129,7 +129,10 @@
     }
 
     .name {
-      margin-top: 16px;
+      font-weight: 400;
+    }
+
+    .company {
       font-weight: 500;
     }
 

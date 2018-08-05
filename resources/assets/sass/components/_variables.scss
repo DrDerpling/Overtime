@@ -34,7 +34,7 @@
 // 1. Colors
 // ==========================================================================
 
-$primary-color: color("materialize-red", "lighten-2") !default;
+$primary-color: #0090e3 !default;
 $primary-color-light: lighten($primary-color, 15%) !default;
 $primary-color-dark: darken($primary-color, 15%) !default;
 
@@ -237,6 +237,7 @@ $num-cols: 12 !default;
 $gutter-width: 1.5rem !default;
 $element-top-margin: $gutter-width/3 !default;
 $element-bottom-margin: ($gutter-width*2)/3 !default;
+$striped-row:  rgba(242, 242, 242, 0.5) !default;
 
 
 // 13. Navigation Bar
@@ -259,7 +260,7 @@ $sidenav-font-color: rgba(0,0,0,.87) !default;
 $sidenav-bg-color: #fff !default;
 $sidenav-padding: 16px !default;
 $sidenav-item-height: 48px !default;
-$sidenav-line-height: $sidenav-item-height !default;
+$sidenav-line-height: 32px !default;
 
 
 // 15. Photo Slider

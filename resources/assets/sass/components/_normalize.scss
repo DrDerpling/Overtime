@@ -59,7 +59,7 @@ h1 {
 
 figcaption,
 figure,
-main { /* 1 */
+{ /* 1 */
   display: block;
 }
 
@@ -444,4 +444,30 @@ template {
 
 [hidden] {
   display: none;
+}
+
+@media #{$medium-and-up} {
+  main {
+    &.main-with-sidebar {
+      padding-left: 0;
+    }
+  }
+
+}
+
+@media #{$large-and-up} {
+  main {
+    &.main-with-sidebar {
+      padding-left: 300px;
+    }
+    & .container {
+      width: 85%;
+    }
+  }
+}
+
+@for $i from 1 through 20 {
+  .margin-bottom-#{$i} {
+    margin-bottom: #{$i}px;
+  }
 }
