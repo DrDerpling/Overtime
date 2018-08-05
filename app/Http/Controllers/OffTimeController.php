@@ -89,6 +89,9 @@ class OffTimeController extends Controller
         $availableDays = getDays($user->overtimes()->unused()->sum('hours')) + $user->vacation_days;
 
         $dates = explode(' ', $request->input('start_date'));
+        if (count($dates)) {
+            return back()->with(['massage' => 'Please selected a date(s)' ]);
+        }
 
         $start_date = Carbon::createFromFormat('Y-m-d', array_get($dates, 0));
         $end_date = Carbon::createFromFormat('Y-m-d', array_get($dates, 2));
