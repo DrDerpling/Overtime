@@ -90,7 +90,7 @@ class OffTimeController extends Controller
 
         $dates = explode(' ', $request->input('start_date'));
         if (count($dates)) {
-            return back()->with(['massage' => 'Please selected a date(s)' ]);
+            return back()->with(['message' => 'Please selected a date(s)' ]);
         }
 
         $start_date = Carbon::createFromFormat('Y-m-d', array_get($dates, 0));
